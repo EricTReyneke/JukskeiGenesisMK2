@@ -1,0 +1,52 @@
+#GenisisImg{
+    width: 10%;
+    height: 10%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#JukskeiHeader {
+    margin: 0;
+}
+
+.NavItems {
+    display: flex;
+}
+
+    .NavItems nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+.nav-item {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin: 0 10px;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+    .nav-link:hover {
+        border-width: 1px;
+        border-bottom-color: #30b0e3;
+        cursor: pointer;
+    }

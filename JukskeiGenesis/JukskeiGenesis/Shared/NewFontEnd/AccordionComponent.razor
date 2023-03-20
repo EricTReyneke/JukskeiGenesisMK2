@@ -1,0 +1,30 @@
+﻿@using DAL
+
+@{
+    DatabaseProcessor dbfunctions = new DatabaseProcessor();
+    List<Tournament> tournaments = dbfunctions.GetTournaments();
+    int counter = 0;
+    foreach (var touries in tournaments)
+    {
+        if (counter != 5)
+        {
+            <div id="accordion-body">
+                <div id="AccordianBodyImage">
+                    <img />
+                </div>
+                <button class="AccordionButton" id="AccordionButton">
+                    <div id="AccordionButtonContent">
+                        <h5 id="ABCHeading"> Tournament Heading</h5>
+                        <p id="ABCParagraph"> Tournament Location</p>
+                    </div>
+                </button>
+                <button type="button" class="TourDetails" id="TourDetails"> Details</button>
+            </div>
+            counter++;
+        }
+        else
+        {
+            break;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+﻿@inject NavigationManager navigationManager
+<header>
+    <img src="/Photos/GenisisPhoto.jpg" id="GenisisImg"/>
+
+    <div class="NavItems">
+        <nav>
+            <div class="nav-item px-3" id="NavItem1">
+                <a class="nav-link">Home</a>
+            </div>
+            <div class="nav-item px-3">
+                <a class="nav-link" @onclick="() => GetPage()">Login</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+@code{
+    private void GetPage()
+    {
+        navigationManager.NavigateTo("/Login");
+    }
+}

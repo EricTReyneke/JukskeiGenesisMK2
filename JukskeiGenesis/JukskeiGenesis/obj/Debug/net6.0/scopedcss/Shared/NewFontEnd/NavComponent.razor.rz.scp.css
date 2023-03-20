@@ -1,0 +1,52 @@
+#GenisisImg[b-031hkwxagc]{
+    width: 10%;
+    height: 10%;
+}
+
+header[b-031hkwxagc] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#JukskeiHeader[b-031hkwxagc] {
+    margin: 0;
+}
+
+.NavItems[b-031hkwxagc] {
+    display: flex;
+}
+
+    .NavItems nav[b-031hkwxagc] {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+.nav-item[b-031hkwxagc] {
+    margin: 0;
+}
+
+nav[b-031hkwxagc] {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item[b-031hkwxagc] {
+    margin: 0 10px;
+}
+
+.nav-link[b-031hkwxagc] {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+    .nav-link:hover[b-031hkwxagc] {
+        border-width: 1px;
+        border-bottom-color: #30b0e3;
+        cursor: pointer;
+    }
