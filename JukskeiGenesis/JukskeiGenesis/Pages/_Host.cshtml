@@ -6,3 +6,34 @@
 }
 
 <component type="typeof(App)" render-mode="ServerPrerendered" />
+
+<script>
+    function onClickButton() {
+        var acc = document.getElementsByClassName("AccordionButton");
+        var body = document.getElementsByClassName("accordion-body");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                    panel.style.borderLeftWidth = "0px";
+                    panel.style.borderRightWidth = "0px";
+                    panel.style.borderBottomWidth = "0px";
+                    panel.style.transition = "background-Top-color 0.5s ease";
+                    panel.style.borderTopColor = "transparent";
+                    panel.style.borderColor = "transparent";
+                    panel.style.border = "colaps";
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                    panel.style.borderLeftWidth = "1px";
+                    panel.style.borderRightWidth = "1px";
+                    panel.style.borderBottomWidth = "1px";
+                    panel.style.border = "solid 1px lightgrey"
+                }
+            });
+        }
+    }
+</script>

@@ -9,53 +9,57 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = JukskeiGenesis
 build_property.RootNamespace = JukskeiGenesis
-build_property.ProjectDir = C:\PLEASE\JukskeiGenesis\JukskeiGenesis\
+build_property.ProjectDir = C:\BackUp\JukskeiGenesis\JukskeiGenesis\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\PLEASE\JukskeiGenesis\JukskeiGenesis
+build_property.MSBuildProjectDirectory = C:\BackUp\JukskeiGenesis\JukskeiGenesis
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/App.razor]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/Pages/Index.razor]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/Shared/SurveyPrompt.razor]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/_Imports.razor]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/Shared/MainLayout.razor]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-5d7wnptdl5
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/AccordionComponent.razor]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/AccordionComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5ld0ZvbnRFbmRcQWNjb3JkaW9uQ29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-21ylrosbcz
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/Login.razor]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5ld0ZvbnRFbmRcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-1lpdv3nc53
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/NavComponent.razor]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/NavComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5ld0ZvbnRFbmRcTmF2Q29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-031hkwxagc
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/Pages/Error.cshtml]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/RosterComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5ld0ZvbnRFbmRcUm9zdGVyQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-i0gi9k9994
+
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/Pages/_Host.cshtml]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/PLEASE/JukskeiGenesis/JukskeiGenesis/Pages/_Layout.cshtml]
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

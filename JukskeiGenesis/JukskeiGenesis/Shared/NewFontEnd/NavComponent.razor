@@ -10,6 +10,9 @@
             <div class="nav-item px-3">
                 <a class="nav-link" @onclick="() => GetPage()">Login</a>
             </div>
+            <div class="nav-item px-3">
+                <a class="nav-link" @onclick="() => GetRoster()">Roster</a>
+            </div>
         </nav>
     </div>
 </header>
@@ -18,5 +21,10 @@
     private void GetPage()
     {
         navigationManager.NavigateTo("/Login");
+    }
+
+    private void GetRoster()
+    {
+        navigationManager.NavigateTo("/RosterComponent");
     }
 }

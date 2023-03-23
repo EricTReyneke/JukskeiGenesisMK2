@@ -1,4 +1,6 @@
+
 Drop database JukskeiDatabase
+
 --------------------------------------------------------------------------Tournament Tables---------------------------------------------------------------------------------------------------------------
 
 	--Creating Tournament_period Table. This table will facilitate The date which the tournamnet will be played over.
@@ -45,11 +47,14 @@ Create Table
 
 	drop table Tournaments
 
+
 Use 
 	JukskeiDatabase
 Create Table 
 	Tournaments(
 	Tournament_Id int Identity(1, 1) Primary Key,
+	Tournament_Name VarChar(50) not null,
+	Tournament_Location VarChar(50) not null,
 	Tournament_Period_Id int not null,
 	Tournament_Type_Id int not null,
 	Playouts_Id int,
@@ -96,11 +101,11 @@ VALUES
 		--Inserting dummy data into the Tournaments Table.
 
 INSERT INTO 
-		Tournaments (Tournament_Period_Id, Tournament_Type_Id, Playouts_Id)
+		Tournaments (Tournament_Period_Id, Tournament_Name, Tournament_Location, Tournament_Type_Id, Playouts_Id)
 VALUES 
-		(1, 2, 1),
-        (2, 1, null),
-        (3, 3, 3);
+		(1, 'Bushi Swart', 'Gautent Noord', 2, 1),
+        (2, 'Wollie Coetzee', 'Gautent Noord', 1, null),
+        (3, 'SA Kampioenskappe', 'Kroonstad Vrystaat', 3, 3);
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -184,22 +189,22 @@ VALUES
 
 	--Creating the Clients Table which will house all the Client Details.
 
-	drop table Clients_Admin
-	drop table Payments
-
 Use
 	JukskeiDatabase
 Create Table
 	Clients_Admin(
 	Client_Admin_Id int Primary Key Identity(1,1),
 	Client_Admin_UserName VarChar(30) Unique not null,
-	Client_Admin_Password VarChar(20) not null check (Len(Client_Admin_Password) >= 5),
 	Client_Admin_Name VarChar(20) not null,
 	Client_Admin_SurName VarChar(20) not null,
 	Client_Admin_Email VarChar(30) not null)
 
+	drop table Payments
+
 	--Creating the Payments Tables.
 	--The Payments table will house all the payments that are done by the clients which is facilitated through a One to many relationship.
+
+	drop table Payments
 
 Use
 	JukskeiDatabase
@@ -221,11 +226,11 @@ Create Table
 		--Inserting data into Clients table
 
 INSERT INTO 
-		Clients_Admin (Client_Admin_UserName, Client_Admin_Password, Client_Admin_Name, Client_Admin_SurName, Client_Admin_Email)
+		Clients_Admin (Client_Admin_UserName, Client_Admin_Name, Client_Admin_SurName, Client_Admin_Email)
 VALUES 
-		('john_doe', '12345', 'John', 'Doe', 'john.doe@example.com'),
-        ('jane_doe', '12345', 'Jane', 'Doe', 'jane.doe@example.com'),
-        ('bob_smith', '12345', 'Bob', 'Smith', 'bob.smith@example.com');
+		('john_doe', 'John', 'Doe', 'john.doe@example.com'),
+        ('jane_doe', 'Jane', 'Doe', 'jane.doe@example.com'),
+        ('bob_smith', 'Bob', 'Smith', 'bob.smith@example.com');
 
 		--Inserting data into Payments table
 

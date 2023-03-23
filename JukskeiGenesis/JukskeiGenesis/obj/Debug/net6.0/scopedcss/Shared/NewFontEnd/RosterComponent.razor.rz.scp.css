@@ -1,0 +1,20 @@
+table[b-i0gi9k9994] {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+th[b-i0gi9k9994], td[b-i0gi9k9994] {
+    text-align: center;
+    padding: 0.5em;
+    border: 1px solid black;
+}
+
+th[b-i0gi9k9994] {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+td[b-i0gi9k9994] {
+    font-weight: normal;
+}

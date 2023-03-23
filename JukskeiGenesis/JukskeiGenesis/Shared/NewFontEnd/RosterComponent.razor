@@ -1,0 +1,30 @@
+﻿@page "/RosterComponent"
+@using DAL
+@{
+    DatabaseProcessor dbfunctions = new DatabaseProcessor();
+    List<string> teams = new List<string> { "Team A", "Team B", "Team C", "Team D", "Team E", "Team F", "Team G", "Team H", "Team I" };
+    List<(string, string)> matches = dbfunctions.ListMatches(teams).ToList();
+    int initialListLen = teams.Count;
+    int matchCount = initialListLen / 2;
+    int counter = 1;
+    <table>
+        @foreach ((string homeTeam, string awayTeam) in matches)
+        {
+            @if (matchCount / (initialListLen / 2) == 1 && matchCount != 1)
+            {
+                <tr>
+                    <th colspan="2">Match @counter</th>
+                </tr>
+                matchCount = 1;
+                counter++;
+            }
+            else
+                matchCount++;
+
+            <tr>
+                <td>@homeTeam</td>
+                <td>@awayTeam</td>
+            </tr>
+        }
+    </table>
+}

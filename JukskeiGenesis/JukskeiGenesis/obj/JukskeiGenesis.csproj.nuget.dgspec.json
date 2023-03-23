@@ -1,14 +1,14 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\JukskeiGenesis.csproj": {}
+    "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\JukskeiGenesis.csproj": {}
   },
   "projects": {
-    "C:\\PLEASE\\JukskeiGenesis\\DAL\\DAL.csproj": {
+    "C:\\BackUp\\JukskeiGenesis\\DAL\\DAL.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\PLEASE\\JukskeiGenesis\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\BackUp\\JukskeiGenesis\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\PLEASE\\JukskeiGenesis\\DAL\\DAL.csproj",
+        "projectPath": "C:\\BackUp\\JukskeiGenesis\\DAL\\DAL.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
@@ -19,23 +19,25 @@
         "net472": {}
       }
     },
-    "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\JukskeiGenesis.csproj": {
+    "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\JukskeiGenesis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\JukskeiGenesis.csproj",
+        "projectUniqueName": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\JukskeiGenesis.csproj",
         "projectName": "JukskeiGenesis",
-        "projectPath": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\JukskeiGenesis.csproj",
+        "projectPath": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\JukskeiGenesis.csproj",
         "packagesPath": "C:\\Users\\EricReyneke\\.nuget\\packages\\",
-        "outputPath": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\obj\\",
+        "outputPath": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\devExpress\\Components\\Offline Packages",
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\EricReyneke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,6 +45,7 @@
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -50,8 +53,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\PLEASE\\JukskeiGenesis\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\PLEASE\\JukskeiGenesis\\DAL\\DAL.csproj"
+              "C:\\BackUp\\JukskeiGenesis\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\BackUp\\JukskeiGenesis\\DAL\\DAL.csproj"
               }
             }
           }

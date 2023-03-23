@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E2v9LZjcAGsqY3hvFyNAUFZD7l2XRa78bBP4t86yux4jRj2XaPS21X64jx0KGRWR8tiKcdk116F/Ie6Y6KVDgg==",
+  "dgSpecHash": "GbyNXpiDXd6AgjUwhyfGuX8EsXXYwHSRWo6iSIbGitYS9P8Eto0l5odg1m/5hyGjpPGI/jI1G9FqO3pyaV/PPw==",
   "success": true,
-  "projectFilePath": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\JukskeiGenesis.csproj",
+  "projectFilePath": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\JukskeiGenesis.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EricReyneke\\.nuget\\packages\\dotnetcore.npoi\\1.2.3\\dotnetcore.npoi.1.2.3.nupkg.sha512",
     "C:\\Users\\EricReyneke\\.nuget\\packages\\dotnetcore.npoi.core\\1.2.3\\dotnetcore.npoi.core.1.2.3.nupkg.sha512",

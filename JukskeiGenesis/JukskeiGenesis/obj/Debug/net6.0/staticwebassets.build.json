@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2f+HRtBp/ZRm4p/cG3BfCtT7WfBBZE0cgGRlE6JYKXQ=",
+  "Hash": "rw9tcrRg1WyDiP2N5gunqRBdHOP2vSsh/03WYP8OYFE=",
   "Source": "JukskeiGenesis",
   "BasePath": "_content/JukskeiGenesis",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "JukskeiGenesis\\wwwroot",
       "Source": "JukskeiGenesis",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\bundle\\JukskeiGenesis.styles.css",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\bundle\\JukskeiGenesis.styles.css",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "JukskeiGenesis.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\bundle\\JukskeiGenesis.styles.css"
+      "OriginalItemSpec": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\bundle\\JukskeiGenesis.styles.css"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\JukskeiGenesis.bundle.scp.css",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\JukskeiGenesis.bundle.scp.css",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "JukskeiGenesis.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\JukskeiGenesis.bundle.scp.css"
+      "OriginalItemSpec": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\JukskeiGenesis.bundle.scp.css"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\site.css",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\site.css",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\favicon.ico",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\favicon.ico",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\GenisisPhoto.jpg",
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\GenisisPhoto.jpg",
       "SourceId": "JukskeiGenesis",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\PLEASE\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
       "BasePath": "_content/JukskeiGenesis",
       "RelativePath": "Photos/GenisisPhoto.jpg",
       "AssetKind": "All",
@@ -287,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Photos\\GenisisPhoto.jpg"
+    },
+    {
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\JukskeiLogin.jpg",
+      "SourceId": "JukskeiGenesis",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "BasePath": "_content/JukskeiGenesis",
+      "RelativePath": "Photos/JukskeiLogin.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Photos\\JukskeiLogin.jpg"
     }
   ]
 }

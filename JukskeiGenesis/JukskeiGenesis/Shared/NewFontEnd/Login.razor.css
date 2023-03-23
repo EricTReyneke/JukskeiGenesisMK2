@@ -1,1 +1,67 @@
+.content {
+    background-color: #f4f4f4;
+}
 
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5%;
+    background-color: white;
+}
+
+.Loginform {
+    margin-top: 15%;
+    height: 65%;
+    width: 80%;
+}
+
+.LoginHeading h1 {
+    font-size: 40px;
+    text-align: center;
+    text-decoration: underline 2px #30b0e3;
+    padding-bottom: 2%;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    font-size: 24px;
+    border-width: 1.5px;
+}
+
+input {
+    border-color: transparent;
+    border-bottom-color: #30b0e3;
+    border-width: 1.5px;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    margin-bottom: 2%;
+    padding: 1%;
+    outline: none;
+}
+
+    input:focus {
+        border-bottom-color: #30b0e3;
+        border-width: 1.5px;
+    }
+
+.SubmitButtons {
+    display: block;
+    background-color: transparent;
+    border-color: #30b0e3;
+    border-width: 1px;
+    margin-left: 25%;
+    margin-top: 6%;
+    padding: 1%;
+    width: 50%;
+    border-radius: 50px;
+}
+
+img {
+
+    padding: 0;
+    height: 65%;
+    width: 42%;
+}
