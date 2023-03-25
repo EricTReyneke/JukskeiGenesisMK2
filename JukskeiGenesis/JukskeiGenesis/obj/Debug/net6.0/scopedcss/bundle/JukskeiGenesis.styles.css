@@ -77,6 +77,7 @@ main[b-5d7wnptdl5] {
 }
 /* _content/JukskeiGenesis/Shared/NewFontEnd/AccordionComponent.razor.rz.scp.css */
 .accordion-body[b-21ylrosbcz] {
+    font-family: Arial;
     margin-top: 2%;
     margin-left: 10%;
     padding: 0;
@@ -128,14 +129,14 @@ main[b-5d7wnptdl5] {
 
 .TourDetails[b-21ylrosbcz] {
     float: right;
-    margin-top: 3.5%;
+    margin-top: 3%;
     margin-right: 4.5%;
     width: 11%;
     background-color: #30b0e3;
     color: white;
     border-color: royalblue;
     border-width: 1px;
-    border-radius: 5%;
+    border-radius: 5px;
 }
 
 .PanelFlex[b-21ylrosbcz] {
@@ -150,32 +151,74 @@ main[b-5d7wnptdl5] {
     margin: 1vw 1vw 0.5vw 1vw;
 }
 
-.search-box[b-21ylrosbcz] {
+.SearchParms[b-21ylrosbcz]{
+    font-family: Arial;
     display: flex;
-    align-items: center;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    padding: 5px;
 }
 
-input[type="text"][b-21ylrosbcz] {
-    flex: 1;
-    border: none;
-    outline: none;
-    font-size: 16px;
+.SearchBox[b-21ylrosbcz] {
+    overflow: hidden;
+    width: 15%;
+    margin-left: 34.5%;
+    box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
 }
 
-button[type="submit"][b-21ylrosbcz] {
-    border: none;
-    background-color: transparent;
-    margin-left: 5px;
-    cursor: pointer;
+.SeachTextBox[b-21ylrosbcz] {
+    font-size: 14px;
+    width: auto;
+    border-collapse: collapse;
+    border-color: transparent;
 }
 
-    button[type="submit"] img[b-21ylrosbcz] {
-        width: 20px;
-        height: 20px;
+    .SeachTextBox:focus[b-21ylrosbcz] {
+        font-size: 14px;
+        outline: none;
     }
+
+.ActivityBox[b-21ylrosbcz] {
+    margin-left: 1%;
+    overflow: hidden;
+    width: 15%;
+    box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+}
+
+.ComboTournies[b-21ylrosbcz] {
+    font-size: 14px;
+    width: 100%;
+    border-collapse: collapse;
+    border-color: transparent;
+}
+
+    .ComboTournies:focus[b-21ylrosbcz] {
+        font-size: 14px;
+        outline: none;
+    }
+
+.SelectCombo[b-21ylrosbcz] {
+    border: solid;
+    border-width: 1px;
+    border-color: lightgrey;
+}
+
+    .SelectCombo:hover[b-21ylrosbcz] {
+        background-color: #30b0e3;
+        color: white;
+    }
+
+.SearchButton[b-21ylrosbcz] {
+    margin-top: 1%;
+    text-align: center;
+    width: 15%;
+    margin-left: 42.5%;
+    overflow: hidden;
+    background-color: #30b0e3;
+    color: white;
+    border: solid;
+    border-width: 1px;
+    border-color: royalblue;
+}
 /* _content/JukskeiGenesis/Shared/NewFontEnd/Login.razor.rz.scp.css */
 .content[b-1lpdv3nc53] {
     background-color: #f4f4f4;

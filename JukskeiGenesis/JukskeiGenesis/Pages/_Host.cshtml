@@ -42,4 +42,27 @@
             });
         }
     }
+
+    function GetSearchParms() {
+        var comboBoxes = document.getElementsByClassName("myComboBox");
+        var comboBox = comboBoxes[0];
+        var selectedValue = comboBox.options[comboBox.selectedIndex].value;
+
+        var textBoxes = document.getElementsByClassName("myTextBox");
+        var textBox = textBoxes[0];
+        var textBoxValue = textBox.value;
+
+        $.ajax({
+            url: '@Url.Action("SearchTournaments")',
+            type: "POST",
+            data: { comboBoxValue: selectedValue, textBoxValue: textBoxValue },
+            success: function (data) {
+                console.log("Data has been sent to the C# function.");
+            },
+            error: function (){
+                console.log("Data has not been sent to the C# function.");
+            }
+        });
+
+    }
 </script>

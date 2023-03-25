@@ -225,3 +225,6 @@ C:\BackUp\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\JukskeiGenesis.pdb
 C:\BackUp\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\JukskeiGenesis.genruntimeconfig.cache
 C:\BackUp\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\ref\JukskeiGenesis.dll
 C:\BackUp\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\scopedcss\Shared\NewFontEnd\RosterComponent.razor.rz.scp.css
+C:\BackUp\JukskeiGenesis\JukskeiGenesis\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\BackUp\JukskeiGenesis\JukskeiGenesis\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\BackUp\JukskeiGenesis\JukskeiGenesis\bin\Debug\net6.0\Newtonsoft.Json.dll

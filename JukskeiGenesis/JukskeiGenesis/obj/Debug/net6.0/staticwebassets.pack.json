@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\Photos\\JukskeiLogin.jpg"
     },
     {
+      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\Search.png",
+      "PackagePath": "staticwebassets\\Photos\\Search.png"
+    },
+    {
+      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\Search2.png",
+      "PackagePath": "staticwebassets\\Photos\\Search2.png"
+    },
+    {
       "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },

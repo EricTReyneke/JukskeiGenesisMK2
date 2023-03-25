@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rw9tcrRg1WyDiP2N5gunqRBdHOP2vSsh/03WYP8OYFE=",
+  "Hash": "ze7ndGqEDeU4JHVF3g8T04A1aAeLkBZU2dTQ8hE5NzE=",
   "Source": "JukskeiGenesis",
   "BasePath": "_content/JukskeiGenesis",
   "Mode": "Default",
@@ -304,6 +304,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Photos\\JukskeiLogin.jpg"
+    },
+    {
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\Search.png",
+      "SourceId": "JukskeiGenesis",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "BasePath": "_content/JukskeiGenesis",
+      "RelativePath": "Photos/Search.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Photos\\Search.png"
+    },
+    {
+      "Identity": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\Search2.png",
+      "SourceId": "JukskeiGenesis",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\",
+      "BasePath": "_content/JukskeiGenesis",
+      "RelativePath": "Photos/Search2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Photos\\Search2.png"
     }
   ]
 }

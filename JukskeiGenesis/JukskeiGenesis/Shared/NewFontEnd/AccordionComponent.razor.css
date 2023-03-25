@@ -1,4 +1,5 @@
 .accordion-body {
+    font-family: Arial;
     margin-top: 2%;
     margin-left: 10%;
     padding: 0;
@@ -50,14 +51,14 @@
 
 .TourDetails {
     float: right;
-    margin-top: 3.5%;
+    margin-top: 3%;
     margin-right: 4.5%;
     width: 11%;
     background-color: #30b0e3;
     color: white;
     border-color: royalblue;
     border-width: 1px;
-    border-radius: 5%;
+    border-radius: 5px;
 }
 
 .PanelFlex {
@@ -70,4 +71,73 @@
     overflow: hidden;
     text-align: center;
     margin: 1vw 1vw 0.5vw 1vw;
+}
+
+.SearchParms{
+    font-family: Arial;
+    display: flex;
+}
+
+.SearchBox {
+    overflow: hidden;
+    width: 15%;
+    margin-left: 34.5%;
+    box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+}
+
+.SeachTextBox {
+    font-size: 14px;
+    width: auto;
+    border-collapse: collapse;
+    border-color: transparent;
+}
+
+    .SeachTextBox:focus {
+        font-size: 14px;
+        outline: none;
+    }
+
+.ActivityBox {
+    margin-left: 1%;
+    overflow: hidden;
+    width: 15%;
+    box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+}
+
+.ComboTournies {
+    font-size: 14px;
+    width: 100%;
+    border-collapse: collapse;
+    border-color: transparent;
+}
+
+    .ComboTournies:focus {
+        font-size: 14px;
+        outline: none;
+    }
+
+.SelectCombo {
+    border: solid;
+    border-width: 1px;
+    border-color: lightgrey;
+}
+
+    .SelectCombo:hover {
+        background-color: #30b0e3;
+        color: white;
+    }
+
+.SearchButton {
+    margin-top: 1%;
+    text-align: center;
+    width: 15%;
+    margin-left: 42.5%;
+    overflow: hidden;
+    background-color: #30b0e3;
+    color: white;
+    border: solid;
+    border-width: 1px;
+    border-color: royalblue;
 }

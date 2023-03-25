@@ -1,4 +1,7 @@
-﻿using NPOI.OpenXmlFormats.Dml;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Core;
+using NPOI.OpenXmlFormats.Dml;
+using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,8 +12,11 @@ namespace DAL
 {
     public class DatabaseProcessor
     {
+        #region Rroperties
         private readonly JukskeiDatabaseEntities _jukskeiDB = new JukskeiDatabaseEntities();
+        #endregion
 
+        #region Public Methods
         public bool getLogin(string userName, string password)
         {
             return _jukskeiDB.Clients_Admin.FirstOrDefault(t => t.Client_Admin_UserName == userName && t.Client_Admin_Password == password) != null;
@@ -68,6 +74,14 @@ namespace DAL
             return matches;
         }
 
+        public IActionResult SearchTournaments(string tournamentName, string activity = null)
+        {
+            return NotFoundObjectResult(null);
+        }
+
+        #endregion
+
+        #region Private Methods
         private static void Shuffle<T>(T[] array)
         {
             Random random = new Random();
@@ -79,5 +93,6 @@ namespace DAL
                 array[i] = temp;
             }
         }
+        #endregion
     }
 }
