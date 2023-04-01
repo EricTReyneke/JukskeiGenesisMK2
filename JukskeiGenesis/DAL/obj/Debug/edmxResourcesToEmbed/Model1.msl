@@ -1,13 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="JukskeiDatabaseModelStoreContainer" CdmEntityContainer="JukskeiDatabaseEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="JukskeiDatabaseModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Tournament_Id" ColumnName="Tournament_Id" />
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Clients_Admin">
       <EntityTypeMapping TypeName="JukskeiDatabaseModel.Clients_Admin">
         <MappingFragment StoreEntitySet="Clients_Admin">
           <ScalarProperty Name="Client_Admin_Email" ColumnName="Client_Admin_Email" />
           <ScalarProperty Name="Client_Admin_SurName" ColumnName="Client_Admin_SurName" />
           <ScalarProperty Name="Client_Admin_Name" ColumnName="Client_Admin_Name" />
-          <ScalarProperty Name="Client_Admin_Password" ColumnName="Client_Admin_Password" />
           <ScalarProperty Name="Client_Admin_UserName" ColumnName="Client_Admin_UserName" />
           <ScalarProperty Name="Client_Admin_Id" ColumnName="Client_Admin_Id" />
         </MappingFragment>
@@ -34,19 +42,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Playouts">
-      <EntityTypeMapping TypeName="JukskeiDatabaseModel.Playout">
-        <MappingFragment StoreEntitySet="Playouts">
-          <ScalarProperty Name="Number_Of_Top_Teams_Playout" ColumnName="Number_Of_Top_Teams_Playout" />
-          <ScalarProperty Name="PlayoutsActive" ColumnName="PlayoutsActive" />
-          <ScalarProperty Name="Playouts_Id" ColumnName="Playouts_Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Rosters">
       <EntityTypeMapping TypeName="JukskeiDatabaseModel.Roster">
         <MappingFragment StoreEntitySet="Rosters">
-          <ScalarProperty Name="Player_Id" ColumnName="Player_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Tournament_Id" ColumnName="Tournament_Id" />
           <ScalarProperty Name="Team_Id" ColumnName="Team_Id" />
           <ScalarProperty Name="Roster_Id" ColumnName="Roster_Id" />
         </MappingFragment>
@@ -63,31 +63,15 @@
     <EntitySetMapping Name="Tournaments">
       <EntityTypeMapping TypeName="JukskeiDatabaseModel.Tournament">
         <MappingFragment StoreEntitySet="Tournaments">
-          <ScalarProperty Name="Playouts_Id" ColumnName="Playouts_Id" />
-          <ScalarProperty Name="Tournament_Type_Id" ColumnName="Tournament_Type_Id" />
-          <ScalarProperty Name="Tournament_Period_Id" ColumnName="Tournament_Period_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Tournament_Extension" ColumnName="Tournament_Extension" />
+          <ScalarProperty Name="Tournament_End_Date" ColumnName="Tournament_End_Date" />
+          <ScalarProperty Name="Tournament_Start_Date" ColumnName="Tournament_Start_Date" />
+          <ScalarProperty Name="Tournament_Type" ColumnName="Tournament_Type" />
+          <ScalarProperty Name="Tournament_Address" ColumnName="Tournament_Address" />
           <ScalarProperty Name="Tournament_Location" ColumnName="Tournament_Location" />
           <ScalarProperty Name="Tournament_Name" ColumnName="Tournament_Name" />
           <ScalarProperty Name="Tournament_Id" ColumnName="Tournament_Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Tournaments_Period">
-      <EntityTypeMapping TypeName="JukskeiDatabaseModel.Tournaments_Period">
-        <MappingFragment StoreEntitySet="Tournaments_Period">
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="Tournament_Extension" ColumnName="Tournament_Extension" />
-          <ScalarProperty Name="Tournament_Date" ColumnName="Tournament_Date" />
-          <ScalarProperty Name="Days_Played" ColumnName="Days_Played" />
-          <ScalarProperty Name="Tournament_Period_Id" ColumnName="Tournament_Period_Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Tournaments_Types">
-      <EntityTypeMapping TypeName="JukskeiDatabaseModel.Tournaments_Types">
-        <MappingFragment StoreEntitySet="Tournaments_Types">
-          <ScalarProperty Name="Tournament_Type" ColumnName="Tournament_Type" />
-          <ScalarProperty Name="Tournament_Type_Id" ColumnName="Tournament_Type_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

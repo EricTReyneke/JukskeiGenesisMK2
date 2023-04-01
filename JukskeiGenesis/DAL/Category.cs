@@ -12,19 +12,20 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Playout
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Playout()
+        public Category()
         {
-            this.Tournaments = new HashSet<Tournament>();
+            this.Rosters = new HashSet<Roster>();
         }
     
-        public int Playouts_Id { get; set; }
-        public bool PlayoutsActive { get; set; }
-        public int Number_Of_Top_Teams_Playout { get; set; }
+        public int Category_Id { get; set; }
+        public string Category_Name { get; set; }
+        public int Tournament_Id { get; set; }
     
+        public virtual Tournament Tournament { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tournament> Tournaments { get; set; }
+        public virtual ICollection<Roster> Rosters { get; set; }
     }
 }

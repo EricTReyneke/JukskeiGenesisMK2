@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.PeerToPeer;
 using static NPOI.HSSF.Util.HSSFColor;
 
 namespace DAL
@@ -17,10 +18,10 @@ namespace DAL
         #endregion
 
         #region Public Methods
-        public bool getLogin(string userName, string password)
-        {
-            return _jukskeiDB.Clients_Admin.FirstOrDefault(t => t.Client_Admin_UserName == userName && t.Client_Admin_Password == password) != null;
-        }
+        //public bool getLogin(string userName, string password)
+        //{
+        //    return _jukskeiDB.Clients_Admin.FirstOrDefault(t => t.Client_Admin_UserName == userName && t.Client_Admin_Password == password) != null;
+        //}
 
         public List<Tournament> GetTournaments()
         {
@@ -74,10 +75,38 @@ namespace DAL
             return matches;
         }
 
-        //public IActionResult SearchTournaments(string tournamentName, string activity = null)
-        //{
-        //    return NotFoundObjectResult(null);
-        //}
+        public int CreateNewTournament(string touryName, string tournyLocation, string tournyStreet, DateTime startDate,
+                                       DateTime endDate, string tournyType, List<string> tournyCategory)
+        {
+            Tournament newTournament = new Tournament();
+            newTournament.Tournament_Name = touryName + " " + startDate.Year;
+            newTournament.Tournament_Location = tournyLocation;
+            newTournament.Tournament_Start_Date = startDate;
+            newTournament.Tournament_End_Date = endDate;
+            newTournament.IsActive = false;
+            newTournament.Tournament_Extension = 0;
+            newTournament.Tournament_Type = tournyType;
+            newTournament.Tournament_Address = tournyStreet;
+
+            foreach (var category in tournyCategory)
+            {
+                Category newCategory = new Category();
+                newCategory.Tournament_Id = newTournament.Tournament_Id;
+                newCategory.Category_Name = category;
+                _jukskeiDB.Categories.Add(newCategory);
+            }
+
+            _jukskeiDB.Tournaments.Add(newTournament);
+            _jukskeiDB.SaveChanges();
+
+            return newTournament.Tournament_Id;
+        }
+
+
+        public void AddCatogoriesToTournament()
+        {
+            
+        }
 
         #endregion
 

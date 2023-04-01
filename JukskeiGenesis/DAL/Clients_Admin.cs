@@ -22,7 +22,6 @@ namespace DAL
     
         public int Client_Admin_Id { get; set; }
         public string Client_Admin_UserName { get; set; }
-        public string Client_Admin_Password { get; set; }
         public string Client_Admin_Name { get; set; }
         public string Client_Admin_SurName { get; set; }
         public string Client_Admin_Email { get; set; }

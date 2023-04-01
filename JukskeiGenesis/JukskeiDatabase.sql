@@ -3,50 +3,12 @@ Drop database JukskeiDatabase
 
 --------------------------------------------------------------------------Tournament Tables---------------------------------------------------------------------------------------------------------------
 
-	--Creating Tournament_period Table. This table will facilitate The date which the tournamnet will be played over.
-	--This table will also look at Tournamnet Exstensions which will be the case when a league day is canceled,
-	--and the tournamnet will be moved on one week.
-
-Go
-Create Table 
-	Tournaments_Period(
-	Tournament_Period_Id int Identity(1, 1) Primary Key,
-	Days_Played int not null check (Days_Played < 14),
-	Tournament_Date Date not Null,
-	Tournament_Extension int check (Tournament_Extension < 5),
-	IsActive bit not null)
-
-	--Creating Tournament_Type table which will facilitate tournaments which are of diffrent types,
-	--Example of Types of Tournamnets Week (5 Days of play), league (3 days of play over 3 weeks), 
-	--Day Tournamnet (One day of Play).
-
-Go
-Use 
-	JukskeiDatabase
-Create Table 
-	Tournaments_Types(
-	Tournament_Type_Id int Identity(1, 1) Primary Key,
-	Tournament_Type VarChar(20) not null)
-
-	--Creating Playouts Table which will be used to check iff there will be playouts or not.
-	--The top teams in each Group will be specified by the Number_Of_Top_Teams_Playout and these top teams
-	--Will play out agains each other.
-
-Go
-Use 
-	JukskeiDatabase
-Create Table 
-	Playouts(
-	Playouts_Id int Primary Key Identity(1,1),
-	PlayoutsActive bit not null,
-	Number_Of_Top_Teams_Playout int not null)
-
 	--Creating the Tournamnets table which will be the main table which will inherit from all the sub tables.
 	--Tournaments Have a one to many relationship with 3 tables.
 	--Tournaments is the One in the relationship. Where the other table is the Many in the relationship.
 
-	drop table Tournaments
 
+	drop table Tournaments;
 
 Use 
 	JukskeiDatabase
@@ -55,57 +17,27 @@ Create Table
 	Tournament_Id int Identity(1, 1) Primary Key,
 	Tournament_Name VarChar(50) not null,
 	Tournament_Location VarChar(50) not null,
-	Tournament_Period_Id int not null,
-	Tournament_Type_Id int not null,
-	Playouts_Id int,
-    FOREIGN KEY (Tournament_Period_Id) REFERENCES Tournaments_Period(Tournament_Period_Id),
-	FOREIGN KEY (Tournament_Type_Id) REFERENCES Tournaments_Types(Tournament_Type_Id),
-	FOREIGN KEY (Playouts_Id) REFERENCES Playouts(Playouts_Id))
+	Tournament_Address VarChar(50) not null,
+	Tournament_Type VarChar(20) not null,
+	Tournament_Start_Date Date not Null,
+	Tournament_End_Date Date not Null,
+	Tournament_Extension int check (Tournament_Extension < 5),
+	IsActive bit not null)
 
 ----------------------------------------------------------Inserting Dummy data into the Tournament Tables-----------------------------------------------------------------------------------------------------------
 
-		Select * From Tournaments_Period
+Select 
+	* 
+From 
+	Tournaments
 
-		--Inserting dummy data into the Tournaments_Period Table.
-
-INSERT INTO		
-		Tournaments_Period (Days_Played, Tournament_Date, Tournament_Extension, IsActive)
-VALUES	
-		(5, '2022-05-10', 3, 1),
-		(10, '2022-07-15', 2, 0),
-		(7, '2022-09-23', 1, 1);
-
-		Select * From Tournaments_Types
-
-		--Inserting dummy data into the Tournaments_Types Table.
-
-INSERT INTO Tournaments_Types (Tournament_Type)
-VALUES 
-	('Day Tournament'),
-	('Week Tournament'),
-	('League Tournament');
-
-		Select * From Playouts
-
-	   --Inserting dummy data into the Playouts Table.
 
 INSERT INTO 
-		Playouts (PlayoutsActive, Number_Of_Top_Teams_Playout)
+	Tournaments (Tournament_Name, Tournament_Location, Tournament_Address, Tournament_Type, Tournament_Start_Date, Tournament_End_Date, Tournament_Extension, IsActive)
 VALUES 
-		(1, 2),
-        (0, 3),
-        (1, 4);
-
-		Select * From Tournaments
-
-		--Inserting dummy data into the Tournaments Table.
-
-INSERT INTO 
-		Tournaments (Tournament_Period_Id, Tournament_Name, Tournament_Location, Tournament_Type_Id, Playouts_Id)
-VALUES 
-		(1, 'Bushi Swart', 'Gautent Noord', 2, 1),
-        (2, 'Wollie Coetzee', 'Gautent Noord', 1, null),
-        (3, 'SA Kampioenskappe', 'Kroonstad Vrystaat', 3, 3);
+	('Bushi Swart', 'Johannesburg', 'Sunny Road', 'Day', '2022-12-01', '2022-12-01', 0, 0),
+    ('SA Championships', 'Cape Town', 'BroodMan', 'Week', '2023-07-15', '2023-07-20', 0, 0),
+    ('Wolie Coetzee', 'Durban', 'Day', 'Lekker Street', '2023-09-01', '2023-09-01', 0, 0);
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -122,8 +54,18 @@ Create Table
 	Team_Name VarChar(20))
 
 	--Creating The Players Table.
-	--The Players Table will have a One to Many relationship with Teams.
+	--The Players Table will have a One to Many relationsthip with Teams.
 	--Players can have one team where teams can have multiple players.
+	
+Use
+	JukskeiDatabase
+Create Table
+	Categories(
+	Category_Id int identity(1, 1) Primary Key,
+	Category_Name VarChar(20) not null,
+	Tournament_Id int not null,
+	FOREIGN KEY (Tournament_Id) REFERENCES Tournaments(Tournament_Id))
+
 
 Use
 	JukskeiDatabase
@@ -137,6 +79,8 @@ Create Table
 	--Creating the Rosters Table.
 	--Roster table will have a one to many ralationship with the Teams and Players Table.
 	--Roster can have Many Players and Teams where as the Player and Teams table can only have one roster.
+
+drop table Rosters
 	
 Use
 	JukskeiDatabase
@@ -144,9 +88,11 @@ Create Table
 	Rosters(
 	Roster_Id int Primary Key Identity(1, 1),
 	Team_Id int not null,
-	Player_Id int not null,
+	Tournament_Id int not null,
+	Category_Id int not null,
 	FOREIGN KEY (Team_Id) REFERENCES Teams(Team_Id),
-	FOREIGN KEY (Player_Id) REFERENCES Players(Player_Id))
+	FOREIGN KEY (Tournament_Id) REFERENCES Tournaments(Tournament_Id),
+	FOREIGN KEY (Category_Id) REFERENCES Categories(Category_Id))
 	
 -------------------------------------------------------Inserting Dummy data into the Team, Player and Roster-----------------------------------------------------------------------------------------------------------
 
@@ -161,6 +107,14 @@ VALUES
 		('Team B'),
 		('Team C');
 
+		select * From Teams
+
+INSERT INTO 
+		Categories(Category_Name, Tournament_Id)
+VALUES 
+		('A', 2),
+		('B', 2);
+
 		--Inserting data into the "Players" table
 
 		select * From Players
@@ -170,18 +124,25 @@ INSERT INTO
 VALUES 
 		('John', 1),
 		('Jane', 1),
-		('Bob', 2),
-		('Alice', 3);
+		('Arie', 1),
+		('Dean', 1),
+		('Eric', 2),
+		('Anje', 2),
+		('Marchant', 2),
+		('Chris', 2),
+		('Amore', 3),
+		('Armand', 3),
+		('James', 3),
+		('Sam', 3);
 
 		--Inserting data into the "Rosters" table
 
 INSERT INTO 
-		Rosters (Team_Id, Player_Id)
+		Rosters (Team_Id, Tournament_Id, Category_Id)
 VALUES 
-		(1, 1),
-		(1, 2),
-		(2, 3),
-		(3, 4);
+		(1, 2, 1),
+		(2, 2, 2),
+		(3, 2, 2);
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------Client and Payment Tables-----------------------------------------------------------------------------------------------------------
@@ -199,7 +160,7 @@ Create Table
 	Client_Admin_SurName VarChar(20) not null,
 	Client_Admin_Email VarChar(30) not null)
 
-	drop table Payments
+	drop table Clients_Admin
 
 	--Creating the Payments Tables.
 	--The Payments table will house all the payments that are done by the clients which is facilitated through a One to many relationship.
@@ -239,6 +200,6 @@ VALUES
 INSERT INTO 
 		Payments (Payment_Amount, Outstanding_balance, Payment_Date, Client_Admin_Id, Tournament_Id)
 VALUES 
-		(500.00, 0.00, '2022-02-15', 1, 1),
-        (750.00, 1250.00, '2022-03-01', 2, 2),
-        (1000.00, 0.00, '2022-03-15', 3, 3);
+		(500.00, 0.00, '2022-02-15', 1, 2),
+        (750.00, 1250.00, '2022-03-01', 2, 3),
+        (1000.00, 0.00, '2022-03-15', 3, 4);

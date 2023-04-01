@@ -5,23 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2738736b45d2434da3147a1d7d6db058" Name="Diagram1">
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Clients_Admin" Width="1.5" PointX="3" PointY="5.25" />
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Payment" Width="1.5" PointX="5.25" PointY="1.125" />
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Player" Width="1.5" PointX="8" PointY="4.875" />
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Playout" Width="1.5" PointX="0.75" PointY="7.125" />
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Roster" Width="1.5" PointX="10.25" PointY="4.875" />
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Team" Width="1.5" PointX="5.75" PointY="5" />
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Tournament" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Tournaments_Period" Width="1.5" PointX="0.75" PointY="1.375" />
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Tournaments_Types" Width="1.5" PointX="0.75" PointY="4.75" />
-        <AssociationConnector Association="JukskeiDatabaseModel.FK__Payments__Client__690797E6" />
-        <AssociationConnector Association="JukskeiDatabaseModel.FK__Payments__Tourna__69FBBC1F" />
-        <AssociationConnector Association="JukskeiDatabaseModel.FK__Players__Team_Id__45F365D3" />
-        <AssociationConnector Association="JukskeiDatabaseModel.FK__Rosters__Player___76969D2E" />
-        <AssociationConnector Association="JukskeiDatabaseModel.FK__Tournamen__Playo__6442E2C9" />
-        <AssociationConnector Association="JukskeiDatabaseModel.FK__Rosters__Team_Id__75A278F5" />
-        <AssociationConnector Association="JukskeiDatabaseModel.FK__Tournamen__Tourn__625A9A57" />
-        <AssociationConnector Association="JukskeiDatabaseModel.FK__Tournamen__Tourn__634EBE90" />
+        <EntityTypeShape EntityType="JukskeiDatabaseModel.Category" Width="1.5" PointX="3" PointY="7.625" />
+        <EntityTypeShape EntityType="JukskeiDatabaseModel.Clients_Admin" Width="1.5" PointX="0.75" PointY="9.25" />
+        <EntityTypeShape EntityType="JukskeiDatabaseModel.Payment" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="JukskeiDatabaseModel.Player" Width="1.5" PointX="5.25" PointY="2.125" />
+        <EntityTypeShape EntityType="JukskeiDatabaseModel.Roster" Width="1.5" PointX="5.25" PointY="5.5" />
+        <EntityTypeShape EntityType="JukskeiDatabaseModel.Team" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="JukskeiDatabaseModel.Tournament" Width="1.5" PointX="0.75" PointY="3.625" />
+        <AssociationConnector Association="JukskeiDatabaseModel.FK__Categorie__Tourn__6D0D32F4" />
+        <AssociationConnector Association="JukskeiDatabaseModel.FK__Rosters__Categor__71D1E811" />
+        <AssociationConnector Association="JukskeiDatabaseModel.FK__Payments__Client__693CA210" />
+        <AssociationConnector Association="JukskeiDatabaseModel.FK__Payments__Tourna__6A30C649" />
+        <AssociationConnector Association="JukskeiDatabaseModel.FK__Players__Team_Id__3C69FB99" />
+        <AssociationConnector Association="JukskeiDatabaseModel.FK__Rosters__Team_Id__6FE99F9F" />
+        <AssociationConnector Association="JukskeiDatabaseModel.FK__Rosters__Tournam__70DDC3D8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -7,17 +7,17 @@
                 <br />
                 <div class="Flex1">
                     <label class="InputLabels1" id="TournamentName">Tournament Name</label>
-                    <input name="TournamentName" class="Input1" type="text" placeholder="SA Championships" />
+                    <input name="TournamentName" class="Input1" type="text" placeholder="SA Championships" @bind="Tname" />
 
                     <br />
 
-                    <label class="InputLabels1" id="StreetName">Street Name</label>
-                    <input name="StreetName" class="Input1" type="text" placeholder="Sunny Road 21" />
+                    <label class="InputLabels1" id="StreetName">Address</label>
+                    <input name="StreetName" class="Input1" type="text" placeholder="Sunny Road 21" @bind="Taddress" />
 
                     <br />
 
                     <label class="InputLabels1" id="TournamentStartDate">Tournament Start Date</label>
-                    <input name="TournamentStartDate" class="Input1" type="datetime" />
+                    <input name="TournamentStartDate" class="Input1" type="date" @bind="TournamentStartDate" />
 
                     <br />
 
@@ -30,7 +30,7 @@
                     <br />
 
                     <label class="InputLabels2" id="TournamentLocation">Tournament Type</label>
-                    <select name="TypeCombo" id="TournamentType" class="TypeCombo">
+                    <select name="TypeCombo" id="TournamentType" class="TypeCombo" @onselectionchange="SelectTournamentType">
                         <option value="Day">Day</option>
                         <option value="League">League</option>
                         <option value="Week">Week</option>
@@ -39,7 +39,7 @@
                     <br />
 
                     <label class="InputLabels2" id="TournamentEndDate">Tournament End Date</label>
-                    <input name="TournamentEndDate" class="Input2" type="datetime" readonly />
+                    <input name="TournamentEndDate" class="Input2" type="date" @bind="TournamentEndDate" />
 
                     <br />
                 </div>
@@ -49,10 +49,57 @@
                 <label class="InputLabels2" id="Categories">Categories</label>
                 <input name="Categories" class="InputCategory2" type="text" placeholder="Kopersbond" />
 
-                <input class="PushCategory" value="Push Category" />
+                <input class="PushCategory" value="Push Category" type="submit" @onclick="btnPushCategory" />
             </div>
 
             <br />
         </div>
     </form>
 </body>
+
+@code {
+    string Tname;
+    string Taddress;
+    DateTime TStartDate;
+    DateTime TEndDate;
+    string Tlocation;
+    string Ttype;
+    List<string> Tcategories = new List<string>();
+
+    //private void ChangeStartDate()
+    //{
+    //    GetEndDate(TEndDate);
+    //}
+    public DateTime TournamentStartDate { get; set; }
+    //public DateTime TournamentEndDate { get { return TournamentStartDate.AddDays(7); } }
+
+    private DateTime tournamentEndDate;
+
+    public DateTime TournamentEndDate
+    {
+        get { return tournamentEndDate; }
+        set { tournamentEndDate = TStartDate.AddDays(7); }
+    }
+
+
+    private void SelectTournamentType()
+    {
+        switch (Ttype.ToLower())
+        {
+            case "day":
+                TEndDate = TStartDate;
+                break;
+            case "league":
+                TEndDate = TStartDate.AddDays(21);
+                break;
+            case "week":
+                TEndDate = TStartDate.AddDays(5);
+                break;
+        }
+    }
+
+    private void btnPushCategory()
+    {
+
+    }
+}

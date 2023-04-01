@@ -14,18 +14,10 @@ namespace DAL
     
     public partial class Player
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Player()
-        {
-            this.Rosters = new HashSet<Roster>();
-        }
-    
         public int Player_Id { get; set; }
         public string Player_Name { get; set; }
         public int Team_Id { get; set; }
     
         public virtual Team Team { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Roster> Rosters { get; set; }
     }
 }

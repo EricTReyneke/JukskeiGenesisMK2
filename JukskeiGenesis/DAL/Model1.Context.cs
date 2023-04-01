@@ -25,14 +25,12 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Clients_Admin> Clients_Admin { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Player> Players { get; set; }
-        public virtual DbSet<Playout> Playouts { get; set; }
         public virtual DbSet<Roster> Rosters { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<Tournament> Tournaments { get; set; }
-        public virtual DbSet<Tournaments_Period> Tournaments_Period { get; set; }
-        public virtual DbSet<Tournaments_Types> Tournaments_Types { get; set; }
     }
 }

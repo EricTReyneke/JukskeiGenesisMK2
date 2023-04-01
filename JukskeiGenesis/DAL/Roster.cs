@@ -16,9 +16,11 @@ namespace DAL
     {
         public int Roster_Id { get; set; }
         public int Team_Id { get; set; }
-        public int Player_Id { get; set; }
+        public int Tournament_Id { get; set; }
+        public int Category_Id { get; set; }
     
-        public virtual Player Player { get; set; }
+        public virtual Category Category { get; set; }
         public virtual Team Team { get; set; }
+        public virtual Tournament Tournament { get; set; }
     }
 }
