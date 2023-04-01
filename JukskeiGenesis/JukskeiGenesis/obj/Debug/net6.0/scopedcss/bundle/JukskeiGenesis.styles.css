@@ -219,6 +219,133 @@ main[b-5d7wnptdl5] {
     border-width: 1px;
     border-color: royalblue;
 }
+/* _content/JukskeiGenesis/Shared/NewFontEnd/CreateTournament.razor.rz.scp.css */
+.FormBody[b-f125tma3dt] {
+    position: relative;
+    margin: 15vh auto;
+    box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
+    width: 80%;
+    border-radius: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+    .FormBody[b-f125tma3dt] {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+.FlexBody[b-f125tma3dt] {
+    padding-top: 6%;
+    display: flex;
+    margin-bottom: 3%;
+}
+
+@media only screen and (max-width: 768px) {
+    .FlexBody[b-f125tma3dt] {
+        display: block;
+    }
+}
+
+.InputLabels1[b-f125tma3dt] {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: center;
+    width: 80%;
+    padding-left: 25%;
+}
+
+.InputLabels2[b-f125tma3dt] {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: center;
+    width: 80%;
+    padding-left: 10%;
+}
+
+.TypeCombo[b-f125tma3dt] {
+    width: 80%;
+    margin-left: 5%;
+    padding: 12.2px;
+}
+
+.Input1[b-f125tma3dt] {
+    width: 80%;
+    margin-left: 15%;
+}
+
+.Input2[b-f125tma3dt] {
+    width: 80%;
+    margin-left: 5%;
+}
+
+input[type="text"][b-f125tma3dt], input[type="datetime"][b-f125tma3dt], select[b-f125tma3dt] {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.PushCategory[b-f125tma3dt] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    width: 15%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 4.5%;
+}
+
+@media only screen and (max-width: 768px) {
+    .PushCategory[b-f125tma3dt] {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+.Flex1[b-f125tma3dt] {
+    width: 85%;
+}
+
+.Flex2[b-f125tma3dt] {
+    width: 85%;
+}
+
+@media only screen and (max-width: 768px) {
+    .Flex1[b-f125tma3dt], .Flex2[b-f125tma3dt] {
+        width: 100%;
+    }
+}
+
+.InputCategory2[b-f125tma3dt] {
+    width: 65%;
+    margin-left: 7.5%;
+}
+
+@media only screen and (max-width: 768px) {
+    .InputCategory2[b-f125tma3dt] {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.CategoryDiv[b-f125tma3dt] {
+    padding-bottom: 3%;
+}
 /* _content/JukskeiGenesis/Shared/NewFontEnd/Login.razor.rz.scp.css */
 .content[b-1lpdv3nc53] {
     background-color: #f4f4f4;

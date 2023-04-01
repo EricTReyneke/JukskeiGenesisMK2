@@ -29,4 +29,10 @@
     <Folder Include="wwwroot\JS\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Shared\NewFontEnd\CreateTournament.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
 </Project>

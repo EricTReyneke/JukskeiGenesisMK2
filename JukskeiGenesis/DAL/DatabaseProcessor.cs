@@ -74,10 +74,10 @@ namespace DAL
             return matches;
         }
 
-        public IActionResult SearchTournaments(string tournamentName, string activity = null)
-        {
-            return NotFoundObjectResult(null);
-        }
+        //public IActionResult SearchTournaments(string tournamentName, string activity = null)
+        //{
+        //    return NotFoundObjectResult(null);
+        //}
 
         #endregion
 

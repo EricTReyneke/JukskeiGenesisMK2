@@ -5,26 +5,31 @@
     <div class="NavItems">
         <nav>
             <div class="nav-item px-3" id="NavItem1">
-                <a class="nav-link">Home</a>
+                <a class="nav-link" @onclick="() => NavigateHome()">Home</a>
             </div>
             <div class="nav-item px-3">
-                <a class="nav-link" @onclick="() => GetPage()">Login</a>
+                <a class="nav-link" @onclick="() => NavigateLogin()">Login</a>
             </div>
             <div class="nav-item px-3">
-                <a class="nav-link" @onclick="() => GetRoster()">Roster</a>
+                <a class="nav-link" @onclick="() => NavigateCreateTournament()">Create Tournament</a>
             </div>
         </nav>
     </div>
 </header>
 
 @code{
-    private void GetPage()
+    private void NavigateHome()
+    {
+        navigationManager.NavigateTo("/");
+    }
+
+    private void NavigateLogin()
     {
         navigationManager.NavigateTo("/Login");
     }
 
-    private void GetRoster()
+    private void NavigateCreateTournament()
     {
-        navigationManager.NavigateTo("/RosterComponent");
+        navigationManager.NavigateTo("/CreateTournement");
     }
 }

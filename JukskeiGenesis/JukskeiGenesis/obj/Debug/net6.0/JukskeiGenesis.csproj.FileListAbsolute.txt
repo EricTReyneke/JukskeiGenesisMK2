@@ -228,3 +228,4 @@ C:\BackUp\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\scopedcss\Shared\NewFon
 C:\BackUp\JukskeiGenesis\JukskeiGenesis\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\BackUp\JukskeiGenesis\JukskeiGenesis\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\BackUp\JukskeiGenesis\JukskeiGenesis\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\BackUp\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\scopedcss\Shared\NewFontEnd\CreateTournament.razor.rz.scp.css

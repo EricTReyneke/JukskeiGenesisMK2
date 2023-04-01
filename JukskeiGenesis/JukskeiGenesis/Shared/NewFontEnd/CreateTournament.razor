@@ -1,0 +1,58 @@
+﻿@page "/CreateTournement"
+
+<body>
+    <form>
+        <div class="FormBody">
+            <div class="FlexBody">
+                <br />
+                <div class="Flex1">
+                    <label class="InputLabels1" id="TournamentName">Tournament Name</label>
+                    <input name="TournamentName" class="Input1" type="text" placeholder="SA Championships" />
+
+                    <br />
+
+                    <label class="InputLabels1" id="StreetName">Street Name</label>
+                    <input name="StreetName" class="Input1" type="text" placeholder="Sunny Road 21" />
+
+                    <br />
+
+                    <label class="InputLabels1" id="TournamentStartDate">Tournament Start Date</label>
+                    <input name="TournamentStartDate" class="Input1" type="datetime" />
+
+                    <br />
+
+                </div>
+
+                <div class="Flex2">
+                    <label class="InputLabels2" id="TournamentLocation">Tournament Location</label>
+                    <input name="TournamentLocation" class="Input2" type="text" placeholder="Kroonstad" />
+
+                    <br />
+
+                    <label class="InputLabels2" id="TournamentLocation">Tournament Type</label>
+                    <select name="TypeCombo" id="TournamentType" class="TypeCombo">
+                        <option value="Day">Day</option>
+                        <option value="League">League</option>
+                        <option value="Week">Week</option>
+                    </select>
+
+                    <br />
+
+                    <label class="InputLabels2" id="TournamentEndDate">Tournament End Date</label>
+                    <input name="TournamentEndDate" class="Input2" type="datetime" readonly />
+
+                    <br />
+                </div>
+            </div>
+
+            <div class="CategoryDiv">
+                <label class="InputLabels2" id="Categories">Categories</label>
+                <input name="Categories" class="InputCategory2" type="text" placeholder="Kopersbond" />
+
+                <input class="PushCategory" value="Push Category" />
+            </div>
+
+            <br />
+        </div>
+    </form>
+</body>
