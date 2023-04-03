@@ -43,26 +43,26 @@
         }
     }
 
-    function GetSearchParms() {
-        var comboBoxes = document.getElementsByClassName("myComboBox");
-        var comboBox = comboBoxes[0];
-        var selectedValue = comboBox.options[comboBox.selectedIndex].value;
+    function EndDate() {
+        var startDate = document.getElementById("TournamentEndDate");
+        var endDate = document.getElementById("TournamentType");
+        var type = document.getElementById("TournamentStartDate");
+        const dateStartDate = new Date(startDate.value);
+        const dateEndDate = new Date(startDate.value);
 
-        var textBoxes = document.getElementsByClassName("myTextBox");
-        var textBox = textBoxes[0];
-        var textBoxValue = textBox.value;
-
-        $.ajax({
-            url: '@Url.Action("SearchTournaments")',
-            type: "POST",
-            data: { comboBoxValue: selectedValue, textBoxValue: textBoxValue },
-            success: function (data) {
-                console.log("Data has been sent to the C# function.");
-            },
-            error: function (){
-                console.log("Data has not been sent to the C# function.");
-            }
-        });
-
+        switch (type) {
+            case "Day":
+                dateEndDate.setDate(dateStartDate.getDate());
+                endDate.value = dateEndDate;
+                break;
+            case "Week":
+                dateEndDate.setDate(dateStartDate.getDate() + 4);
+                endDate.value = dateEndDate;
+                break;
+            case "League":
+                dateEndDate.setDate(dateStartDate.getDate() + 14);
+                endDate.value = dateEndDate;
+                break;
+        }
     }
 </script>

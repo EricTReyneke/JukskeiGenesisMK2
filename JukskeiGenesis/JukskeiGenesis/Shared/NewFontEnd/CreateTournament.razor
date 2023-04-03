@@ -1,105 +1,129 @@
 ﻿@page "/CreateTournement"
+@using DAL
+@inject IJSRuntime JSRuntime
+@inject NavigationManager navigationManager
 
 <body>
-    <form>
-        <div class="FormBody">
-            <div class="FlexBody">
+    <div class="FormBody">
+        <div class="FlexBody">
+            <br />
+            <div class="Flex1">
+                <label class="InputLabels1" id="TournamentName">Tournament Name</label>
+                <input name="TournamentName" class="Input1" type="text" placeholder="SA Championships" @bind="Tname" />
+
                 <br />
-                <div class="Flex1">
-                    <label class="InputLabels1" id="TournamentName">Tournament Name</label>
-                    <input name="TournamentName" class="Input1" type="text" placeholder="SA Championships" @bind="Tname" />
 
-                    <br />
+                <label class="InputLabels1" id="StreetName">Address</label>
+                <input name="StreetName" class="Input1" type="text" placeholder="Sunny Road 21" @bind="Taddress" />
 
-                    <label class="InputLabels1" id="StreetName">Address</label>
-                    <input name="StreetName" class="Input1" type="text" placeholder="Sunny Road 21" @bind="Taddress" />
+                <br />
 
-                    <br />
+                <label class="InputLabels1" id="TournamentStartDate">Tournament Start Date</label>
+                <input name="TournamentStartDate" class="Input1" type="date" @bind="TStartDate" @oninput="@((args) => { TStartDate = Convert.ToDateTime(args.Value); EndDate(); })" />
 
-                    <label class="InputLabels1" id="TournamentStartDate">Tournament Start Date</label>
-                    <input name="TournamentStartDate" class="Input1" type="date" @bind="TournamentStartDate" />
+                <br />
 
-                    <br />
-
-                </div>
-
-                <div class="Flex2">
-                    <label class="InputLabels2" id="TournamentLocation">Tournament Location</label>
-                    <input name="TournamentLocation" class="Input2" type="text" placeholder="Kroonstad" />
-
-                    <br />
-
-                    <label class="InputLabels2" id="TournamentLocation">Tournament Type</label>
-                    <select name="TypeCombo" id="TournamentType" class="TypeCombo" @onselectionchange="SelectTournamentType">
-                        <option value="Day">Day</option>
-                        <option value="League">League</option>
-                        <option value="Week">Week</option>
-                    </select>
-
-                    <br />
-
-                    <label class="InputLabels2" id="TournamentEndDate">Tournament End Date</label>
-                    <input name="TournamentEndDate" class="Input2" type="date" @bind="TournamentEndDate" />
-
-                    <br />
-                </div>
             </div>
 
-            <div class="CategoryDiv">
-                <label class="InputLabels2" id="Categories">Categories</label>
-                <input name="Categories" class="InputCategory2" type="text" placeholder="Kopersbond" />
+            <div class="Flex2">
+                <label class="InputLabels2" id="TournamentLocation">Tournament Location</label>
+                <input name="TournamentLocation" class="Input2" type="text" placeholder="Kroonstad" @bind="Tlocation" />
 
-                <input class="PushCategory" value="Push Category" type="submit" @onclick="btnPushCategory" />
+                <br />
+
+                <label class="InputLabels2" id="TournamentType">Tournament Type</label>
+                <select name="TypeCombo" id="TournamentType" class="TypeCombo" @bind="TournamentTypeValue" @oninput="@((args) => { TournamentTypeValue = ((ChangeEventArgs)args).Value.ToString(); EndDate(); })">
+                    <option value="Day">Day</option>
+                    <option value="League">League</option>
+                    <option value="Week">Week</option>
+                </select>
+
+                <br />
+
+                <label class="InputLabels2" id="TournamentEndDate">Tournament End Date</label>
+                <input name="TournamentEndDate" class="Input2" type="date" @bind="_tournamentEndDate" readonly />
+
+                <br />
             </div>
+        </div>
+
+        <div class="CategoryDiv">
+            <label class="InputLabels2" id="Categories">Categories</label>
+            <input name="Categories" class="InputCategory2" type="text" placeholder="Kopersbond" @bind="tCatogory" />
+
+            <input class="PushCategory" value="Push Category" type="submit" @onclick="btnPushCategory" />
 
             <br />
+
+            <input class="PushCategory" value="Submit Tournament" type="submit" @onclick="SubmitTournament" />
         </div>
-    </form>
+        <br />
+    </div>
 </body>
 
 @code {
-    string Tname;
-    string Taddress;
-    DateTime TStartDate;
-    DateTime TEndDate;
-    string Tlocation;
-    string Ttype;
-    List<string> Tcategories = new List<string>();
-
-    //private void ChangeStartDate()
-    //{
-    //    GetEndDate(TEndDate);
-    //}
-    public DateTime TournamentStartDate { get; set; }
-    //public DateTime TournamentEndDate { get { return TournamentStartDate.AddDays(7); } }
-
-    private DateTime tournamentEndDate;
+    public string Tname;
+    public string Taddress;
+    public DateTime TStartDate;
+    public string Tlocation;
+    public string TournamentTypeValue;
+    public string tCatogory;
+    public List<string> Tcategories = new List<string>();
+    private DateTime _tournamentEndDate;
 
     public DateTime TournamentEndDate
     {
-        get { return tournamentEndDate; }
-        set { tournamentEndDate = TStartDate.AddDays(7); }
+        get => _tournamentEndDate;
+        set
+        {
+            if (_tournamentEndDate != value)
+            {
+                _tournamentEndDate = value;
+            }
+        }
     }
 
-
-    private void SelectTournamentType()
+    private async Task EndDate()
     {
-        switch (Ttype.ToLower())
+        try
         {
-            case "day":
-                TEndDate = TStartDate;
-                break;
-            case "league":
-                TEndDate = TStartDate.AddDays(21);
-                break;
-            case "week":
-                TEndDate = TStartDate.AddDays(5);
-                break;
+            DateTime endDate;
+            switch (TournamentTypeValue)
+            {
+                case "Day":
+                    endDate = TStartDate;
+                    break;
+                case "Week":
+                    endDate = TStartDate.AddDays(4);
+                    break;
+                case "League":
+                    endDate = TStartDate.AddDays(14);
+                    break;
+                default:
+                    endDate = TStartDate;
+                    break;
+            }
+            TournamentEndDate = endDate;
+        }
+        catch
+        {
+            return;
         }
     }
 
     private void btnPushCategory()
     {
+        string empty = string.Empty;
+        if(tCatogory != null)
+            Tcategories.Add(tCatogory);
 
+        tCatogory = empty;
     }
-}
+
+    private void SubmitTournament()
+    {
+        DatabaseProcessor dbProcessor = new DatabaseProcessor();
+        dbProcessor.CreateNewTournament(Tname, Tlocation, Taddress, TStartDate, TournamentEndDate, TournamentTypeValue, Tcategories);
+        navigationManager.NavigateTo("/");
+    }
+}}
