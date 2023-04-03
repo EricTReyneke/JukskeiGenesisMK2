@@ -18,7 +18,7 @@
 
                 <br />
 
-                <label class="InputLabels1" id="TournamentStartDate">Tournament Start Date</label>
+                <label class="InputLabels1 DateBoxes" id="TournamentStartDate">Start Date</label>
                 <input name="TournamentStartDate" class="Input1" type="date" @bind="TStartDate" @oninput="@((args) => { TStartDate = Convert.ToDateTime(args.Value); EndDate(); })" />
 
                 <br />
@@ -40,7 +40,7 @@
 
                 <br />
 
-                <label class="InputLabels2" id="TournamentEndDate">Tournament End Date</label>
+                <label class="InputLabels2 DateBoxes" id="TournamentEndDate">End Date</label>
                 <input name="TournamentEndDate" class="Input2" type="date" @bind="_tournamentEndDate" readonly />
 
                 <br />
@@ -55,7 +55,7 @@
 
             <br />
 
-            <input class="PushCategory" value="Submit Tournament" type="submit" @onclick="SubmitTournament" />
+            <input class="PushCategory" id="SubmitTournament" value="Submit Tournament" type="submit" @onclick="SubmitTournament" />
         </div>
         <br />
     </div>
@@ -114,8 +114,10 @@
     private void btnPushCategory()
     {
         string empty = string.Empty;
-        if(tCatogory != null)
+        if (tCatogory != null)
+        {
             Tcategories.Add(tCatogory);
+        }
 
         tCatogory = empty;
     }
@@ -126,4 +128,4 @@
         dbProcessor.CreateNewTournament(Tname, Tlocation, Taddress, TStartDate, TournamentEndDate, TournamentTypeValue, Tcategories);
         navigationManager.NavigateTo("/");
     }
-}}
+}

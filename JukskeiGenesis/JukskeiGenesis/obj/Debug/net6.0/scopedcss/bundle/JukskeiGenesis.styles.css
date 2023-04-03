@@ -229,9 +229,18 @@ main[b-5d7wnptdl5] {
 }
 
 @media only screen and (max-width: 768px) {
+    .Input1[b-f125tma3dt] {
+        margin: 0;
+        width: 80%;
+        justify-content: center;
+    }
     .FormBody[b-f125tma3dt] {
         width: 90%;
         left: 5%;
+    }
+    #SubmitTournament[b-f125tma3dt] {
+        width: 90%;
+        justify-content: center;
     }
 }
 
@@ -242,8 +251,17 @@ main[b-5d7wnptdl5] {
 }
 
 @media only screen and (max-width: 768px) {
+    .Input1[b-f125tma3dt] {
+        margin: 0;
+        width: 80%;
+        justify-content: center;
+    }
     .FlexBody[b-f125tma3dt] {
         display: block;
+    }
+    #SubmitTournament[b-f125tma3dt] {
+        width: 90%;
+        justify-content: center;
     }
 }
 
@@ -310,10 +328,19 @@ input[type="text"][b-f125tma3dt], input[type="datetime"][b-f125tma3dt], select[b
 }
 
 @media only screen and (max-width: 768px) {
+    .Input1[b-f125tma3dt] {
+        margin: 0;
+        width: 80%;
+        justify-content: center;
+    }
     .PushCategory[b-f125tma3dt] {
-        width: 100%;
-        margin-left: 0;
+        width: 80%;
+        justify-content: center;
         margin-top: 20px;
+    }
+    #SubmitTournament[b-f125tma3dt] {
+        width: 90%;
+        justify-content: center;
     }
 }
 
@@ -326,8 +353,17 @@ input[type="text"][b-f125tma3dt], input[type="datetime"][b-f125tma3dt], select[b
 }
 
 @media only screen and (max-width: 768px) {
+    .Input1[b-f125tma3dt] {
+        margin: 0;
+        width: 80%;
+        justify-content: center;
+    }
     .Flex1[b-f125tma3dt], .Flex2[b-f125tma3dt] {
         width: 100%;
+    }
+    #SubmitTournament[b-f125tma3dt] {
+        width: 90%;
+        justify-content: center;
     }
 }
 
@@ -337,14 +373,51 @@ input[type="text"][b-f125tma3dt], input[type="datetime"][b-f125tma3dt], select[b
 }
 
 @media only screen and (max-width: 768px) {
+    .PushCategory[b-f125tma3dt]{
+        margin-top: 0;
+        margin-left: 10%;
+    }
+    .InputLabels1[b-f125tma3dt] {
+        margin-right: 5%;
+    }
+    #TournamentLocation[b-f125tma3dt]{
+        padding-top: 8%;
+    }
+    .Input1[b-f125tma3dt] {
+        margin-left: 10%;
+        width: 80%;
+        justify-content: center;
+    }
+    .Input2[b-f125tma3dt] {
+        margin-left: 10%;
+        width: 80%;
+        justify-content: center;
+    }
+    .TypeCombo[b-f125tma3dt] {
+        margin-left: 10%;
+        width: 80%;
+        justify-content: center;
+    }
     .InputCategory2[b-f125tma3dt] {
-        width: 100%;
-        margin-left: 0;
+        width: 80%;
+        justify-content: center;
+    }
+    #SubmitTournament[b-f125tma3dt] {
+        margin-top: 10%;
+        width: 90%;
+        justify-content: center;
     }
 }
 
 .CategoryDiv[b-f125tma3dt] {
     padding-bottom: 3%;
+}
+
+#SubmitTournament[b-f125tma3dt] {
+    width: 75%;
+    margin-top: 2%;
+    margin-left: 12.5%;
+    font-size: 20px;
 }
 /* _content/JukskeiGenesis/Shared/NewFontEnd/Login.razor.rz.scp.css */
 .content[b-1lpdv3nc53] {
