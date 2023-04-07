@@ -1,6 +1,5 @@
 ﻿@page "/CreateTournement"
 @using DAL
-@inject IJSRuntime JSRuntime
 @inject NavigationManager navigationManager
 
 <body>
@@ -19,7 +18,7 @@
                 <br />
 
                 <label class="InputLabels1 DateBoxes" id="TournamentStartDate">Start Date</label>
-                <input name="TournamentStartDate" class="Input1" type="date" @bind="TStartDate" @oninput="@((args) => { TStartDate = Convert.ToDateTime(args.Value); EndDate(); })" />
+                <input name="TournamentStartDate" class="Input1 DateBoxes" id="StartDate" type="date" @bind="TStartDate" @oninput="@((args) => { TStartDate = Convert.ToDateTime(args.Value); EndDate(); })" />
 
                 <br />
 
@@ -40,8 +39,8 @@
 
                 <br />
 
-                <label class="InputLabels2 DateBoxes" id="TournamentEndDate">End Date</label>
-                <input name="TournamentEndDate" class="Input2" type="date" @bind="_tournamentEndDate" readonly />
+                <label class="InputLabels2" id="TournamentEndDate">End Date</label>
+                <input name="TournamentEndDate" id="EndDate" class="Input2 DateBoxes" type="date" @bind="_tournamentEndDate" readonly />
 
                 <br />
             </div>
@@ -64,12 +63,12 @@
 @code {
     public string Tname;
     public string Taddress;
-    public DateTime TStartDate;
+    public DateTime TStartDate = DateTime.Now;
     public string Tlocation;
     public string TournamentTypeValue;
     public string tCatogory;
     public List<string> Tcategories = new List<string>();
-    private DateTime _tournamentEndDate;
+    private DateTime _tournamentEndDate = DateTime.Now;
 
     public DateTime TournamentEndDate
     {
@@ -111,6 +110,13 @@
         }
     }
 
+    private string Validation()
+    {
+
+
+        return "";
+    }
+
     private void btnPushCategory()
     {
         string empty = string.Empty;
@@ -122,10 +128,25 @@
         tCatogory = empty;
     }
 
+    [Inject] protected IJSRuntime JsRuntime { get; set; }
+
+    public async Task ShowAlert(string message)
+    {
+        await JsRuntime.InvokeVoidAsync("alert", message);
+    }
+
     private void SubmitTournament()
     {
-        DatabaseProcessor dbProcessor = new DatabaseProcessor();
-        dbProcessor.CreateNewTournament(Tname, Tlocation, Taddress, TStartDate, TournamentEndDate, TournamentTypeValue, Tcategories);
-        navigationManager.NavigateTo("/");
+        if (Validation() == "")
+        {
+            DatabaseProcessor dbProcessor = new DatabaseProcessor();
+            dbProcessor.CreateNewTournament(Tname, Tlocation, Taddress, TStartDate, TournamentEndDate, TournamentTypeValue, Tcategories);
+            navigationManager.NavigateTo("/");
+        }
+        else
+        {
+            string message = Validation();
+            ShowAlert(message);
+        }
     }
 }

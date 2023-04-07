@@ -31,6 +31,9 @@ Select
 From 
 	Tournaments
 
+	delete Tournaments
+	where Tournament_Id in (5, 6, 7)
+
 
 INSERT INTO 
 	Tournaments (Tournament_Name, Tournament_Location, Tournament_Address, Tournament_Type, Tournament_Start_Date, Tournament_End_Date, Tournament_Extension, IsActive)
@@ -56,6 +59,11 @@ Create Table
 	--Creating The Players Table.
 	--The Players Table will have a One to Many relationsthip with Teams.
 	--Players can have one team where teams can have multiple players.
+
+	select * From Categories
+
+	delete Categories
+	where Tournament_Id in (5, 6, 7)
 	
 Use
 	JukskeiDatabase

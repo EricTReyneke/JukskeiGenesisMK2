@@ -43,26 +43,21 @@
         }
     }
 
-    function EndDate() {
-        var startDate = document.getElementById("TournamentEndDate");
-        var endDate = document.getElementById("TournamentType");
-        var type = document.getElementById("TournamentStartDate");
-        const dateStartDate = new Date(startDate.value);
-        const dateEndDate = new Date(startDate.value);
-
-        switch (type) {
-            case "Day":
-                dateEndDate.setDate(dateStartDate.getDate());
-                endDate.value = dateEndDate;
-                break;
-            case "Week":
-                dateEndDate.setDate(dateStartDate.getDate() + 4);
-                endDate.value = dateEndDate;
-                break;
-            case "League":
-                dateEndDate.setDate(dateStartDate.getDate() + 14);
-                endDate.value = dateEndDate;
-                break;
+    function CurrentDateForInput(string categoryName){
+        var categoryNameTrue = document.getElementById("TeamCategories");
+        
+        var teamName = document.getElementById("TeamName");
+        if(categoryName == ""){
+            alert("Please select a Category for the team.");
+            return;
+        } else if (teamName == ""){
+            alert("Please enter the team name.");
         }
+
+        var categoryTable = document.getElementById(`Table_${categoryName}`);
+        
+        var newRow = categoryTable.insertRow(-1);
+
+        newRow.value = categoryName;
     }
 </script>

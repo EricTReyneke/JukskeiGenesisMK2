@@ -1,13 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Core;
-using NPOI.OpenXmlFormats.Dml;
-using NPOI.SS.Formula.Functions;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Net.PeerToPeer;
-using static NPOI.HSSF.Util.HSSFColor;
 
 namespace DAL
 {
@@ -102,10 +95,15 @@ namespace DAL
             return newTournament.Tournament_Id;
         }
 
+        //public int GetTournamentId()
+        //{
 
-        public void AddCatogoriesToTournament()
+        //}
+
+        public List<string> GetCategories(int tournamentId)
         {
-            
+            List<string> Lekker = _jukskeiDB.Categories.Where(c => c.Tournament_Id == tournamentId).Select(c => c.Category_Name).ToList();
+            return Lekker;
         }
 
         #endregion

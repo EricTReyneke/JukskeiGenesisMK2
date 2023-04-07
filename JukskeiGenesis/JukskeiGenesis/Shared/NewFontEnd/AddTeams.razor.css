@@ -1,0 +1,35 @@
+.FlexHouseInputs{
+    display: flex;
+    margin-left: 25%;
+    margin-top: 2%;
+}
+
+.InputBoxes {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    width: 100%;
+}
+
+.Labels{
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+.TeamNameInputs {
+    padding-right: 3%;
+}
+
+.PlayerNamesInputs {
+    padding-right: 3%;
+}
+
+
+.FlexHouseTables{
+    display: flex;
+    margin-top: 1%;
+}
+

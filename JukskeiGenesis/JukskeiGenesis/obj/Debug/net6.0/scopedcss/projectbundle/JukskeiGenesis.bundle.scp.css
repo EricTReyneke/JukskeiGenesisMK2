@@ -219,6 +219,42 @@ main[b-5d7wnptdl5] {
     border-width: 1px;
     border-color: royalblue;
 }
+/* _content/JukskeiGenesis/Shared/NewFontEnd/AddTeams.razor.rz.scp.css */
+.FlexHouseInputs[b-ntsosrplt5]{
+    display: flex;
+    margin-left: 25%;
+    margin-top: 2%;
+}
+
+.InputBoxes[b-ntsosrplt5] {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    width: 100%;
+}
+
+.Labels[b-ntsosrplt5]{
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+.TeamNameInputs[b-ntsosrplt5] {
+    padding-right: 3%;
+}
+
+.PlayerNamesInputs[b-ntsosrplt5] {
+    padding-right: 3%;
+}
+
+
+.FlexHouseTables[b-ntsosrplt5]{
+    display: flex;
+    margin-top: 1%;
+}
+
 /* _content/JukskeiGenesis/Shared/NewFontEnd/CreateTournament.razor.rz.scp.css */
 .FormBody[b-f125tma3dt] {
     position: relative;
@@ -291,6 +327,11 @@ main[b-5d7wnptdl5] {
     width: 80%;
     margin-left: 5%;
     padding: 12.2px;
+}
+
+.DateBoxes[b-f125tma3dt]{
+    border-color: lightgrey;
+    border-width: 1px;
 }
 
 .Input1[b-f125tma3dt] {
@@ -418,6 +459,10 @@ input[type="text"][b-f125tma3dt], input[type="datetime"][b-f125tma3dt], select[b
     margin-top: 2%;
     margin-left: 12.5%;
     font-size: 20px;
+}
+
+#EndDate[b-f125tma3dt] {
+    background-color: #f4f4f4;
 }
 /* _content/JukskeiGenesis/Shared/NewFontEnd/Login.razor.rz.scp.css */
 .content[b-1lpdv3nc53] {
