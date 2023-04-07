@@ -31,5 +31,37 @@
 .FlexHouseTables[b-ntsosrplt5]{
     display: flex;
     margin-top: 1%;
+    justify-content: center;
 }
 
+.InnerTwo[b-ntsosrplt5] {
+    margin-left: 5%;
+}
+
+.InnerFinal[b-ntsosrplt5] {
+    justify-content: center;
+}
+
+table th[b-ntsosrplt5] {
+    background-color: #F7F7F7;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+}
+
+table tr[b-ntsosrplt5] {
+    border-bottom: 1px solid #ccc;
+}
+
+table td[b-ntsosrplt5] {
+    padding: 10px;
+}
+
+table tr:nth-child(odd)[b-ntsosrplt5] {
+    background-color: #F2F2F2;
+}
+
+table tr:nth-child(even)[b-ntsosrplt5] {
+    background-color: #E6E6E6;
+}

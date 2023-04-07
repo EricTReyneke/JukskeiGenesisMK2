@@ -43,21 +43,27 @@
         }
     }
 
-    function CurrentDateForInput(string categoryName){
-        var categoryNameTrue = document.getElementById("TeamCategories");
-        
-        var teamName = document.getElementById("TeamName");
-        if(categoryName == ""){
+    function CurrentDateForInput() {
+        var categoryNameTrue = document.getElementById("TeamCategories").value;
+        var teamName = document.getElementById("TeamName").value;
+
+        console.log(categoryNameTrue);
+        console.log(teamName);
+
+        if (categoryNameTrue == "EmptyOption") {
             alert("Please select a Category for the team.");
             return;
-        } else if (teamName == ""){
+        } else if (teamName == "") {
             alert("Please enter the team name.");
+            return;
         }
 
-        var categoryTable = document.getElementById(`Table_${categoryName}`);
-        
+        var categoryTable = document.getElementById(`Table_${categoryNameTrue}`);
+
         var newRow = categoryTable.insertRow(-1);
 
-        newRow.value = categoryName;
+        var cell = newRow.insertCell(0);
+
+        cell.textContent = teamName;
     }
 </script>

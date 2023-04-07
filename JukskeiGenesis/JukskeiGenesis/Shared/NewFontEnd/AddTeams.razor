@@ -2,10 +2,14 @@
 @using DAL
 @inject IJSRuntime JS
 
+@{
+    List<string> categories = dbProcessor.GetCategories(8);
+}
+
 <div class="FlexHouseInputs">
     <div class="TeamNameInputs">
         <label type="text" class="Labels">Team Name</label>
-        <input type="text" placeholder="Kopersbond" class="InputBoxes" id="TeamName"/>
+        <input type="text" placeholder="Kopersbond" class="InputBoxes" id="TeamName" />
     </div>
 
     <div class="PlayerNamesInputs">
@@ -20,74 +24,72 @@
     <div class="TeamCategoryInputs">
         <label type="text" class="Labels">Team Category</label>
         <select name="TypeCombo" id="TeamCategories" class="InputBoxes">
-             <option value="EmptyOption">Please select a Category</option>
-            @foreach (var category in dbProcessor.GetCategories(8))
+            <option value="EmptyOption">Please select a Category</option>
+            @foreach (var category in categories)
             {
                 <option value="@category">@category</option>
             }
         </select>
     </div>
 
-    <input type="submit" value="Push Team" class="Buttons" @onclick="AddNewTeam" />
+    <input type="button" value="Push Team" class="Buttons" @onclick="AddNewTeam" />
 </div>
 
 <div class="FlexHouseTables">
-    @foreach (var category in dbProcessor.GetCategories(8))
-    {
-        @if (counter != dbProcessor.GetCategories(8).Count - 1)
-        {
-            @if ((counter == 0 || counter % 2 == 0) && counter != 1)
-            {
-                <div class="InnerOne">
-                    <table id="Table_@category">
-                        <tr>
-                            <th>@category</th>
-                        </tr>
-                    </table>
-                </div>
-            }
-            else
-            {
-                <div class="InnerTwo">
-                    <table id="Table_@counter">
-                        <tr>
-                            <th>@category</th>
-                        </tr>
-                    </table>
-                </div>
-            }
+    <div class="InnerOne">
+        @{
+            counter = 0;
         }
-        else
+        @foreach (var category in categories)
         {
-            <div class="InnerFinal">
+            @if ((counter == 0 || counter % 2 == 0) && counter != categories.Count - 1)
+            {
+
                 <table id="Table_@category">
                     <tr>
                         <th>@category</th>
                     </tr>
                 </table>
-            </div>
+
+            }
+            counter++;
         }
-        counter++;
-    }
+    </div>
+    <div class="InnerTwo">
+        @{
+            counter = 0;
+        }
+        @foreach (var category in categories)
+        {
+            if ((counter != 0 || counter % 2 != 0) && counter != categories.Count - 1)
+            {
+                <table id="Table_@category">
+                    <tr>
+                        <th>@category</th>
+                    </tr>
+                </table>
+            }
+
+            counter++;
+        }
+    </div>
+</div>
+
+<div class="InnerFinal">
+    <table id="Table_@categories[categories.Count - 1]">
+        <tr>
+            <th>@categories[categories.Count - 1]</th>
+        </tr>
+    </table>
 </div>
 
 
 @code {
     DatabaseProcessor dbProcessor = new DatabaseProcessor();
-    int counter = 1;
-    List<string> categoryNames = new List<string>();
-    string categoryName;
+    int counter = 0;
 
-    private async void AddNewTeam()
+    private async Task AddNewTeam()
     {
-        await JS.InvokeAsync<string>("CurrentDateForInput", GetCategoryNames());
-    }
-
-    private string GetCategoryNames()
-    {
-        if (categoryName == null)
-            return "";
-        else
-            return categoryName;
+        await JS.InvokeAsync<string>("CurrentDateForInput");
     }
 }
