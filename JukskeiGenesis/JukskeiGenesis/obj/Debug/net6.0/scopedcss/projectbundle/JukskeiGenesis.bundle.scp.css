@@ -222,7 +222,7 @@ main[b-5d7wnptdl5] {
 /* _content/JukskeiGenesis/Shared/NewFontEnd/AddTeams.razor.rz.scp.css */
 .FlexHouseInputs[b-ntsosrplt5]{
     display: flex;
-    margin-left: 25%;
+    margin-left: 20%;
     margin-top: 2%;
 }
 
@@ -250,43 +250,82 @@ main[b-5d7wnptdl5] {
 }
 
 
-.FlexHouseTables[b-ntsosrplt5]{
+.FlexHouseTables[b-ntsosrplt5] {
+    margin-top: 2%;
     display: flex;
-    margin-top: 1%;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.InnerTwo[b-ntsosrplt5] {
-    margin-left: 5%;
+.InnerOne[b-ntsosrplt5], .InnerTwo[b-ntsosrplt5] {
+    flex-basis: 45%;
 }
+
+.Tables[b-ntsosrplt5] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 1px solid lightgrey;
+}
+
+    .Tables th[b-ntsosrplt5] {
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid lightgrey;
+    }
+
+    .Tables td[b-ntsosrplt5] {
+        text-align: center;
+        font-size: 16px;
+        padding: 10px;
+        border-bottom: 1px solid lightgrey;
+    }
 
 .InnerFinal[b-ntsosrplt5] {
-    justify-content: center;
+    width: 100%;
+    text-align: center;
 }
 
-table th[b-ntsosrplt5] {
-    background-color: #F7F7F7;
-    color: #333;
+    .InnerFinal .Tables[b-ntsosrplt5] {
+        margin-bottom: 0;
+        border: 1px solid lightgrey;
+    }
+
+        .InnerFinal .Tables th[b-ntsosrplt5] {
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid lightgrey;
+        }
+
+
+
+.Buttons[b-ntsosrplt5] {
+    display: block !important;
+    margin-left: 1%;
+    margin-top: 1%;
+    height: 1%;
+    width: 15%;
+    padding: 10px 20px;
+    font-size: 16px;
     font-weight: bold;
-    padding: 10px;
-    text-align: left;
+    text-align: center;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-table tr[b-ntsosrplt5] {
-    border-bottom: 1px solid #ccc;
-}
+    .Buttons:hover[b-ntsosrplt5] {
+        background-color: #3e8e41;
+    }
 
-table td[b-ntsosrplt5] {
-    padding: 10px;
-}
-
-table tr:nth-child(odd)[b-ntsosrplt5] {
-    background-color: #F2F2F2;
-}
-
-table tr:nth-child(even)[b-ntsosrplt5] {
-    background-color: #E6E6E6;
-}
+    .Buttons:active[b-ntsosrplt5] {
+        background-color: #e7e7e7;
+        color: #000;
+    }
 /* _content/JukskeiGenesis/Shared/NewFontEnd/CreateTournament.razor.rz.scp.css */
 .FormBody[b-f125tma3dt] {
     position: relative;
