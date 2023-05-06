@@ -1,10 +1,10 @@
-.FlexHouseInputs[b-ntsosrplt5]{
+/*.FlexHouseInputs{
     display: flex;
     margin-left: 20%;
     margin-top: 2%;
 }
 
-.InputBoxes[b-ntsosrplt5] {
+.InputBoxes {
     display: block;
     font-size: 18px;
     font-weight: bold;
@@ -13,71 +13,71 @@
     width: 100%;
 }
 
-.Labels[b-ntsosrplt5]{
+.Labels{
     justify-content: center;
     width: 100%;
     text-align: center;
 }
 
-.TeamNameInputs[b-ntsosrplt5] {
+.TeamNameInputs {
     padding-right: 3%;
 }
 
-.PlayerNamesInputs[b-ntsosrplt5] {
+.PlayerNamesInputs {
     padding-right: 3%;
 }
 
 
-.FlexHouseTables[b-ntsosrplt5] {
+.FlexHouseTables {
     margin-top: 2%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.InnerOne[b-ntsosrplt5], .InnerTwo[b-ntsosrplt5] {
+.InnerOne, .InnerTwo {
     flex-basis: 45%;
 }
 
-.Tables[b-ntsosrplt5] {
+.Tables {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
     border: 1px solid lightgrey;
 }
 
-    .Tables th[b-ntsosrplt5] {
+    .Tables th {
         font-weight: bold;
         padding: 10px;
         text-align: center;
         border-bottom: 1px solid lightgrey;
     }
 
-    .Tables td[b-ntsosrplt5] {
+    .Tables td {
         text-align: center;
         font-size: 16px;
         padding: 10px;
         border-bottom: 1px solid lightgrey;
     }
 
-.InnerFinal[b-ntsosrplt5] {
+.InnerFinal {
     width: 100%;
     text-align: center;
 }
 
-    .InnerFinal .Tables[b-ntsosrplt5] {
+    .InnerFinal .Tables {
         margin-bottom: 0;
         border: 1px solid lightgrey;
     }
 
-        .InnerFinal .Tables th[b-ntsosrplt5] {
+        .InnerFinal .Tables th {
             font-weight: bold;
             padding: 10px;
             text-align: center;
             border-bottom: 1px solid lightgrey;
         }
 
-
+    -------------------------------------------------------------------*/
 
 .Buttons[b-ntsosrplt5] {
     display: block !important;
@@ -104,3 +104,89 @@
         background-color: #e7e7e7;
         color: #000;
     }
+
+.FormBody[b-ntsosrplt5] {
+    position: relative;
+    margin: 15vh auto;
+    box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
+    width: 80%;
+    border-radius: 50px;
+    padding: 20px;
+}
+
+.FlexHouseInputs[b-ntsosrplt5] {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.TeamNameInputs[b-ntsosrplt5],
+.PlayerNamesInputs[b-ntsosrplt5],
+.TeamCategoryInputs[b-ntsosrplt5] {
+    flex-basis: 30%;
+}
+
+.Labels[b-ntsosrplt5] {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.InputBoxes[b-ntsosrplt5] {
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+}
+
+.Buttons[b-ntsosrplt5] {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+
+    .Buttons:hover[b-ntsosrplt5] {
+        background-color: #45a049;
+    }
+
+.FlexHouseTables[b-ntsosrplt5] {
+    display: flex;
+    justify-content: space-between;
+}
+
+.InnerOne[b-ntsosrplt5],
+.InnerTwo[b-ntsosrplt5] {
+    flex-basis: 45%;
+}
+
+.InnerFinal[b-ntsosrplt5] {
+    flex-basis: 100%;
+    margin-top: 20px;
+}
+
+.Tables[b-ntsosrplt5] {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    .Tables th[b-ntsosrplt5] {
+        background-color: #f2f2f2;
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+/*---------------------------------------------------------------------*/
+
+

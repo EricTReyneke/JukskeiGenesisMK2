@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\JukskeiGenesis",
+    "\\JukskeiGenesis\\DAL",
+    "\\JukskeiGenesis\\JukskeiGenesis\\Pages",
+    "\\JukskeiGenesis\\Models"
   ],
-  "SelectedNode": "\\JukskeiGenesis.sln",
+  "SelectedNode": "\\JukskeiGenesis\\JukskeiGenesis.sln",
   "PreviewInSolutionExplorer": false
 }

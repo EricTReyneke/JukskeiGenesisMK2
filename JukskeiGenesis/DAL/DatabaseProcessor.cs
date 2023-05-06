@@ -7,7 +7,8 @@ namespace DAL
     public class DatabaseProcessor
     {
         #region Rroperties
-        private readonly JukskeiDatabaseEntities _jukskeiDB = new JukskeiDatabaseEntities();
+        //private readonly JukskeiDatabaseEntities _jukskeiDB = new JukskeiDatabaseEntities();
+        private readonly JukskeiDatabaseEntities1 _jukskeiDB = new JukskeiDatabaseEntities1();
         #endregion
 
         #region Public Methods
@@ -25,6 +26,49 @@ namespace DAL
             return tournamentList;
         }
 
+        //public IEnumerable<(string First, string Second)> ListMatches(List<string> teams)
+        //{
+        //    var matches = new List<(string, string)>();
+        //    if (teams == null || teams.Count < 2)
+        //    {
+        //        return matches;
+        //    }
+
+        //    if (teams.Count % 2 != 0)
+        //    {
+        //        teams.Add("Bye");
+        //    }
+
+        //    string[] ShuffleString = teams.ToArray();
+
+        //    Shuffle(ShuffleString);
+
+        //    List<string> ShuffledList = ShuffleString.ToList();
+
+        //    var restTeams = new List<string>(ShuffledList.Skip(1));
+        //    var teamsCount = ShuffledList.Count;
+
+        //    for (var day = 0; day < teamsCount - 1; day++)
+        //    {
+        //        if (restTeams[day % restTeams.Count]?.Equals(default) == false)
+        //        {
+        //            matches.Add((ShuffledList[0], restTeams[day % restTeams.Count]));
+        //        }
+
+        //        for (var index = 1; index < teamsCount / 2; index++)
+        //        {
+        //            var firstTeam = restTeams[(day + index) % restTeams.Count];
+        //            var secondTeam = restTeams[(day + restTeams.Count - index) % restTeams.Count];
+        //            if (firstTeam?.Equals(default) == false && secondTeam?.Equals(default) == false)
+        //            {
+        //                matches.Add((firstTeam, secondTeam));
+        //            }
+        //        }
+        //    }
+
+        //    return matches;
+        //}
+
         public IEnumerable<(string First, string Second)> ListMatches(List<string> teams)
         {
             var matches = new List<(string, string)>();
@@ -38,11 +82,8 @@ namespace DAL
                 teams.Add("Bye");
             }
 
-            string[] ShuffleString = teams.ToArray();
-
-            Shuffle(ShuffleString);
-
-            List<string> ShuffledList = ShuffleString.ToList();
+            // Removed the shuffle step
+            List<string> ShuffledList = teams;
 
             var restTeams = new List<string>(ShuffledList.Skip(1));
             var teamsCount = ShuffledList.Count;
@@ -67,6 +108,7 @@ namespace DAL
 
             return matches;
         }
+
 
         public int CreateNewTournament(string touryName, string tournyLocation, string tournyStreet, DateTime startDate,
                                        DateTime endDate, string tournyType, List<string> tournyCategory)
@@ -100,10 +142,14 @@ namespace DAL
 
         //}
 
-        public List<string> GetCategories(int tournamentId)
+        public List<Category> GetCategories(int tournamentId)
         {
-            List<string> Lekker = _jukskeiDB.Categories.Where(c => c.Tournament_Id == tournamentId).Select(c => c.Category_Name).ToList();
-            return Lekker;
+            return _jukskeiDB.Categories.Where(c => c.Tournament_Id == tournamentId).ToList();
+        }
+
+        public List<Team> GetTeams(int Category_Id)
+        {
+            return _jukskeiDB.Teams.Where(t => t.Category_Id == Category_Id).ToList();
         }
 
         #endregion

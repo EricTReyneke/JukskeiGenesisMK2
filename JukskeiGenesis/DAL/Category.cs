@@ -18,6 +18,7 @@ namespace DAL
         public Category()
         {
             this.Rosters = new HashSet<Roster>();
+            this.Teams = new HashSet<Team>();
         }
     
         public int Category_Id { get; set; }
@@ -27,5 +28,7 @@ namespace DAL
         public virtual Tournament Tournament { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Roster> Rosters { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Team> Teams { get; set; }
     }
 }

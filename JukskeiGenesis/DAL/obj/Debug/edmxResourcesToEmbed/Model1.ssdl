@@ -4,72 +4,72 @@
     <Key>
       <PropertyRef Name="Category_Id" />
     </Key>
-    <Property Name="Category_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Category_Name" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="Tournament_Id" Type="int" Nullable="false" />
+    <Property Name="Category_Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Category_Name" Nullable="false" MaxLength="20" Type="varchar" />
+    <Property Name="Tournament_Id" Nullable="false" Type="int" />
   </EntityType>
   <EntityType Name="Clients_Admin">
     <Key>
       <PropertyRef Name="Client_Admin_Id" />
     </Key>
-    <Property Name="Client_Admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Client_Admin_UserName" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Client_Admin_Name" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="Client_Admin_SurName" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="Client_Admin_Email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Client_Admin_Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Client_Admin_UserName" Nullable="false" MaxLength="30" Type="varchar" />
+    <Property Name="Client_Admin_Name" Nullable="false" MaxLength="20" Type="varchar" />
+    <Property Name="Client_Admin_SurName" Nullable="false" MaxLength="20" Type="varchar" />
+    <Property Name="Client_Admin_Email" Nullable="false" MaxLength="30" Type="varchar" />
   </EntityType>
   <EntityType Name="Payments">
     <Key>
       <PropertyRef Name="Payment_Id" />
     </Key>
-    <Property Name="Payment_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Payment_Amount" Type="money" Nullable="false" />
+    <Property Name="Payment_Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Payment_Amount" Nullable="false" Type="money" />
     <Property Name="Outstanding_balance" Type="money" />
-    <Property Name="Payment_Date" Type="date" Nullable="false" />
-    <Property Name="Client_Admin_Id" Type="int" Nullable="false" />
-    <Property Name="Tournament_Id" Type="int" Nullable="false" />
+    <Property Name="Payment_Date" Nullable="false" Type="date" />
+    <Property Name="Client_Admin_Id" Nullable="false" Type="int" />
+    <Property Name="Tournament_Id" Nullable="false" Type="int" />
   </EntityType>
   <EntityType Name="Players">
     <Key>
       <PropertyRef Name="Player_Id" />
     </Key>
-    <Property Name="Player_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Player_Name" Type="varchar" MaxLength="20" />
-    <Property Name="Team_Id" Type="int" Nullable="false" />
+    <Property Name="Player_Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Player_Name" MaxLength="20" Type="varchar" />
+    <Property Name="Team_Id" Nullable="false" Type="int" />
   </EntityType>
   <EntityType Name="Rosters">
     <Key>
       <PropertyRef Name="Roster_Id" />
     </Key>
-    <Property Name="Roster_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Team_Id" Type="int" Nullable="false" />
-    <Property Name="Tournament_Id" Type="int" Nullable="false" />
-    <Property Name="Category_Id" Type="int" Nullable="false" />
+    <Property Name="Roster_Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Team_Id" Nullable="false" Type="int" />
+    <Property Name="Tournament_Id" Nullable="false" Type="int" />
+    <Property Name="Category_Id" Nullable="false" Type="int" />
   </EntityType>
   <EntityType Name="Teams">
     <Key>
       <PropertyRef Name="Team_Id" />
     </Key>
-    <Property Name="Team_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Team_Name" Type="varchar" MaxLength="20" />
+    <Property Name="Team_Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Team_Name" MaxLength="20" Type="varchar" />
   </EntityType>
   <EntityType Name="Tournaments">
     <Key>
       <PropertyRef Name="Tournament_Id" />
     </Key>
-    <Property Name="Tournament_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Tournament_Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Tournament_Location" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Tournament_Address" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Tournament_Type" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="Tournament_Start_Date" Type="date" Nullable="false" />
-    <Property Name="Tournament_End_Date" Type="date" Nullable="false" />
+    <Property Name="Tournament_Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Tournament_Name" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Tournament_Location" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Tournament_Address" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Tournament_Type" Nullable="false" MaxLength="20" Type="varchar" />
+    <Property Name="Tournament_Start_Date" Nullable="false" Type="date" />
+    <Property Name="Tournament_End_Date" Nullable="false" Type="date" />
     <Property Name="Tournament_Extension" Type="int" />
-    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Nullable="false" Type="bit" />
   </EntityType>
   <Association Name="FK__Categorie__Tourn__6D0D32F4">
-    <End Role="Tournaments" Type="Self.Tournaments" Multiplicity="1" />
-    <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+    <End Type="Self.Tournaments" Multiplicity="1" Role="Tournaments" />
+    <End Type="Self.Categories" Multiplicity="*" Role="Categories" />
     <ReferentialConstraint>
       <Principal Role="Tournaments">
         <PropertyRef Name="Tournament_Id" />
@@ -80,8 +80,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Payments__Client__693CA210">
-    <End Role="Clients_Admin" Type="Self.Clients_Admin" Multiplicity="1" />
-    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <End Type="Self.Clients_Admin" Multiplicity="1" Role="Clients_Admin" />
+    <End Type="Self.Payments" Multiplicity="*" Role="Payments" />
     <ReferentialConstraint>
       <Principal Role="Clients_Admin">
         <PropertyRef Name="Client_Admin_Id" />
@@ -92,8 +92,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Payments__Tourna__6A30C649">
-    <End Role="Tournaments" Type="Self.Tournaments" Multiplicity="1" />
-    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <End Type="Self.Tournaments" Multiplicity="1" Role="Tournaments" />
+    <End Type="Self.Payments" Multiplicity="*" Role="Payments" />
     <ReferentialConstraint>
       <Principal Role="Tournaments">
         <PropertyRef Name="Tournament_Id" />
@@ -104,8 +104,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Players__Team_Id__3C69FB99">
-    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
-    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <End Type="Self.Teams" Multiplicity="1" Role="Teams" />
+    <End Type="Self.Players" Multiplicity="*" Role="Players" />
     <ReferentialConstraint>
       <Principal Role="Teams">
         <PropertyRef Name="Team_Id" />
@@ -116,8 +116,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Rosters__Categor__71D1E811">
-    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
-    <End Role="Rosters" Type="Self.Rosters" Multiplicity="*" />
+    <End Type="Self.Categories" Multiplicity="1" Role="Categories" />
+    <End Type="Self.Rosters" Multiplicity="*" Role="Rosters" />
     <ReferentialConstraint>
       <Principal Role="Categories">
         <PropertyRef Name="Category_Id" />
@@ -128,8 +128,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Rosters__Team_Id__6FE99F9F">
-    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
-    <End Role="Rosters" Type="Self.Rosters" Multiplicity="*" />
+    <End Type="Self.Teams" Multiplicity="1" Role="Teams" />
+    <End Type="Self.Rosters" Multiplicity="*" Role="Rosters" />
     <ReferentialConstraint>
       <Principal Role="Teams">
         <PropertyRef Name="Team_Id" />
@@ -140,8 +140,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Rosters__Tournam__70DDC3D8">
-    <End Role="Tournaments" Type="Self.Tournaments" Multiplicity="1" />
-    <End Role="Rosters" Type="Self.Rosters" Multiplicity="*" />
+    <End Type="Self.Tournaments" Multiplicity="1" Role="Tournaments" />
+    <End Type="Self.Rosters" Multiplicity="*" Role="Rosters" />
     <ReferentialConstraint>
       <Principal Role="Tournaments">
         <PropertyRef Name="Tournament_Id" />
@@ -160,32 +160,32 @@
     <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tournaments" EntityType="Self.Tournaments" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Categorie__Tourn__6D0D32F4" Association="Self.FK__Categorie__Tourn__6D0D32F4">
-      <End Role="Tournaments" EntitySet="Tournaments" />
-      <End Role="Categories" EntitySet="Categories" />
+      <End EntitySet="Tournaments" Role="Tournaments" />
+      <End EntitySet="Categories" Role="Categories" />
     </AssociationSet>
     <AssociationSet Name="FK__Payments__Client__693CA210" Association="Self.FK__Payments__Client__693CA210">
-      <End Role="Clients_Admin" EntitySet="Clients_Admin" />
-      <End Role="Payments" EntitySet="Payments" />
+      <End EntitySet="Clients_Admin" Role="Clients_Admin" />
+      <End EntitySet="Payments" Role="Payments" />
     </AssociationSet>
     <AssociationSet Name="FK__Payments__Tourna__6A30C649" Association="Self.FK__Payments__Tourna__6A30C649">
-      <End Role="Tournaments" EntitySet="Tournaments" />
-      <End Role="Payments" EntitySet="Payments" />
+      <End EntitySet="Tournaments" Role="Tournaments" />
+      <End EntitySet="Payments" Role="Payments" />
     </AssociationSet>
     <AssociationSet Name="FK__Players__Team_Id__3C69FB99" Association="Self.FK__Players__Team_Id__3C69FB99">
-      <End Role="Teams" EntitySet="Teams" />
-      <End Role="Players" EntitySet="Players" />
+      <End EntitySet="Teams" Role="Teams" />
+      <End EntitySet="Players" Role="Players" />
     </AssociationSet>
     <AssociationSet Name="FK__Rosters__Categor__71D1E811" Association="Self.FK__Rosters__Categor__71D1E811">
-      <End Role="Categories" EntitySet="Categories" />
-      <End Role="Rosters" EntitySet="Rosters" />
+      <End EntitySet="Categories" Role="Categories" />
+      <End EntitySet="Rosters" Role="Rosters" />
     </AssociationSet>
     <AssociationSet Name="FK__Rosters__Team_Id__6FE99F9F" Association="Self.FK__Rosters__Team_Id__6FE99F9F">
-      <End Role="Teams" EntitySet="Teams" />
-      <End Role="Rosters" EntitySet="Rosters" />
+      <End EntitySet="Teams" Role="Teams" />
+      <End EntitySet="Rosters" Role="Rosters" />
     </AssociationSet>
     <AssociationSet Name="FK__Rosters__Tournam__70DDC3D8" Association="Self.FK__Rosters__Tournam__70DDC3D8">
-      <End Role="Tournaments" EntitySet="Tournaments" />
-      <End Role="Rosters" EntitySet="Rosters" />
+      <End EntitySet="Tournaments" Role="Tournaments" />
+      <End EntitySet="Rosters" Role="Rosters" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

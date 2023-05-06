@@ -3,10 +3,15 @@
 @inject IJSRuntime JS
 
 @{
-    List<string> categories = dbProcessor.GetCategories(8);
+    List<Category> categoriesList = dbProcessor.GetCategories(2);
+    List<string> categories = new List<string>();
+    foreach (var category in categoriesList)
+    {
+        categories.Add(category.Category_Name);
+    }
 }
 
-<div class="FlexHouseInputs">
+@*<div class="FlexHouseInputs">
     <div class="TeamNameInputs">
         <label type="text" class="Labels">Team Name</label>
         <input type="text" placeholder="Kopersbond" class="InputBoxes" id="TeamName" />
@@ -81,8 +86,88 @@
             <th>@categories[categories.Count - 1]</th>
         </tr>
     </table>
-</div>
+</div>*@
 
+<body>
+    <div class="FormBody">
+        <div class="FlexHouseInputs">
+            <div class="TeamNameInputs">
+                <label type="text" class="Labels">Team Name</label>
+                <input type="text" placeholder="Kopersbond" class="InputBoxes" id="TeamName" />
+            </div>
+
+            <div class="PlayerNamesInputs">
+                <label type="text" class="Labels">Player Name</label>
+                <input type="text" placeholder="Gerrie Kotse" class="InputBoxes" />
+                <input type="text" placeholder="Johan Hanse" class="InputBoxes" />
+                <input type="text" placeholder="Jaco Groenewald" class="InputBoxes" />
+                <input type="text" placeholder="Tinus Barnard" class="InputBoxes" />
+                <input type="text" placeholder="Dan Swart" class="InputBoxes" />
+            </div>
+
+            <div class="TeamCategoryInputs">
+                <label type="text" class="Labels">Team Category</label>
+                <select name="TypeCombo" id="TeamCategories" class="InputBoxes">
+                    <option value="EmptyOption">Please select a Category</option>
+                    @foreach (var category in categories)
+                    {
+                        <option value="@category">@category</option>
+                    }
+                </select>
+            </div>
+
+            <button type="button" class="Buttons" @onclick="AddNewTeam">Push Team</button>
+        </div>
+
+        <div class="FlexHouseTables">
+            <div class="InnerOne">
+                @{
+                    counter = 0;
+                }
+                @foreach (var category in categories)
+                {
+                    @if ((counter == 0 || counter % 2 == 0) && counter != categories.Count - 1)
+                    {
+
+                        <table id="Table_@category" class="Tables">
+                            <tr>
+                                <th>@category</th>
+                            </tr>
+                        </table>
+
+                    }
+                    counter++;
+                }
+            </div>
+            <div class="InnerTwo">
+                @{
+                    counter = 0;
+                }
+                @foreach (var category in categories)
+                {
+                    if ((counter != 0 || counter % 2 != 0) && counter != categories.Count - 1)
+                    {
+                        <table id="Table_@category" class="Tables">
+                            <tr>
+                                <th>@category</th>
+                            </tr>
+                        </table>
+                    }
+
+                    counter++;
+                }
+            </div>
+        </div>
+
+        <div class="InnerFinal">
+            <table id="Table_@categories[categories.Count - 1]" class="Tables">
+                <tr>
+                    <th>@categories[categories.Count - 1]</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
 
 @code {
     DatabaseProcessor dbProcessor = new DatabaseProcessor();
