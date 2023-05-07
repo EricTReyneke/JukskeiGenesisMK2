@@ -6,56 +6,91 @@
     List<Tournament> tournaments = dbfunctions.GetTournaments();
     int counter = 0;
     int countAccordions = 1;
-
-    <div class="SearchParms">
-        <div class="SearchBox">
-            <input type="text" class="SeachTextBox" placeholder="Search Tournament Name.">
-        </div>
-
-        <div class="ActivityBox">
-            <select name="ComboBox" class="ComboTournies">
-                <option value="Upcoming" class="SelectCombo">Upcoming</option>
-                <option value="Active" class="SelectCombo">Active</option>
-                <option value="Past"class="SelectCombo">Past</option>
-            </select>
-        </div>
+}
+<div class="SearchParms">
+    <div class="SearchBox">
+        <input type="text" class="SeachTextBox" placeholder="Search Tournament Name.">
     </div>
 
-    <button type="submit" class="SearchButton">Search</button>
+    <div class="ActivityBox">
+        <select name="ComboBox" class="ComboTournies">
+            <option value="Upcoming" class="SelectCombo">Upcoming</option>
+            <option value="Active" class="SelectCombo">Active</option>
+            <option value="Past" class="SelectCombo">Past</option>
+        </select>
+    </div>
+</div>
 
-    foreach (var tournies in tournaments)
+<button type="submit" class="SearchButton">Search</button>
+
+@*//foreach (var tournies in tournaments)
+    //{
+    //    if (counter != 5)
+    //    {
+    //        <div class="accordion-body" id="Accordion-2">
+    //            <input type="submit" value="Details" class="TourDetails" />
+    //            <button class="AccordionButton" @onclick="() => AccordionClick()">
+    //                <div class="AccordionContent">
+    //                    <img />
+    //                </div>
+    //                <div class="AccordionContent">
+    //                    <h5><span class="TourHeading"> @tournies.Tournament_Name</span></h5>
+    //                    <p>@tournies.Tournament_Location</p>
+    //                </div>
+    //            </button>
+    //            <div class="PanelFlex">
+    //                <div class="PanelContent">
+    //                    <RosterComponent />
+    //                </div>
+    //                <div class="PanelContent">
+    //                    <RosterComponent />
+    //                </div>
+    //            </div>
+    //        </div>
+    //        counter++;
+    //        countAccordions++;
+    //    }
+    //    else
+    //    {
+    //        break;
+    //    }
+    //}*@
+
+@foreach (var tournies in tournaments)
+{
+    int i = counter;
+    if (i != 5)
     {
-        if (counter != 5)
-        {
-            <div class="accordion-body" id="Accordion-2">
-                <input type="submit" value="Details" class="TourDetails" />
-                <button class="AccordionButton" @onclick="() => AccordionClick()">
-                    <div class="AccordionContent">
-                        <img />
-                    </div>
-                    <div class="AccordionContent">
-                        <h5><span class="TourHeading"> @tournies.Tournament_Name</span></h5>
-                        <p>@tournies.Tournament_Location</p>
-                    </div>
-                </button>
-                <div class="PanelFlex">
-                    <div class="PanelContent">
-                        <RosterComponent />
-                    </div>
-                    <div class="PanelContent">
-                        <RosterComponent />
-                    </div>
+        <div class="accordion-body" id="@($"Accordion-{countAccordions}")">
+            <input type="submit" value="Details" class="TourDetails" />
+            <button class="AccordionButton @(IsAccordionActive[i] ? "active" : "")" @onclick="() => ToggleAccordion(i)">
+                <div class="AccordionContent">
+                    <img />
+                </div>
+                <div class="AccordionContent">
+                    <h5><span class="TourHeading"> @tournies.Tournament_Name</span></h5>
+                    <p>@tournies.Tournament_Location</p>
+                </div>
+            </button>
+            <div class="PanelFlex" style="max-height: @(IsAccordionActive[i] ? $"{GetPanelMaxHeight(i)}%" : "0");">
+                <div class="PanelContent">
+                    <RosterComponent />
+                </div>
+                <div class="PanelContent">
+                    <RosterComponent />
                 </div>
             </div>
-            counter++;
-            countAccordions++;
-        }
-        else
-        {
-            break;
-        }
+        </div>
+        counter++;
+        countAccordions++;
+    }
+    else
+    {
+        break;
     }
 }
+
+
 
 @code {
     private async void AccordionClick()
@@ -66,5 +101,17 @@
     private async void SearchParms()
     {
         await JS.InvokeAsync<string>("GetSearchParms");
+    }
+
+    private bool[] IsAccordionActive = new bool[5];
+
+    private void ToggleAccordion(int index)
+    {
+        IsAccordionActive[index] = !IsAccordionActive[index];
+    }
+
+    private int GetPanelMaxHeight(int index)
+    {
+        return IsAccordionActive[index] ? 100 : 0; // You can adjust the value '300' based on your panel content size
     }
 } 

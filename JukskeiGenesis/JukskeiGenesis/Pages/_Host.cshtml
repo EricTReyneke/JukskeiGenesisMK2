@@ -43,6 +43,45 @@
         }
     }
 
+    function setupAccordion() {
+        var acc = document.getElementsByClassName("AccordionButton");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                toggleAccordion(this);
+            });
+        }
+    }
+
+    function toggleAccordion(accordionElement) {
+        accordionElement.classList.toggle("active");
+        var panel = accordionElement.nextElementSibling;
+
+        console.log("Check check");
+
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+            panel.style.borderLeftWidth = "0px";
+            panel.style.borderRightWidth = "0px";
+            panel.style.borderBottomWidth = "0px";
+            panel.style.transition = "background-Top-color 0.5s ease";
+            panel.style.borderTopColor = "transparent";
+            panel.style.borderColor = "transparent";
+            panel.style.border = "colaps";
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            panel.style.borderLeftWidth = "1px";
+            panel.style.borderRightWidth = "1px";
+            panel.style.borderBottomWidth = "1px";
+            panel.style.border = "solid 1px lightgrey";
+        }
+    }
+
+    // Call setupAccordion() when the document is fully loaded
+    document.addEventListener("DOMContentLoaded", setupAccordion);
+
+
     function CurrentDateForInput() {
         var categoryNameTrue = document.getElementById("TeamCategories").value;
         var teamName = document.getElementById("TeamName").value;
