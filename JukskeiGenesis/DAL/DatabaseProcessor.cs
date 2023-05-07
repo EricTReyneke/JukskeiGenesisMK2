@@ -7,8 +7,8 @@ namespace DAL
     public class DatabaseProcessor
     {
         #region Rroperties
-        //private readonly JukskeiDatabaseEntities _jukskeiDB = new JukskeiDatabaseEntities();
-        private readonly JukskeiDatabaseEntities1 _jukskeiDB = new JukskeiDatabaseEntities1();
+        private readonly JukskeiDatabaseEntities _jukskeiDB = new JukskeiDatabaseEntities();
+        //private readonly JukskeiDatabaseEntities1 _jukskeiDB = new JukskeiDatabaseEntities1();
         #endregion
 
         #region Public Methods

@@ -45,7 +45,7 @@
                 <br />
 
                 <label class="InputLabels2" id="TournamentType">Tournament Duration</label>
-                <select name="TypeCombo" id="TournamentType" class="DurationCombo" @bind="_tournamentTypeValue" @oninput="@((args) => { _tournamentTypeValue = ((ChangeEventArgs)args).Value.ToString(); EndDate(); })">
+                <select name="TypeCombo" id="TournamentType" class="DurationCombo" @bind="_tournamentDurationValue" @oninput="@((args) => { _tournamentDurationValue = ((ChangeEventArgs)args).Value.ToString(); EndDate(); })">
                     <option value="Day">Day</option>
                     <option value="League">League</option>
                     <option value="Week">Week</option>
@@ -184,7 +184,7 @@
         try
         {
             DateTime endDate;
-            switch (_tournamentTypeValue)
+            switch (_tournamentDurationValue)
             {
                 case "Day":
                     endDate = _tStartDate;
