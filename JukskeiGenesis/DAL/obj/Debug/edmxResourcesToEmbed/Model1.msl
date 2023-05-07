@@ -64,6 +64,8 @@
     <EntitySetMapping Name="Tournaments">
       <EntityTypeMapping TypeName="JukskeiDatabaseModel.Tournament">
         <MappingFragment StoreEntitySet="Tournaments">
+          <ScalarProperty Name="Tournament_Pits_Playable" ColumnName="Tournament_Pits_Playable" />
+          <ScalarProperty Name="Tournament_Duration" ColumnName="Tournament_Duration" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="Tournament_Extension" ColumnName="Tournament_Extension" />
           <ScalarProperty Name="Tournament_End_Date" ColumnName="Tournament_End_Date" />

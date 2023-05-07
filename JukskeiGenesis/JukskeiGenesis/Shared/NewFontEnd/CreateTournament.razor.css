@@ -1,9 +1,16 @@
 .FormBody {
     position: relative;
-    margin: 15vh auto;
+    margin: 5vh auto;
     box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
     width: 80%;
     border-radius: 50px;
+}
+
+#IndexH1 {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline #30b0e3;
+    padding-top: 5vh;
 }
 
 @media only screen and (max-width: 768px) {
@@ -23,9 +30,8 @@
 }
 
 .FlexBody {
-    padding-top: 6%;
+    padding-top: 3%;
     display: flex;
-    margin-bottom: 3%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -67,6 +73,12 @@
 
 .TypeCombo {
     width: 80%;
+    margin-left: 15%;
+    padding: 12.2px;
+}
+
+.DurationCombo {
+    width: 80%;
     margin-left: 5%;
     padding: 12.2px;
 }
@@ -95,7 +107,7 @@ input[type="text"], input[type="datetime"], select {
     margin-bottom: 20px;
 }
 
-.PushCategory {
+.PushTournament {
     background-color: #30b0e3;
     border: none;
     color: white;
@@ -108,6 +120,25 @@ input[type="text"], input[type="datetime"], select {
     cursor: pointer;
     border-radius: 4px;
     margin-left: 4.5%;
+}
+
+.PushCategory {
+    background-color: #30b0e3;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    width: 30.75%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 34.5%;
+}
+
+#CategoriesInput{
+    margin-top: 0;
 }
 
 @media only screen and (max-width: 768px) {
@@ -151,7 +182,7 @@ input[type="text"], input[type="datetime"], select {
 }
 
 .InputCategory2 {
-    width: 65%;
+    width: 85%;
     margin-left: 7.5%;
 }
 
@@ -205,4 +236,110 @@ input[type="text"], input[type="datetime"], select {
 
 #EndDate {
     background-color: #f4f4f4;
+}
+
+#CategoriesLabel{
+    margin-top: 0;
+    margin-left: 5%;
+}
+
+.CategoriesFlexBody {
+    padding-top: 3%;
+    display: flex;
+    margin-bottom: 3%;
+}
+
+.CategoryNameDiv1 {
+    font-size: 18px;
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    position: relative;
+    left: 40%;
+}
+
+.CategoryNameDiv2 {
+    font-size: 18px;
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    position: relative;
+    left: 40%;
+}
+
+.categoryCheckBox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid #999;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 30%;
+    margin-bottom: 1%;
+}
+
+    .categoryCheckBox:checked {
+        background-color: #2196f3;
+        color: #30b0e3;
+        border-color: #2196f3;
+    }
+
+.categoryInput {
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    padding: 3px 5px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+    .categoryInput:hover {
+        border-color: #2196f3;
+        color: #30b0e3;
+    }
+
+    .categoryInput:focus {
+        color: #30b0e3;
+        outline: none;
+        border-color: #2196f3;
+        box-shadow: 0px 0px 5px 0px #2196f3;
+    }
+
+.SelectCategoriesHeading {
+    visibility: hidden;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline #30b0e3;
+}
+
+.CategoriesAddedHeading {
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline #30b0e3;
+}
+
+.CategoryNameAdded {
+    font-size: 20px;
+    display: inline-block;
+    visibility: visible;
+}
+
+.CategoryRemove {
+    visibility: visible;
+    background-color: #30b0e3;
+    border: none;
+    color: white;
+    padding: 2px 5px;
+    width: 7%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 1%;
+    margin-left: 2%;
 }

@@ -17,14 +17,8 @@ namespace DAL
         /// Retrieves Tournaments.
         /// </summary>
         /// <returns></returns>
-        public List<Tournament> GetTournaments()
-        {
-            List<Tournament> tournamentList = new List<Tournament>();
-
-            tournamentList = _jukskeiDB.Tournaments.Select(t => t).ToList();
-
-            return tournamentList;
-        }
+        public List<Tournament> GetTournaments() =>
+            _jukskeiDB.Tournaments.Select(t => t).ToList();
 
         /// <summary>
         /// Creates Rouster.

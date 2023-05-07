@@ -9,9 +9,9 @@
         <EntityTypeShape EntityType="JukskeiDatabaseModel.Clients_Admin" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="JukskeiDatabaseModel.Payment" Width="1.5" PointX="3" PointY="4.5" />
         <EntityTypeShape EntityType="JukskeiDatabaseModel.Player" Width="1.5" PointX="7.5" PointY="11.375" />
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Roster" Width="1.5" PointX="7.5" PointY="7.625" />
+        <EntityTypeShape EntityType="JukskeiDatabaseModel.Roster" Width="1.5" PointX="7.5" PointY="7.5" />
         <EntityTypeShape EntityType="JukskeiDatabaseModel.Team" Width="1.5" PointX="5.25" PointY="11.125" />
-        <EntityTypeShape EntityType="JukskeiDatabaseModel.Tournament" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="JukskeiDatabaseModel.Tournament" Width="1.5" PointX="0.75" PointY="4" />
         <AssociationConnector Association="JukskeiDatabaseModel.FK__Categorie__Tourn__440B1D61" />
         <AssociationConnector Association="JukskeiDatabaseModel.FK__Rosters__Categor__47DBAE45" />
         <AssociationConnector Association="JukskeiDatabaseModel.FK_Teams_Categories" />

@@ -72,6 +72,8 @@
           <Property Name="Tournament_End_Date" Type="date" Nullable="false" />
           <Property Name="Tournament_Extension" Type="int" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Tournament_Duration" Type="varchar" MaxLength="20" />
+          <Property Name="Tournament_Pits_Playable" Type="int" />
         </EntityType>
         <Association Name="FK__Categorie__Tourn__440B1D61">
           <End Role="Tournaments" Type="Self.Tournaments" Multiplicity="1" />
@@ -335,6 +337,8 @@
           <Property Name="Tournament_End_Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Tournament_Extension" Type="Int32" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Tournament_Duration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tournament_Pits_Playable" Type="Int32" />
           <NavigationProperty Name="Categories" Relationship="JukskeiDatabaseModel.FK__Categorie__Tourn__440B1D61" FromRole="Tournament" ToRole="Category" />
           <NavigationProperty Name="Payments" Relationship="JukskeiDatabaseModel.FK__Payments__Tourna__45F365D3" FromRole="Tournament" ToRole="Payment" />
           <NavigationProperty Name="Rosters" Relationship="JukskeiDatabaseModel.FK__Rosters__Tournam__49C3F6B7" FromRole="Tournament" ToRole="Roster" />
@@ -504,6 +508,8 @@
           <EntitySetMapping Name="Tournaments">
             <EntityTypeMapping TypeName="JukskeiDatabaseModel.Tournament">
               <MappingFragment StoreEntitySet="Tournaments">
+                <ScalarProperty Name="Tournament_Pits_Playable" ColumnName="Tournament_Pits_Playable" />
+                <ScalarProperty Name="Tournament_Duration" ColumnName="Tournament_Duration" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Tournament_Extension" ColumnName="Tournament_Extension" />
                 <ScalarProperty Name="Tournament_End_Date" ColumnName="Tournament_End_Date" />

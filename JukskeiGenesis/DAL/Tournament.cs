@@ -31,6 +31,8 @@ namespace DAL
         public System.DateTime Tournament_End_Date { get; set; }
         public Nullable<int> Tournament_Extension { get; set; }
         public bool IsActive { get; set; }
+        public string Tournament_Duration { get; set; }
+        public Nullable<int> Tournament_Pits_Playable { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Category> Categories { get; set; }
