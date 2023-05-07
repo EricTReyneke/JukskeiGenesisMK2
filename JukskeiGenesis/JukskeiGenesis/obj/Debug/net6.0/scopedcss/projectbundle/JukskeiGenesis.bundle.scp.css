@@ -92,7 +92,7 @@ main[b-5d7wnptdl5] {
 .PanelFlex[b-21ylrosbcz] {
     width: 100%;
     margin-top: 0.5%;
-    max-height: 0;
+    max-height: auto;
     overflow: hidden;
     transition: max-height 0.5s ease;
     transition: background-color 0.5s ease;
