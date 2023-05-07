@@ -1,75 +1,75 @@
 {
   "Files": [
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\JukskeiGenesis.bundle.scp.css",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\JukskeiGenesis.bundle.scp.css",
       "PackagePath": "staticwebassets\\JukskeiGenesis.bundle.scp.css"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\GenisisPhoto.jpg",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\GenisisPhoto.jpg",
       "PackagePath": "staticwebassets\\Photos\\GenisisPhoto.jpg"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\JukskeiLogin.jpg",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\JukskeiLogin.jpg",
       "PackagePath": "staticwebassets\\Photos\\JukskeiLogin.jpg"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\Search.png",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\Search.png",
       "PackagePath": "staticwebassets\\Photos\\Search.png"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\Search2.png",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\Photos\\Search2.png",
       "PackagePath": "staticwebassets\\Photos\\Search2.png"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\README.md",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\README.md",
       "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\BackUp\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\franc\\Documents\\Jukskei\\JukskeiGenesisMK2\\JukskeiGenesis\\JukskeiGenesis\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {

@@ -55,7 +55,6 @@
     <EntitySetMapping Name="Teams">
       <EntityTypeMapping TypeName="JukskeiDatabaseModel.Team">
         <MappingFragment StoreEntitySet="Teams">
-          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
           <ScalarProperty Name="Team_Name" ColumnName="Team_Name" />
           <ScalarProperty Name="Team_Id" ColumnName="Team_Id" />
         </MappingFragment>
