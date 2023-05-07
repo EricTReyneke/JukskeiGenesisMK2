@@ -1,37 +1,51 @@
 ﻿@page "/CreateTournement"
 @using DAL
+@using System.Text.RegularExpressions;
+@using System.Reflection;
 @inject NavigationManager navigationManager
+@inject IJSRuntime JsRuntime;
 
 <body>
     <div class="FormBody">
+
+        <h1 id="IndexH1">Create New Tournament</h1>
+
         <div class="FlexBody">
             <br />
             <div class="Flex1">
                 <label class="InputLabels1" id="TournamentName">Tournament Name</label>
-                <input name="TournamentName" class="Input1" type="text" placeholder="SA Championships" @bind="Tname" />
+                <input name="TournamentName" class="Input1" type="text" placeholder="SA Championships" @bind="_tName" />
 
                 <br />
 
-                <label class="InputLabels1" id="StreetName">Address</label>
-                <input name="StreetName" class="Input1" type="text" placeholder="Sunny Road 21" @bind="Taddress" />
+                <label class="InputLabels1" id="TournamentType">Tournament Type</label>
+                <select name="TypeCombo" id="TournamentType" class="TypeCombo" @bind="_tournamentTypeValue" @oninput="@((args) => { _tournamentTypeValue = ((ChangeEventArgs)args).Value.ToString(); ValidateTournamentType(); })">
+                    <option value="Seniors">Seniors</option>
+                    <option value="Juniors">Juniors</option>
+                    <option value="Open">Open</option>
+                </select>
 
                 <br />
 
                 <label class="InputLabels1 DateBoxes" id="TournamentStartDate">Start Date</label>
-                <input name="TournamentStartDate" class="Input1 DateBoxes" id="StartDate" type="date" @bind="TStartDate" @oninput="@((args) => { TStartDate = Convert.ToDateTime(args.Value); EndDate(); })" />
+                <input name="TournamentStartDate" class="Input1 DateBoxes" id="StartDate" type="date" @bind="_tStartDate" @oninput="@((args) => { _tStartDate = Convert.ToDateTime(args.Value); EndDate(); })" />
 
                 <br />
 
+                <label class="InputLabels1" id="StreetName">Address</label>
+                <input name="StreetName" class="Input1" type="text" placeholder="Sunny Road 21" @bind="_tAddress" />
+
+                <br />
             </div>
 
             <div class="Flex2">
                 <label class="InputLabels2" id="TournamentLocation">Tournament Location</label>
-                <input name="TournamentLocation" class="Input2" type="text" placeholder="Kroonstad" @bind="Tlocation" />
+                <input name="TournamentLocation" class="Input2" type="text" placeholder="Kroonstad" @bind="_tlocation" />
 
                 <br />
 
-                <label class="InputLabels2" id="TournamentType">Tournament Type</label>
-                <select name="TypeCombo" id="TournamentType" class="TypeCombo" @bind="TournamentTypeValue" @oninput="@((args) => { TournamentTypeValue = ((ChangeEventArgs)args).Value.ToString(); EndDate(); })">
+                <label class="InputLabels2" id="TournamentType">Tournament Duration</label>
+                <select name="TypeCombo" id="TournamentType" class="DurationCombo" @bind="_tournamentTypeValue" @oninput="@((args) => { _tournamentTypeValue = ((ChangeEventArgs)args).Value.ToString(); EndDate(); })">
                     <option value="Day">Day</option>
                     <option value="League">League</option>
                     <option value="Week">Week</option>
@@ -43,32 +57,115 @@
                 <input name="TournamentEndDate" id="EndDate" class="Input2 DateBoxes" type="date" @bind="_tournamentEndDate" readonly />
 
                 <br />
+
+                <label class="InputLabels2" id="PitsPlayable">Pits Playable</label>
+                <input name="PitsPlayable" id="PitsPlayable" class="Input2" type="text" @bind="pitsPlayable" />
+
+                <br />
             </div>
         </div>
 
         <div class="CategoryDiv">
-            <label class="InputLabels2" id="Categories">Categories</label>
-            <input name="Categories" class="InputCategory2" type="text" placeholder="Kopersbond" @bind="tCatogory" />
+            <label class="InputLabels2" id="CategoriesLabel">Categories</label>
+            <input name="Categories" class="InputCategory2" id="CategoriesInput" type="text" placeholder="Kopersbond" @bind="tCatogory" />
+
+            <h5 class="CategoriesAddedHeading" style="visibility: @(_isTournamentTypeJuniors == false ? "visible; position: relative;" : "hidden; position: absolute;")">Categories Added</h5>
+
+            @if (_tCategories != null && _tCategories.Count > 0)
+            {
+                <div class="SelectCategoriesHeading">
+                    @foreach (var category in _tCategories)
+                    {
+                        <label type="text" class="CategoryNameAdded" readonly >@category</label>
+                        <button type="button" class="CategoryRemove" @onclick="(() => RemoveCategory(category))">Remove</button>
+
+                        <br />
+                    }
+                </div>
+            }
+
+            <h5 class="SelectCategoriesHeading" style="visibility: @(_isTournamentTypeJuniors == true ? "visible; font-size: 1.75rem;" : "hidden; font-size: 0;")">Select Categories</h5>
+
+            <div class="CategoriesFlexBody" style="visibility: @(_isTournamentTypeJuniors == true ? "visible; position: relative;" : "hidden; position: absolute;")">
+                <div class="Flex1">
+                    <label class="CategoryNameDiv1" for="o/11 Boys">o/11 Boys</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/11 Boys">
+
+                    <br />
+
+                    <label class="CategoryNameDiv1" for="o/11 Girls">o/11 Girls</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/11 Girls">
+
+                    <br />
+
+                    <label class="CategoryNameDiv1" for="o/13 Boys">o/13 Boys</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/13 Boys">
+
+                    <br />
+
+                    <label class="CategoryNameDiv1" for="o/13 Girls">o/13 Girls</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/13 Girls">
+                </div>
+
+                <div class="Flex2">
+                    <label class="CategoryNameDiv2" for="o/16 Boys">o/16 Boys</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/16 Boys">
+
+                    <br />
+
+                    <label class="CategoryNameDiv2" for="o/16 Girls">o/16 Girls</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/16 Girls">
+
+                    <br />
+
+                    <label class="CategoryNameDiv2" for="o/19 Boys">o/19 Boys</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/19 Boys">
+
+                    <br />
+
+                    <label class="CategoryNameDiv2" for="o/19 Girls">o/19 Girls</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/19 Girls">
+                </div>
+            </div>
 
             <input class="PushCategory" value="Push Category" type="submit" @onclick="btnPushCategory" />
 
             <br />
 
-            <input class="PushCategory" id="SubmitTournament" value="Submit Tournament" type="submit" @onclick="SubmitTournament" />
+            <input class="PushTournament" id="SubmitTournament" value="Submit Tournament" type="submit" @onclick="SubmitTournament" />
         </div>
         <br />
     </div>
 </body>
 
 @code {
-    public string Tname;
-    public string Taddress;
-    public DateTime TStartDate = DateTime.Now;
-    public string Tlocation;
-    public string TournamentTypeValue;
-    public string tCatogory;
-    public List<string> Tcategories = new List<string>();
+    private bool _isTournamentTypeJuniors = false;
+    private Tournament _tournament;
+    private string _tName;
+    private string _tAddress;
+    private DateTime _tStartDate = DateTime.Now;
+    private string _tlocation;
+    private string _tournamentDurationValue;
+    private string _tournamentTypeValue;
+    private string tCatogory;
+    private int pitsPlayable;
+    private List<string> _tCategories = new List<string>();
     private DateTime _tournamentEndDate = DateTime.Now;
+    private string _newCategory;
+
+    private bool ValidateTournamentType()
+    {
+        _tCategories.Clear();
+        _isTournamentTypeJuniors = _tournamentTypeValue == "Juniors";
+        return _isTournamentTypeJuniors;
+    }
+
+    private void SetValues()
+    {
+        _tournament = new();
+        _tournament.Tournament_Name = _tName;
+        _tournament.Tournament_Type = _tournamentTypeValue;
+    }
 
     public DateTime TournamentEndDate
     {
@@ -87,19 +184,19 @@
         try
         {
             DateTime endDate;
-            switch (TournamentTypeValue)
+            switch (_tournamentTypeValue)
             {
                 case "Day":
-                    endDate = TStartDate;
+                    endDate = _tStartDate;
                     break;
                 case "Week":
-                    endDate = TStartDate.AddDays(4);
+                    endDate = _tStartDate.AddDays(4);
                     break;
                 case "League":
-                    endDate = TStartDate.AddDays(14);
+                    endDate = _tStartDate.AddDays(14);
                     break;
                 default:
-                    endDate = TStartDate;
+                    endDate = _tStartDate;
                     break;
             }
             TournamentEndDate = endDate;
@@ -110,43 +207,63 @@
         }
     }
 
-    private string Validation()
+    private string CharacterRegexValidation()
     {
+        SetValues();
+        foreach (PropertyInfo propInfo in _tournament.GetType().GetProperties())
+            if (propInfo.GetType().Name != "int32" && propInfo.GetType().Name != "DateTime")
+                if (propInfo.GetValue(_tournament) != null)
+                    if (!string.IsNullOrEmpty(propInfo.GetValue(_tournament).ToString())
+                    && Regex.IsMatch(propInfo.GetValue(_tournament).ToString(), "^[a-zA-Z]*$"))
+                        return $"The '{propInfo.Name}' field must have a value and contain only alphabetical characters.";
 
-
-        return "";
+        return string.Empty;
     }
+
+    public void ShowAlert(string message) =>
+        JsRuntime.InvokeVoidAsync("alert", message);
+
+    private void RemoveCategory(string category) =>
+        _tCategories.Remove(category);
 
     private void btnPushCategory()
     {
-        string empty = string.Empty;
-        if (tCatogory != null)
-        {
-            Tcategories.Add(tCatogory);
-        }
+        if (tCatogory != null && tCatogory != string.Empty)
+            _tCategories.Add(tCatogory);
 
-        tCatogory = empty;
-    }
-
-    [Inject] protected IJSRuntime JsRuntime { get; set; }
-
-    public async Task ShowAlert(string message)
-    {
-        await JsRuntime.InvokeVoidAsync("alert", message);
+        StateHasChanged();
+        tCatogory = string.Empty;
     }
 
     private void SubmitTournament()
     {
-        if (Validation() == "")
+        string validationErrorMessage = CharacterRegexValidation();
+        if (!string.IsNullOrEmpty(validationErrorMessage))
         {
-            DatabaseProcessor dbProcessor = new DatabaseProcessor();
-            dbProcessor.CreateNewTournament(Tname, Tlocation, Taddress, TStartDate, TournamentEndDate, TournamentTypeValue, Tcategories);
-            navigationManager.NavigateTo("/");
+            ShowAlert(validationErrorMessage);
+            return;
         }
-        else
+
+        if (pitsPlayable <= 0 || pitsPlayable > 90)
         {
-            string message = Validation();
-            ShowAlert(message);
+            ShowAlert("The number of playable pits must be between 1 and 90.");
+            return;
         }
+
+        if (_tCategories.Count == 0)
+        {
+            ShowAlert("At least one category must be selected.");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(_tlocation) || string.IsNullOrEmpty(_tAddress))
+        {
+            ShowAlert("The location and address fields are required.");
+            return;
+        }
+
+        DatabaseProcessor dbProcessor = new DatabaseProcessor();
+        dbProcessor.CreateNewTournament(_tName, _tlocation, _tAddress, _tStartDate, TournamentEndDate, _tournamentTypeValue, _tCategories);
+        navigationManager.NavigateTo("/");
     }
 }

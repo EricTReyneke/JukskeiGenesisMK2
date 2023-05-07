@@ -415,10 +415,17 @@ main[b-5d7wnptdl5] {
 /* _content/JukskeiGenesis/Shared/NewFontEnd/CreateTournament.razor.rz.scp.css */
 .FormBody[b-f125tma3dt] {
     position: relative;
-    margin: 15vh auto;
+    margin: 5vh auto;
     box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
     width: 80%;
     border-radius: 50px;
+}
+
+#IndexH1[b-f125tma3dt] {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline #30b0e3;
+    padding-top: 5vh;
 }
 
 @media only screen and (max-width: 768px) {
@@ -438,9 +445,8 @@ main[b-5d7wnptdl5] {
 }
 
 .FlexBody[b-f125tma3dt] {
-    padding-top: 6%;
+    padding-top: 3%;
     display: flex;
-    margin-bottom: 3%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -482,6 +488,12 @@ main[b-5d7wnptdl5] {
 
 .TypeCombo[b-f125tma3dt] {
     width: 80%;
+    margin-left: 15%;
+    padding: 12.2px;
+}
+
+.DurationCombo[b-f125tma3dt] {
+    width: 80%;
     margin-left: 5%;
     padding: 12.2px;
 }
@@ -510,7 +522,7 @@ input[type="text"][b-f125tma3dt], input[type="datetime"][b-f125tma3dt], select[b
     margin-bottom: 20px;
 }
 
-.PushCategory[b-f125tma3dt] {
+.PushTournament[b-f125tma3dt] {
     background-color: #30b0e3;
     border: none;
     color: white;
@@ -523,6 +535,25 @@ input[type="text"][b-f125tma3dt], input[type="datetime"][b-f125tma3dt], select[b
     cursor: pointer;
     border-radius: 4px;
     margin-left: 4.5%;
+}
+
+.PushCategory[b-f125tma3dt] {
+    background-color: #30b0e3;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    width: 30.75%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 34.5%;
+}
+
+#CategoriesInput[b-f125tma3dt]{
+    margin-top: 0;
 }
 
 @media only screen and (max-width: 768px) {
@@ -566,7 +597,7 @@ input[type="text"][b-f125tma3dt], input[type="datetime"][b-f125tma3dt], select[b
 }
 
 .InputCategory2[b-f125tma3dt] {
-    width: 65%;
+    width: 85%;
     margin-left: 7.5%;
 }
 
@@ -620,6 +651,112 @@ input[type="text"][b-f125tma3dt], input[type="datetime"][b-f125tma3dt], select[b
 
 #EndDate[b-f125tma3dt] {
     background-color: #f4f4f4;
+}
+
+#CategoriesLabel[b-f125tma3dt]{
+    margin-top: 0;
+    margin-left: 5%;
+}
+
+.CategoriesFlexBody[b-f125tma3dt] {
+    padding-top: 3%;
+    display: flex;
+    margin-bottom: 3%;
+}
+
+.CategoryNameDiv1[b-f125tma3dt] {
+    font-size: 18px;
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    position: relative;
+    left: 40%;
+}
+
+.CategoryNameDiv2[b-f125tma3dt] {
+    font-size: 18px;
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    position: relative;
+    left: 40%;
+}
+
+.categoryCheckBox[b-f125tma3dt] {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid #999;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 30%;
+    margin-bottom: 1%;
+}
+
+    .categoryCheckBox:checked[b-f125tma3dt] {
+        background-color: #2196f3;
+        color: #30b0e3;
+        border-color: #2196f3;
+    }
+
+.categoryInput[b-f125tma3dt] {
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    padding: 3px 5px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+    .categoryInput:hover[b-f125tma3dt] {
+        border-color: #2196f3;
+        color: #30b0e3;
+    }
+
+    .categoryInput:focus[b-f125tma3dt] {
+        color: #30b0e3;
+        outline: none;
+        border-color: #2196f3;
+        box-shadow: 0px 0px 5px 0px #2196f3;
+    }
+
+.SelectCategoriesHeading[b-f125tma3dt] {
+    visibility: hidden;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline #30b0e3;
+}
+
+.CategoriesAddedHeading[b-f125tma3dt] {
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline #30b0e3;
+}
+
+.CategoryNameAdded[b-f125tma3dt] {
+    font-size: 20px;
+    display: inline-block;
+    visibility: visible;
+}
+
+.CategoryRemove[b-f125tma3dt] {
+    visibility: visible;
+    background-color: #30b0e3;
+    border: none;
+    color: white;
+    padding: 2px 5px;
+    width: 7%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 1%;
+    margin-left: 2%;
 }
 /* _content/JukskeiGenesis/Shared/NewFontEnd/Login.razor.rz.scp.css */
 .content[b-1lpdv3nc53] {
@@ -763,4 +900,3 @@ th[b-i0gi9k9994] {
 td[b-i0gi9k9994] {
     font-weight: normal;
 }
-/* _content/JukskeiGenesis/Shared/NewFontEnd/TeamsAttending.razor.rz.scp.css */

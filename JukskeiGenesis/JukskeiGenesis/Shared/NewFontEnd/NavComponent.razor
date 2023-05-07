@@ -17,9 +17,6 @@
             <div class="nav-item px-3">
                 <a class="nav-link" @onclick="() => NavigateAddTeams()">Add Teams</a>
             </div>
-            <div class="nav-item px-3">
-                <a class="nav-link" @onclick="() => NavigateTeamsAttending()">Teams Attending</a>
-            </div>
         </nav>
     </div>
 </header>
@@ -43,10 +40,5 @@
     private void NavigateAddTeams()
     {
         navigationManager.NavigateTo("/AddTeam");
-    }
-
-    private void NavigateTeamsAttending()
-    {
-        navigationManager.NavigateTo("/TeamsAttending");
     }
 }
