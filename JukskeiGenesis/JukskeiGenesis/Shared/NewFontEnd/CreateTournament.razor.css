@@ -244,27 +244,29 @@ input[type="text"], input[type="datetime"], select {
 }
 
 .CategoriesFlexBody {
-    padding-top: 3%;
+    padding-top: 2vh;
     display: flex;
     margin-bottom: 3%;
 }
 
 .CategoryNameDiv1 {
+    display: inline-block;
     font-size: 18px;
     display: inline-block;
     width: 150px;
     font-weight: bold;
     position: relative;
-    left: 40%;
+    left: 10%;
 }
 
 .CategoryNameDiv2 {
+    display: inline-block;
     font-size: 18px;
     display: inline-block;
     width: 150px;
     font-weight: bold;
     position: relative;
-    left: 40%;
+    left: 10%;
 }
 
 .categoryCheckBox {
@@ -275,11 +277,27 @@ input[type="text"], input[type="datetime"], select {
     border: 1px solid #999;
     cursor: pointer;
     vertical-align: middle;
-    margin-left: 30%;
     margin-bottom: 1%;
 }
 
     .categoryCheckBox:checked {
+        background-color: #2196f3;
+        color: #30b0e3;
+        border-color: #2196f3;
+    }
+
+.categoryCheckBoxFlex {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid #999;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-bottom: 1%;
+}
+
+    .categoryCheckBoxFlex:checked {
         background-color: #2196f3;
         color: #30b0e3;
         border-color: #2196f3;
@@ -314,6 +332,10 @@ input[type="text"], input[type="datetime"], select {
     text-decoration: underline #30b0e3;
 }
 
+#SelectCategoriesHeadingId {
+    padding-top: 2vh;
+}
+
 .CategoriesAddedHeading {
     font-size: 18px;
     text-align: center;
@@ -342,4 +364,24 @@ input[type="text"], input[type="datetime"], select {
     border-radius: 4px;
     margin-bottom: 1%;
     margin-left: 2%;
+}
+
+.CategoryFlex1 {
+    width: 25%;
+    padding-left: 4.5%;
+}
+
+.CategoryFlex2 {
+    width: 25%;
+    padding-left: 4.5%;
+}
+
+.CategoryFlex3 {
+    width: 25%;
+    padding-left: 4.5%;
+}
+
+.CategoryFlex4 {
+    width: 25%;
+    padding-left: 4.5%;
 }

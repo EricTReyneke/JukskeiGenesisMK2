@@ -7,12 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="App - Copy.Config" />
     <Content Remove="App.Config" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="App - Copy.Config" />
     <None Include="App.Config" />
   </ItemGroup>
 

@@ -66,73 +66,115 @@
         </div>
 
         <div class="CategoryDiv">
-            <label class="InputLabels2" id="CategoriesLabel">Categories</label>
-            <input name="Categories" class="InputCategory2" id="CategoriesInput" type="text" placeholder="Kopersbond" @bind="tCatogory" />
+            <div class="HideWhenJuniors" style="visibility: @(_isTournamentTypeJuniors == false ? "visible; position: relative;" : "hidden; position: absolute;")">
+                <label class="InputLabels2" id="CategoriesLabel">Categories</label>
+                <input name="Categories" class="InputCategory2" id="CategoriesInput" type="text" placeholder="Kopersbond" @bind="tCatogory" />
+            </div>
 
             <h5 class="CategoriesAddedHeading" style="visibility: @(_isTournamentTypeJuniors == false ? "visible; position: relative;" : "hidden; position: absolute;")">Categories Added</h5>
 
             @if (_tCategories != null && _tCategories.Count > 0)
             {
-                <div class="SelectCategoriesHeading">
+                <div class="SelectCategoriesHeading" style="visibility: @(_isTournamentTypeJuniors == false ? "visible; position: relative;" : "hidden; position: absolute;")">
                     @foreach (var category in _tCategories)
                     {
-                        <label type="text" class="CategoryNameAdded" readonly >@category</label>
-                        <button type="button" class="CategoryRemove" @onclick="(() => RemoveCategory(category))">Remove</button>
+                        <label type="text" class="CategoryNameAdded" readonly style="visibility: @(_isTournamentTypeJuniors == false ? "visible; position: relative;" : "hidden; position: absolute;")">@category</label>
+                        <button type="button" class="CategoryRemove" style="visibility: @(_isTournamentTypeJuniors == false ? "visible; position: relative;" : "hidden; position: absolute;")" @onclick="(() => RemoveCategory(category))">Remove</button>
 
                         <br />
                     }
                 </div>
             }
 
-            <h5 class="SelectCategoriesHeading" style="visibility: @(_isTournamentTypeJuniors == true ? "visible; font-size: 1.75rem;" : "hidden; font-size: 0;")">Select Categories</h5>
+            <h5 class="SelectCategoriesHeading" id="SelectCategoriesHeadingId" style="visibility: @(_isTournamentTypeJuniors == true ? "visible; font-size: 1.75rem;" : "hidden; font-size: 0;")">Select Categories</h5>
 
             <div class="CategoriesFlexBody" style="visibility: @(_isTournamentTypeJuniors == true ? "visible; position: relative;" : "hidden; position: absolute;")">
-                <div class="Flex1">
+                <div class="CategoryFlex1">
                     <label class="CategoryNameDiv1" for="o/11 Boys">o/11 Boys</label>
-                    <input type="checkbox" class="categoryCheckBox" id="o/11 Boys">
+                    <input type="checkbox" class="categoryCheckBoxFlex" id="o/11 Boys" @onchange="@((args) => UpdateSelectedCategories(args, "o/11 Boys"))">
 
                     <br />
 
                     <label class="CategoryNameDiv1" for="o/11 Girls">o/11 Girls</label>
-                    <input type="checkbox" class="categoryCheckBox" id="o/11 Girls">
+                    <input type="checkbox" class="categoryCheckBoxFlex" id="o/11 Girls" @onchange="@((args) => UpdateSelectedCategories(args, "o/11 Girls"))">
 
                     <br />
 
                     <label class="CategoryNameDiv1" for="o/13 Boys">o/13 Boys</label>
-                    <input type="checkbox" class="categoryCheckBox" id="o/13 Boys">
+                    <input type="checkbox" class="categoryCheckBoxFlex" id="o/13 Boys" @onchange="@((args) => UpdateSelectedCategories(args, "o/13 Boys"))">
 
                     <br />
 
                     <label class="CategoryNameDiv1" for="o/13 Girls">o/13 Girls</label>
-                    <input type="checkbox" class="categoryCheckBox" id="o/13 Girls">
+                    <input type="checkbox" class="categoryCheckBoxFlex" id="o/13 Girls" @onchange="@((args) => UpdateSelectedCategories(args, "o/13 Girls"))">
                 </div>
 
-                <div class="Flex2">
+                <div class="CategoryFlex2">
+                    <label class="CategoryNameDiv2" for="o/16 Boys">o/16 B1 Boys</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/16 Boys" @onchange="@((args) => UpdateSelectedCategories(args, "o/16 Boys"))">
+
+                    <br />
+
+                    <label class="CategoryNameDiv2" for="o/16 Girls">o/16 B1 Girls</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/16 Girls" @onchange="@((args) => UpdateSelectedCategories(args, "o/16 Girls"))">
+
+                    <br />
+
+                    <label class="CategoryNameDiv2" for="o/16 B2 Boys">o/16 B2 Boys</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/16 B2 Boys" @onchange="@((args) => UpdateSelectedCategories(args, "o/16 B2 Boys"))">
+
+                    <br />
+
+                    <label class="CategoryNameDiv2" for="o/16 B2 Girls">o/16 B2 Girls</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/16 B2 Girls" @onchange="@((args) => UpdateSelectedCategories(args, "o/16 B2 Girls"))">
+                </div>
+
+                <div class="CategoryFlex3">
+                    <label class="CategoryNameDiv2" for="o/19 B1 Boys">o/19 B1 Boys</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/19 B1 Boys" @onchange="@((args) => UpdateSelectedCategories(args, "o/19 B1 Boys"))">
+
+                    <br />
+
+                    <label class="CategoryNameDiv2" for="o/19 B1 Girls">o/19 B1 Girls</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/19 B1 Girls" @onchange="@((args) => UpdateSelectedCategories(args, "o/19 B2 Girls"))">
+
+                    <br />
+
+                    <label class="CategoryNameDiv2" for="o/19 B2 Boys">o/19 B2 Boys</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/19 B2 Boys" @onchange="@((args) => UpdateSelectedCategories(args, "o/19 B2 Boys"))">
+
+                    <br />
+
+                    <label class="CategoryNameDiv2" for="o/19 B2 Girls">o/19 B2 Girls</label>
+                    <input type="checkbox" class="categoryCheckBox" id="o/19 B2 Girls" @onchange="@((args) => UpdateSelectedCategories(args, "o/19 B2 Girls"))">
+                </div>
+
+                <div class="CategoryFlex4">
                     <label class="CategoryNameDiv2" for="o/16 Boys">o/16 Boys</label>
-                    <input type="checkbox" class="categoryCheckBox" id="o/16 Boys">
+                    <input type="checkbox" class="categoryCheckBoxFlex" id="o/16 Boys" @onchange="@((args) => UpdateSelectedCategories(args, "o/16 Boys"))">
 
                     <br />
 
                     <label class="CategoryNameDiv2" for="o/16 Girls">o/16 Girls</label>
-                    <input type="checkbox" class="categoryCheckBox" id="o/16 Girls">
+                    <input type="checkbox" class="categoryCheckBoxFlex" id="o/16 Girls" @onchange="@((args) => UpdateSelectedCategories(args, "o/16 Girls"))">
 
                     <br />
 
                     <label class="CategoryNameDiv2" for="o/19 Boys">o/19 Boys</label>
-                    <input type="checkbox" class="categoryCheckBox" id="o/19 Boys">
+                    <input type="checkbox" class="categoryCheckBoxFlex" id="o/19 Boys" @onchange="@((args) => UpdateSelectedCategories(args, "o/19 Boys"))">
 
                     <br />
 
                     <label class="CategoryNameDiv2" for="o/19 Girls">o/19 Girls</label>
-                    <input type="checkbox" class="categoryCheckBox" id="o/19 Girls">
+                    <input type="checkbox" class="categoryCheckBoxFlex" id="o/19 Girls" @onchange="@((args) => UpdateSelectedCategories(args, "o/19 Girls"))">
                 </div>
             </div>
 
-            <input class="PushCategory" value="Push Category" type="submit" @onclick="btnPushCategory" />
+            <input class="PushCategory" value="Push Category" type="submit" style="visibility: @(_isTournamentTypeJuniors == false ? "visible; position: relative;" : "hidden; position: absolute;")" @onclick="btnPushCategory" />
 
             <br />
 
-            <input class="PushTournament" id="SubmitTournament" value="Submit Tournament" type="submit" @onclick="SubmitTournament" />
+            <input class="PushTournament" id="SubmitTournament" value="Submit Tournament" type="submit" style="margin-top: @(_isTournamentTypeJuniors == false ? "5vh;" : string.Empty)" @onclick="SubmitTournament" />
         </div>
         <br />
     </div>
@@ -140,7 +182,6 @@
 
 @code {
     private bool _isTournamentTypeJuniors = false;
-    private Tournament _tournament;
     private string _tName;
     private string _tAddress;
     private DateTime _tStartDate = DateTime.Now;
@@ -160,12 +201,12 @@
         return _isTournamentTypeJuniors;
     }
 
-    private void SetValues()
-    {
-        _tournament = new();
-        _tournament.Tournament_Name = _tName;
-        _tournament.Tournament_Type = _tournamentTypeValue;
-    }
+    //private void SetValues()
+    //{
+    //    _tournament = new();
+    //    _tournament.Tournament_Name = _tName;
+    //    _tournament.Tournament_Type = _tournamentTypeValue;
+    //}
 
     public DateTime TournamentEndDate
     {
@@ -207,17 +248,28 @@
         }
     }
 
-    private string CharacterRegexValidation()
-    {
-        SetValues();
-        foreach (PropertyInfo propInfo in _tournament.GetType().GetProperties())
-            if (propInfo.GetType().Name != "int32" && propInfo.GetType().Name != "DateTime")
-                if (propInfo.GetValue(_tournament) != null)
-                    if (!string.IsNullOrEmpty(propInfo.GetValue(_tournament).ToString())
-                    && Regex.IsMatch(propInfo.GetValue(_tournament).ToString(), "^[a-zA-Z]*$"))
-                        return $"The '{propInfo.Name}' field must have a value and contain only alphabetical characters.";
+    //private string CharacterRegexValidation()
+    //{
+    //    SetValues();
+    //    foreach (PropertyInfo propInfo in _tournament.GetType().GetProperties())
+    //        if (propInfo.PropertyType.Name != "Int32" && propInfo.PropertyType.Name != "DateTime")
+    //            if (propInfo.GetValue(_tournament) != null)
+    //                if (string.IsNullOrEmpty(propInfo.GetValue(_tournament).ToString())
+    //                || !Regex.IsMatch(propInfo.GetValue(_tournament).ToString(), "^[a-zA-Z]*$"))
+    //                    return $"The '{propInfo.Name}' field must have a value and contain only alphabetical characters.";
 
-        return string.Empty;
+    //    return string.Empty;
+    //}
+
+    private bool IsSelected(string category) =>
+        _tCategories.Contains(category);
+
+    private void UpdateSelectedCategories(ChangeEventArgs e, string category)
+    {
+        if ((bool)e.Value)
+            _tCategories.Add(category);
+        else
+            _tCategories.Remove(category);
     }
 
     public void ShowAlert(string message) =>
@@ -225,6 +277,9 @@
 
     private void RemoveCategory(string category) =>
         _tCategories.Remove(category);
+
+    private void AddCategory(string category) =>
+        _tCategories.Add(category);
 
     private void btnPushCategory()
     {
@@ -237,10 +292,9 @@
 
     private void SubmitTournament()
     {
-        string validationErrorMessage = CharacterRegexValidation();
-        if (!string.IsNullOrEmpty(validationErrorMessage))
+        if (string.IsNullOrEmpty(_tName))
         {
-            ShowAlert(validationErrorMessage);
+            ShowAlert($"The 'Tournament Name' field must have a value and contain only alphabetical characters.");
             return;
         }
 
@@ -250,7 +304,7 @@
             return;
         }
 
-        if (_tCategories.Count == 0)
+        if (_tCategories.Count <= 1)
         {
             ShowAlert("At least one category must be selected.");
             return;
@@ -263,7 +317,7 @@
         }
 
         DatabaseProcessor dbProcessor = new DatabaseProcessor();
-        dbProcessor.CreateNewTournament(_tName, _tlocation, _tAddress, _tStartDate, TournamentEndDate, _tournamentTypeValue, _tCategories);
+        dbProcessor.CreateNewTournament(_tName, _tlocation, _tAddress, _tStartDate, TournamentEndDate, _tournamentTypeValue, _tournamentDurationValue, pitsPlayable, _tCategories);
         navigationManager.NavigateTo("/");
     }
 }

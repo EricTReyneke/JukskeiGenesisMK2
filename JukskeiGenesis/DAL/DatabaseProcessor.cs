@@ -8,7 +8,6 @@ namespace DAL
     {
         #region Rroperties
         private readonly JukskeiDatabaseEntities _jukskeiDB = new JukskeiDatabaseEntities();
-        //private readonly JukskeiDatabaseEntities1 _jukskeiDB = new JukskeiDatabaseEntities1();
         #endregion
 
         #region Public Methods
@@ -109,23 +108,29 @@ namespace DAL
 
 
         public int CreateNewTournament(string touryName, string tournyLocation, string tournyStreet, DateTime startDate,
-                                       DateTime endDate, string tournyType, List<string> tournyCategory)
+                                       DateTime endDate, string tournyType, string tournyDuration, int pitsPlayable, List<string> tournyCategory)
         {
-            Tournament newTournament = new Tournament();
-            newTournament.Tournament_Name = touryName + " " + startDate.Year;
-            newTournament.Tournament_Location = tournyLocation;
-            newTournament.Tournament_Start_Date = startDate;
-            newTournament.Tournament_End_Date = endDate;
-            newTournament.IsActive = false;
-            newTournament.Tournament_Extension = 0;
-            newTournament.Tournament_Type = tournyType;
-            newTournament.Tournament_Address = tournyStreet;
+            Tournament newTournament = new Tournament
+            {
+                Tournament_Name = touryName + " " + startDate.Year,
+                Tournament_Location = tournyLocation,
+                Tournament_Start_Date = startDate,
+                Tournament_End_Date = endDate,
+                IsActive = false,
+                Tournament_Extension = 0,
+                Tournament_Type = tournyType,
+                Tournament_Address = tournyStreet,
+                Tournament_Pits_Playable = pitsPlayable,
+                Tournament_Duration = tournyDuration
+            };
 
             foreach (var category in tournyCategory)
             {
-                Category newCategory = new Category();
-                newCategory.Tournament_Id = newTournament.Tournament_Id;
-                newCategory.Category_Name = category;
+                Category newCategory = new Category
+                {
+                    Tournament_Id = newTournament.Tournament_Id,
+                    Category_Name = category
+                };
                 _jukskeiDB.Categories.Add(newCategory);
             }
 
