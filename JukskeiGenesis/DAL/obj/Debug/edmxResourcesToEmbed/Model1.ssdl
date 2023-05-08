@@ -66,9 +66,9 @@
     <Property Name="Tournament_Start_Date" Type="date" Nullable="false" />
     <Property Name="Tournament_End_Date" Type="date" Nullable="false" />
     <Property Name="Tournament_Extension" Type="int" />
-    <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="Tournament_Duration" Type="varchar" MaxLength="20" />
     <Property Name="Tournament_Pits_Playable" Type="int" />
+    <Property Name="Tournament_State" Type="varchar" MaxLength="10" />
   </EntityType>
   <Association Name="FK__Categorie__Tourn__440B1D61">
     <End Role="Tournaments" Type="Self.Tournaments" Multiplicity="1" />

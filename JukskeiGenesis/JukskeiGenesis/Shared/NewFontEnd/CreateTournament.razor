@@ -182,6 +182,7 @@
 
 @code {
     private bool _isTournamentTypeJuniors = false;
+    private string _tournamnet_State;
     private string _tName;
     private string _tAddress;
     private DateTime _tStartDate = DateTime.Now;
@@ -316,8 +317,19 @@
             return;
         }
 
-        DatabaseProcessor dbProcessor = new DatabaseProcessor();
-        dbProcessor.CreateNewTournament(_tName, _tlocation, _tAddress, _tStartDate, TournamentEndDate, _tournamentTypeValue, _tournamentDurationValue, pitsPlayable, _tCategories);
+        if(_tStartDate < DateTime.Now)
+        {
+            ShowAlert("Please enter a valid date for the 'Tournament Start Date' field. The date should be today or a future date.");
+            return;
+        }
+        else
+            if (_tStartDate == DateTime.Now)
+                _tournamnet_State = "Active";
+            else
+                _tournamnet_State = "Upcomming";
+
+            DatabaseProcessor dbProcessor = new DatabaseProcessor();
+        dbProcessor.CreateNewTournament(_tName, _tlocation, _tAddress, _tStartDate, TournamentEndDate, _tournamentTypeValue, _tournamentDurationValue, pitsPlayable, _tournamnet_State, _tCategories);
         navigationManager.NavigateTo("/");
     }
 }

@@ -9,7 +9,7 @@
 }
 <div class="SearchParms">
     <div class="SearchBox">
-        <input type="text" class="SeachTextBox" placeholder="Search Tournament Name.">
+        <input type="text" class="SeachTextBox" placeholder="Search Tournament Name." @bind="_tournamentName" @oninput="@((args) => { _tournamentName = ((ChangeEventArgs)args).Value.ToString(); ValidateTournamentNameLength(); })">
     </div>
 
     <div class="ActivityBox">
@@ -23,39 +23,6 @@
 
 <button type="submit" class="SearchButton">Search</button>
 
-@*//foreach (var tournies in tournaments)
-    //{
-    //    if (counter != 5)
-    //    {
-    //        <div class="accordion-body" id="Accordion-2">
-    //            <input type="submit" value="Details" class="TourDetails" />
-    //            <button class="AccordionButton" @onclick="() => AccordionClick()">
-    //                <div class="AccordionContent">
-    //                    <img />
-    //                </div>
-    //                <div class="AccordionContent">
-    //                    <h5><span class="TourHeading"> @tournies.Tournament_Name</span></h5>
-    //                    <p>@tournies.Tournament_Location</p>
-    //                </div>
-    //            </button>
-    //            <div class="PanelFlex">
-    //                <div class="PanelContent">
-    //                    <RosterComponent />
-    //                </div>
-    //                <div class="PanelContent">
-    //                    <RosterComponent />
-    //                </div>
-    //            </div>
-    //        </div>
-    //        counter++;
-    //        countAccordions++;
-    //    }
-    //    else
-    //    {
-    //        break;
-    //    }
-    //}*@
-
 @foreach (var tournies in tournaments)
 {
     int i = counter;
@@ -63,7 +30,7 @@
     {
         <div class="accordion-body" id="@($"Accordion-{countAccordions}")">
             <input type="submit" value="Details" class="TourDetails" />
-            <button class="AccordionButton @(IsAccordionActive[i] ? "active" : "")" @onclick="() => ToggleAccordion(i)">
+            <button class="AccordionButton @(_isAccordionActive[i] ? "active" : "")" @onclick="() => ToggleAccordion(i)">
                 <div class="AccordionContent">
                     <img />
                 </div>
@@ -72,7 +39,7 @@
                     <p>@tournies.Tournament_Location</p>
                 </div>
             </button>
-            <div class="PanelFlex" style="max-height: @(IsAccordionActive[i] ? $"{GetPanelMaxHeight(i)}%" : "0");">
+            <div class="PanelFlex" style="max-height: @(_isAccordionActive[i] ? $"{GetPanelMaxHeight(i)}%" : "0");">
                 <div class="PanelContent">
                     <RosterComponent />
                 </div>
@@ -90,28 +57,23 @@
     }
 }
 
-
-
 @code {
-    private async void AccordionClick()
-    {
+    private string _tournamentName = string.Empty;
+
+    private bool ValidateTournamentNameLength() =>
+        _tournamentName == string.Empty;
+
+    private async void AccordionClick() =>
         await JS.InvokeAsync<string>("onClickButton");
-    }
 
-    private async void SearchParms()
-    {
+    private async void SearchParms() =>
         await JS.InvokeAsync<string>("GetSearchParms");
-    }
 
-    private bool[] IsAccordionActive = new bool[5];
+    private bool[] _isAccordionActive = new bool[5];
 
-    private void ToggleAccordion(int index)
-    {
-        IsAccordionActive[index] = !IsAccordionActive[index];
-    }
+    private void ToggleAccordion(int index) =>
+        _isAccordionActive[index] = !_isAccordionActive[index];
 
-    private int GetPanelMaxHeight(int index)
-    {
-        return IsAccordionActive[index] ? 100 : 0; // You can adjust the value '300' based on your panel content size
-    }
+    private int GetPanelMaxHeight(int index) =>
+        _isAccordionActive[index] ? 100 : 0;
 } 

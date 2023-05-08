@@ -24,6 +24,12 @@ Create Table
 	Tournament_Extension int check (Tournament_Extension < 5),
 	IsActive bit not null)
 
+  Alter table Tournaments
+  Add Tournament_State VarChar(10) check (Tournament_State = 'Upcomming' OR Tournament_State = 'Active' OR Tournament_State = 'Past')
+
+  Alter table Tournaments
+  Drop Column IsActive
+
 ----------------------------------------------------------Inserting Dummy data into the Tournament Tables-----------------------------------------------------------------------------------------------------------
 
 Select 
