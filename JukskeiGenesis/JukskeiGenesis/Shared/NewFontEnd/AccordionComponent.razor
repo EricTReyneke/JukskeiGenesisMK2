@@ -1,67 +1,75 @@
 ﻿@using DAL
 @inject IJSRuntime JS
 
-@{
-    DatabaseProcessor dbfunctions = new DatabaseProcessor();
-    List<Tournament> tournaments = dbfunctions.GetTournaments();
-    int counter = 0;
-    int countAccordions = 1;
-}
 <div class="SearchParms">
     <div class="SearchBox">
-        <input type="text" class="SeachTextBox" placeholder="Search Tournament Name." @bind="_tournamentName" @oninput="@((args) => { _tournamentName = ((ChangeEventArgs)args).Value.ToString(); ValidateTournamentNameLength(); })">
+        <input type="text" class="SeachTextBox" placeholder="Search Tournament Name." @bind="_tournamentName" @oninput="@((args) => { _tournamentName = ((ChangeEventArgs)args).Value.ToString(); ValidateEmptySearch(); ChangeCombo();})">
     </div>
 
     <div class="ActivityBox">
-        <select name="ComboBox" class="ComboTournies">
-            <option value="Upcoming" class="SelectCombo">Upcoming</option>
-            <option value="Active" class="SelectCombo">Active</option>
-            <option value="Past" class="SelectCombo">Past</option>
+        <select name="ComboBox" class="ComboTournies" @bind="@stateSelected" @oninput="@((args) => { stateSelected = ((ChangeEventArgs)args).Value.ToString(); SearchTournamentState();})">
+            @{
+                <option value="emptySelect" class="SelectCombo"></option>
+                @foreach (var comboItem in _comboSearch)
+                {
+                    <option value="@comboItem" class="SelectCombo">@comboItem</option>
+                }
+            }
         </select>
     </div>
 </div>
 
-<button type="submit" class="SearchButton">Search</button>
-
-@foreach (var tournies in tournaments)
-{
-    int i = counter;
-    if (i != 5)
+@{
+    @foreach (var tournies in _tournaments)
     {
-        <div class="accordion-body" id="@($"Accordion-{countAccordions}")">
-            <input type="submit" value="Details" class="TourDetails" />
-            <button class="AccordionButton @(_isAccordionActive[i] ? "active" : "")" @onclick="() => ToggleAccordion(i)">
-                <div class="AccordionContent">
-                    <img />
-                </div>
-                <div class="AccordionContent">
-                    <h5><span class="TourHeading"> @tournies.Tournament_Name</span></h5>
-                    <p>@tournies.Tournament_Location</p>
-                </div>
-            </button>
-            <div class="PanelFlex" style="max-height: @(_isAccordionActive[i] ? $"{GetPanelMaxHeight(i)}%" : "0");">
-                <div class="PanelContent">
-                    <RosterComponent />
-                </div>
-                <div class="PanelContent">
-                    <RosterComponent />
+        int i = _counter;
+        if (i != 5)
+        {
+            <div class="accordion-body" id="@($"Accordion-{_countAccordions}")">
+                <input type="submit" value="Details" class="TourDetails" />
+                <button class="AccordionButton @(_isAccordionActive[i] ? "active" : "")" @onclick="() => ToggleAccordion(i)">
+                    <div class="AccordionContent">
+                        <img />
+                    </div>
+                    <div class="AccordionContent">
+                        <h5><span class="TourHeading"> @tournies.Tournament_Name</span></h5>
+                        <p>@tournies.Tournament_Location</p>
+                    </div>
+                </button>
+                <div class="PanelFlex" style="max-height: @(_isAccordionActive[i] ? $"{GetPanelMaxHeight(i)}%" : "0");">
+                    <div class="PanelContent">
+                        <RosterComponent />
+                    </div>
+                    <div class="PanelContent">
+                        <RosterComponent />
+                    </div>
                 </div>
             </div>
-        </div>
-        counter++;
-        countAccordions++;
+            _counter++;
+            _countAccordions++;
+        }
+        else
+            break;
     }
-    else
-    {
-        break;
-    }
+
+    ZeroCounters();
 }
 
 @code {
-    private string _tournamentName = string.Empty;
+    private static DatabaseProcessor _dbfunctions = new DatabaseProcessor();
+    private List<Tournament> _tournaments = _dbfunctions.GetTournaments();
+    private int _counter = 0;
+    private int _countAccordions = 1;
+    private string stateSelected = string.Empty;
 
-    private bool ValidateTournamentNameLength() =>
-        _tournamentName == string.Empty;
+    private List<string> _comboSearch = new List<string>()
+    {
+        "Upcoming",
+        "Active",
+        "Past"
+    };
+
+    private string _tournamentName = string.Empty;
 
     private async void AccordionClick() =>
         await JS.InvokeAsync<string>("onClickButton");
@@ -76,4 +84,42 @@
 
     private int GetPanelMaxHeight(int index) =>
         _isAccordionActive[index] ? 100 : 0;
+
+    private void ValidateEmptySearch()
+    {
+        if (_tournamentName == string.Empty)
+            _tournaments = _dbfunctions.GetTournaments();
+        else
+        {
+            stateSelected = string.Empty;
+            SearchTournamentName();
+        }
+
+    }
+
+    private void SearchTournamentState() =>
+        _tournaments = _dbfunctions.SearchTournamentState(stateSelected);
+
+    private void SearchTournamentName() =>
+        _tournaments = stateSelected.Equals(string.Empty) ? _dbfunctions.SearchTournamentName(_tournamentName) : _tournaments;
+
+
+    private void ZeroCounters()
+    {
+        _counter = 0;
+        _countAccordions = 0;
+    }
+
+    private void ChangeCombo()
+    {
+        if (!_tournamentName.Equals(string.Empty))
+            _comboSearch.Clear();
+        else
+        {
+            _comboSearch.Clear();
+            _comboSearch.Add("Upcoming");
+            _comboSearch.Add("Active");
+            _comboSearch.Add("Past");
+        }
+    }
 } 

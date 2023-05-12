@@ -1,80 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="JukskeiDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="JukskeiDatabaseEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Categories" EntityType="JukskeiDatabaseModel.Category" />
-    <EntitySet Name="Clients_Admin" EntityType="JukskeiDatabaseModel.Clients_Admin" />
-    <EntitySet Name="Payments" EntityType="JukskeiDatabaseModel.Payment" />
-    <EntitySet Name="Players" EntityType="JukskeiDatabaseModel.Player" />
-    <EntitySet Name="Rosters" EntityType="JukskeiDatabaseModel.Roster" />
-    <EntitySet Name="Teams" EntityType="JukskeiDatabaseModel.Team" />
-    <EntitySet Name="Tournaments" EntityType="JukskeiDatabaseModel.Tournament" />
-    <AssociationSet Name="FK__Categorie__Tourn__440B1D61" Association="JukskeiDatabaseModel.FK__Categorie__Tourn__440B1D61">
-      <End Role="Tournament" EntitySet="Tournaments" />
-      <End Role="Category" EntitySet="Categories" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Rosters__Categor__47DBAE45" Association="JukskeiDatabaseModel.FK__Rosters__Categor__47DBAE45">
-      <End Role="Category" EntitySet="Categories" />
-      <End Role="Roster" EntitySet="Rosters" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Teams_Categories" Association="JukskeiDatabaseModel.FK_Teams_Categories">
-      <End Role="Category" EntitySet="Categories" />
-      <End Role="Team" EntitySet="Teams" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Payments__Client__44FF419A" Association="JukskeiDatabaseModel.FK__Payments__Client__44FF419A">
-      <End Role="Clients_Admin" EntitySet="Clients_Admin" />
-      <End Role="Payment" EntitySet="Payments" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Payments__Tourna__45F365D3" Association="JukskeiDatabaseModel.FK__Payments__Tourna__45F365D3">
-      <End Role="Tournament" EntitySet="Tournaments" />
-      <End Role="Payment" EntitySet="Payments" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Players__Team_Id__3F466844" Association="JukskeiDatabaseModel.FK__Players__Team_Id__3F466844">
-      <End Role="Team" EntitySet="Teams" />
-      <End Role="Player" EntitySet="Players" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Rosters__Team_Id__4222D4EF" Association="JukskeiDatabaseModel.FK__Rosters__Team_Id__4222D4EF">
-      <End Role="Team" EntitySet="Teams" />
-      <End Role="Roster" EntitySet="Rosters" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Rosters__Tournam__49C3F6B7" Association="JukskeiDatabaseModel.FK__Rosters__Tournam__49C3F6B7">
-      <End Role="Tournament" EntitySet="Tournaments" />
-      <End Role="Roster" EntitySet="Rosters" />
-    </AssociationSet>
-  </EntityContainer>
   <EntityType Name="Category">
     <Key>
       <PropertyRef Name="Category_Id" />
     </Key>
     <Property Name="Category_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Category_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Category_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Tournament_Id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Tournament" Relationship="JukskeiDatabaseModel.FK__Categorie__Tourn__440B1D61" FromRole="Category" ToRole="Tournament" />
-    <NavigationProperty Name="Rosters" Relationship="JukskeiDatabaseModel.FK__Rosters__Categor__47DBAE45" FromRole="Category" ToRole="Roster" />
-    <NavigationProperty Name="Teams" Relationship="JukskeiDatabaseModel.FK_Teams_Categories" FromRole="Category" ToRole="Team" />
+    <NavigationProperty Name="Tournament" Relationship="Self.FK__Categorie__Tourn__440B1D61" FromRole="Categories" ToRole="Tournaments" />
+    <NavigationProperty Name="Rosters" Relationship="Self.FK__Rosters__Categor__47DBAE45" FromRole="Categories" ToRole="Rosters" />
+    <NavigationProperty Name="Teams" Relationship="Self.FK_Teams_Categories" FromRole="Categories" ToRole="Teams" />
   </EntityType>
   <EntityType Name="Clients_Admin">
     <Key>
       <PropertyRef Name="Client_Admin_Id" />
     </Key>
     <Property Name="Client_Admin_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Client_Admin_UserName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Client_Admin_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Client_Admin_SurName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Client_Admin_Email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Payments" Relationship="JukskeiDatabaseModel.FK__Payments__Client__44FF419A" FromRole="Clients_Admin" ToRole="Payment" />
+    <Property Name="Client_Admin_UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Client_Admin_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Client_Admin_SurName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Client_Admin_Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payments__Client__44FF419A" FromRole="Clients_Admin" ToRole="Payments" />
   </EntityType>
   <EntityType Name="Payment">
     <Key>
       <PropertyRef Name="Payment_Id" />
     </Key>
     <Property Name="Payment_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Payment_Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Payment_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <Property Name="Outstanding_balance" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="Payment_Date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Client_Admin_Id" Type="Int32" Nullable="false" />
     <Property Name="Tournament_Id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Clients_Admin" Relationship="JukskeiDatabaseModel.FK__Payments__Client__44FF419A" FromRole="Payment" ToRole="Clients_Admin" />
-    <NavigationProperty Name="Tournament" Relationship="JukskeiDatabaseModel.FK__Payments__Tourna__45F365D3" FromRole="Payment" ToRole="Tournament" />
+    <NavigationProperty Name="Clients_Admin" Relationship="Self.FK__Payments__Client__44FF419A" FromRole="Payments" ToRole="Clients_Admin" />
+    <NavigationProperty Name="Tournament" Relationship="Self.FK__Payments__Tourna__45F365D3" FromRole="Payments" ToRole="Tournaments" />
   </EntityType>
   <EntityType Name="Player">
     <Key>
@@ -83,7 +42,7 @@
     <Property Name="Player_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Player_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Team_Id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Team" Relationship="JukskeiDatabaseModel.FK__Players__Team_Id__3F466844" FromRole="Player" ToRole="Team" />
+    <NavigationProperty Name="Team" Relationship="Self.FK__Players__Team_Id__3F466844" FromRole="Players" ToRole="Teams" />
   </EntityType>
   <EntityType Name="Roster">
     <Key>
@@ -93,9 +52,9 @@
     <Property Name="Team_Id" Type="Int32" Nullable="false" />
     <Property Name="Tournament_Id" Type="Int32" Nullable="false" />
     <Property Name="Category_Id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Category" Relationship="JukskeiDatabaseModel.FK__Rosters__Categor__47DBAE45" FromRole="Roster" ToRole="Category" />
-    <NavigationProperty Name="Team" Relationship="JukskeiDatabaseModel.FK__Rosters__Team_Id__4222D4EF" FromRole="Roster" ToRole="Team" />
-    <NavigationProperty Name="Tournament" Relationship="JukskeiDatabaseModel.FK__Rosters__Tournam__49C3F6B7" FromRole="Roster" ToRole="Tournament" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__Rosters__Categor__47DBAE45" FromRole="Rosters" ToRole="Categories" />
+    <NavigationProperty Name="Team" Relationship="Self.FK__Rosters__Team_Id__4222D4EF" FromRole="Rosters" ToRole="Teams" />
+    <NavigationProperty Name="Tournament" Relationship="Self.FK__Rosters__Tournam__49C3F6B7" FromRole="Rosters" ToRole="Tournaments" />
   </EntityType>
   <EntityType Name="Team">
     <Key>
@@ -104,123 +63,164 @@
     <Property Name="Team_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Team_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Category_Id" Type="Int32" />
-    <NavigationProperty Name="Category" Relationship="JukskeiDatabaseModel.FK_Teams_Categories" FromRole="Team" ToRole="Category" />
-    <NavigationProperty Name="Players" Relationship="JukskeiDatabaseModel.FK__Players__Team_Id__3F466844" FromRole="Team" ToRole="Player" />
-    <NavigationProperty Name="Rosters" Relationship="JukskeiDatabaseModel.FK__Rosters__Team_Id__4222D4EF" FromRole="Team" ToRole="Roster" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Teams_Categories" FromRole="Teams" ToRole="Categories" />
+    <NavigationProperty Name="Players" Relationship="Self.FK__Players__Team_Id__3F466844" FromRole="Teams" ToRole="Players" />
+    <NavigationProperty Name="Rosters" Relationship="Self.FK__Rosters__Team_Id__4222D4EF" FromRole="Teams" ToRole="Rosters" />
   </EntityType>
   <EntityType Name="Tournament">
     <Key>
       <PropertyRef Name="Tournament_Id" />
     </Key>
     <Property Name="Tournament_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Tournament_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Tournament_Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Tournament_Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Tournament_Type" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Tournament_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tournament_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tournament_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tournament_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Tournament_Start_Date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Tournament_End_Date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Tournament_Extension" Type="Int32" />
     <Property Name="Tournament_Duration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Tournament_Pits_Playable" Type="Int32" />
     <Property Name="Tournament_State" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Categories" Relationship="JukskeiDatabaseModel.FK__Categorie__Tourn__440B1D61" FromRole="Tournament" ToRole="Category" />
-    <NavigationProperty Name="Payments" Relationship="JukskeiDatabaseModel.FK__Payments__Tourna__45F365D3" FromRole="Tournament" ToRole="Payment" />
-    <NavigationProperty Name="Rosters" Relationship="JukskeiDatabaseModel.FK__Rosters__Tournam__49C3F6B7" FromRole="Tournament" ToRole="Roster" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK__Categorie__Tourn__440B1D61" FromRole="Tournaments" ToRole="Categories" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payments__Tourna__45F365D3" FromRole="Tournaments" ToRole="Payments" />
+    <NavigationProperty Name="Rosters" Relationship="Self.FK__Rosters__Tournam__49C3F6B7" FromRole="Tournaments" ToRole="Rosters" />
   </EntityType>
   <Association Name="FK__Categorie__Tourn__440B1D61">
-    <End Type="JukskeiDatabaseModel.Tournament" Role="Tournament" Multiplicity="1" />
-    <End Type="JukskeiDatabaseModel.Category" Role="Category" Multiplicity="*" />
+    <End Role="Tournaments" Type="Self.Tournament" Multiplicity="1" />
+    <End Role="Categories" Type="Self.Category" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Tournament">
+      <Principal Role="Tournaments">
         <PropertyRef Name="Tournament_Id" />
       </Principal>
-      <Dependent Role="Category">
+      <Dependent Role="Categories">
         <PropertyRef Name="Tournament_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Rosters__Categor__47DBAE45">
-    <End Type="JukskeiDatabaseModel.Category" Role="Category" Multiplicity="1" />
-    <End Type="JukskeiDatabaseModel.Roster" Role="Roster" Multiplicity="*" />
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="Rosters" Type="Self.Roster" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Category">
+      <Principal Role="Categories">
         <PropertyRef Name="Category_Id" />
       </Principal>
-      <Dependent Role="Roster">
+      <Dependent Role="Rosters">
         <PropertyRef Name="Category_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Teams_Categories">
-    <End Type="JukskeiDatabaseModel.Category" Role="Category" Multiplicity="0..1" />
-    <End Type="JukskeiDatabaseModel.Team" Role="Team" Multiplicity="*" />
+    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Teams" Type="Self.Team" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Category">
+      <Principal Role="Categories">
         <PropertyRef Name="Category_Id" />
       </Principal>
-      <Dependent Role="Team">
+      <Dependent Role="Teams">
         <PropertyRef Name="Category_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Payments__Client__44FF419A">
-    <End Type="JukskeiDatabaseModel.Clients_Admin" Role="Clients_Admin" Multiplicity="1" />
-    <End Type="JukskeiDatabaseModel.Payment" Role="Payment" Multiplicity="*" />
+    <End Role="Clients_Admin" Type="Self.Clients_Admin" Multiplicity="1" />
+    <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Clients_Admin">
         <PropertyRef Name="Client_Admin_Id" />
       </Principal>
-      <Dependent Role="Payment">
+      <Dependent Role="Payments">
         <PropertyRef Name="Client_Admin_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Payments__Tourna__45F365D3">
-    <End Type="JukskeiDatabaseModel.Tournament" Role="Tournament" Multiplicity="1" />
-    <End Type="JukskeiDatabaseModel.Payment" Role="Payment" Multiplicity="*" />
+    <End Role="Tournaments" Type="Self.Tournament" Multiplicity="1" />
+    <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Tournament">
+      <Principal Role="Tournaments">
         <PropertyRef Name="Tournament_Id" />
       </Principal>
-      <Dependent Role="Payment">
+      <Dependent Role="Payments">
         <PropertyRef Name="Tournament_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Players__Team_Id__3F466844">
-    <End Type="JukskeiDatabaseModel.Team" Role="Team" Multiplicity="1" />
-    <End Type="JukskeiDatabaseModel.Player" Role="Player" Multiplicity="*" />
+    <End Role="Teams" Type="Self.Team" Multiplicity="1" />
+    <End Role="Players" Type="Self.Player" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Team">
+      <Principal Role="Teams">
         <PropertyRef Name="Team_Id" />
       </Principal>
-      <Dependent Role="Player">
+      <Dependent Role="Players">
         <PropertyRef Name="Team_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Rosters__Team_Id__4222D4EF">
-    <End Type="JukskeiDatabaseModel.Team" Role="Team" Multiplicity="1" />
-    <End Type="JukskeiDatabaseModel.Roster" Role="Roster" Multiplicity="*" />
+    <End Role="Teams" Type="Self.Team" Multiplicity="1" />
+    <End Role="Rosters" Type="Self.Roster" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Team">
+      <Principal Role="Teams">
         <PropertyRef Name="Team_Id" />
       </Principal>
-      <Dependent Role="Roster">
+      <Dependent Role="Rosters">
         <PropertyRef Name="Team_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Rosters__Tournam__49C3F6B7">
-    <End Type="JukskeiDatabaseModel.Tournament" Role="Tournament" Multiplicity="1" />
-    <End Type="JukskeiDatabaseModel.Roster" Role="Roster" Multiplicity="*" />
+    <End Role="Tournaments" Type="Self.Tournament" Multiplicity="1" />
+    <End Role="Rosters" Type="Self.Roster" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Tournament">
+      <Principal Role="Tournaments">
         <PropertyRef Name="Tournament_Id" />
       </Principal>
-      <Dependent Role="Roster">
+      <Dependent Role="Rosters">
         <PropertyRef Name="Tournament_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityContainer Name="JukskeiDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Clients_Admin" EntityType="Self.Clients_Admin" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="Players" EntityType="Self.Player" />
+    <EntitySet Name="Rosters" EntityType="Self.Roster" />
+    <EntitySet Name="Teams" EntityType="Self.Team" />
+    <EntitySet Name="Tournaments" EntityType="Self.Tournament" />
+    <AssociationSet Name="FK__Categorie__Tourn__440B1D61" Association="Self.FK__Categorie__Tourn__440B1D61">
+      <End Role="Tournaments" EntitySet="Tournaments" />
+      <End Role="Categories" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rosters__Categor__47DBAE45" Association="Self.FK__Rosters__Categor__47DBAE45">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Rosters" EntitySet="Rosters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teams_Categories" Association="Self.FK_Teams_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Teams" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payments__Client__44FF419A" Association="Self.FK__Payments__Client__44FF419A">
+      <End Role="Clients_Admin" EntitySet="Clients_Admin" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payments__Tourna__45F365D3" Association="Self.FK__Payments__Tourna__45F365D3">
+      <End Role="Tournaments" EntitySet="Tournaments" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Players__Team_Id__3F466844" Association="Self.FK__Players__Team_Id__3F466844">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rosters__Team_Id__4222D4EF" Association="Self.FK__Rosters__Team_Id__4222D4EF">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="Rosters" EntitySet="Rosters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rosters__Tournam__49C3F6B7" Association="Self.FK__Rosters__Tournam__49C3F6B7">
+      <End Role="Tournaments" EntitySet="Tournaments" />
+      <End Role="Rosters" EntitySet="Rosters" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>
