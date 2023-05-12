@@ -78,24 +78,19 @@
         }
     }
 
-    // Call setupAccordion() when the document is fully loaded
-    document.addEventListener("DOMContentLoaded", setupAccordion);
-
-
-    function CurrentDateForInput() {
+    function AddTeamsToCategories() {
         var categoryNameTrue = document.getElementById("TeamCategories").value;
         var teamName = document.getElementById("TeamName").value;
 
-        console.log(categoryNameTrue);
-        console.log(teamName);
+        var playersNameArr = GetPlayerNames();
 
-        if (categoryNameTrue == "EmptyOption") {
-            alert("Please select a Category for the team.");
-            return;
-        } else if (teamName == "") {
-            alert("Please enter the team name.");
-            return;
-        }
+        if(playersNameArr.length <= 3)
+            return "Please add at least 4 players";
+
+        if (categoryNameTrue == "EmptyOption" && categoryNameTrue == null && categoryNameTrue == "")
+            return "Please select a Category for the team.";
+        else if (teamName == "" && teamName == null && teamName == "")
+            return "Please enter a team name.";
 
         var categoryTable = document.getElementById(`Table_${categoryNameTrue}`);
 
@@ -103,6 +98,32 @@
 
         var cell = newRow.insertCell(0);
 
-        cell.textContent = teamName;
+        let cellContent = `${teamName}\n`;        
+
+        for (let i = 0; i < playersNameArr.length; i++) {
+            if (playersNameArr.length - 1 != i)
+                cellContent += `${playersNameArr[i]}, `;
+            else
+                cellContent += `${playersNameArr[i]}`;
+        }
+
+        cell.textContent = cellContent;
+        cell.style.borderBottom = "1px solid black";
+        cell.style.borderTop = "1px solid black";
+        cell.style.textAlign = "center";
+        cell.classList.add("TableContent");
     }
+
+    function GetPlayerNames() {
+        var inputElements = document.querySelectorAll('.PleyerNames .InputLabels');
+        var playerNames = Array.from(inputElements).map(function (inputElement) {
+            return inputElement.value;
+        }).filter(function (playerName) {
+            return playerName.trim() !== '';
+        });
+
+        return playerNames;
+    }
+
+
 </script>

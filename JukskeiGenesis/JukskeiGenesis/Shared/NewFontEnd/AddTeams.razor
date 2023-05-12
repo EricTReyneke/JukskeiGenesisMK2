@@ -3,178 +3,128 @@
 @inject IJSRuntime JS
 
 @{
-    List<Category> categoriesList = dbProcessor.GetCategories(2);
-    List<string> categories = new List<string>();
-    foreach (var category in categoriesList)
-    {
-        categories.Add(category.Category_Name);
-    }
+    List<Category> _categoriesList = _dbProcessor.GetCategories(2);
+    List<string> _categories = new List<string>();
+    foreach (var category in _categoriesList)
+        _categories.Add(category.Category_Name);
 }
 
-@*<div class="FlexHouseInputs">
-    <div class="TeamNameInputs">
-        <label type="text" class="Labels">Team Name</label>
-        <input type="text" placeholder="Kopersbond" class="InputBoxes" id="TeamName" />
-    </div>
-
-    <div class="PlayerNamesInputs">
-        <label type="text" class="Labels">Player Name</label>
-        <input type="text" placeholder="Gerrie Kotse" class="InputBoxes" />
-        <input type="text" placeholder="Johan Hanse" class="InputBoxes" />
-        <input type="text" placeholder="Jaco Groenewald" class="InputBoxes" />
-        <input type="text" placeholder="Tinus Barnard" class="InputBoxes" />
-        <input type="text" placeholder="Dan Swart" class="InputBoxes" />
-    </div>
-
-    <div class="TeamCategoryInputs">
-        <label type="text" class="Labels">Team Category</label>
-        <select name="TypeCombo" id="TeamCategories" class="InputBoxes">
-            <option value="EmptyOption">Please select a Category</option>
-            @foreach (var category in categories)
-            {
-                <option value="@category">@category</option>
-            }
-        </select>
-    </div>
-
-    <button type="button" class="Buttons" @onclick="AddNewTeam">Push Team</button>
-</div>
-
-<div class="FlexHouseTables">
-    <div class="InnerOne">
-        @{
-            counter = 0;
-        }
-        @foreach (var category in categories)
-        {
-            @if ((counter == 0 || counter % 2 == 0) && counter != categories.Count - 1)
-            {
-
-                <table id="Table_@category" class="Tables">
-                    <tr>
-                        <th>@category</th>
-                    </tr>
-                </table>
-
-            }
-            counter++;
-        }
-    </div>
-    <div class="InnerTwo">
-        @{
-            counter = 0;
-        }
-        @foreach (var category in categories)
-        {
-            if ((counter != 0 || counter % 2 != 0) && counter != categories.Count - 1)
-            {
-                <table id="Table_@category" class="Tables">
-                    <tr>
-                        <th>@category</th>
-                    </tr>
-                </table>
-            }
-
-            counter++;
-        }
-    </div>
-</div>
-
-<div class="InnerFinal">
-    <table id="Table_@categories[categories.Count - 1]" class="Tables">
-        <tr>
-            <th>@categories[categories.Count - 1]</th>
-        </tr>
-    </table>
-</div>*@
-
-<body>
+<div class="FromCard">
     <div class="FormBody">
         <div class="FlexHouseInputs">
-            <div class="TeamNameInputs">
-                <label type="text" class="Labels">Team Name</label>
-                <input type="text" placeholder="Kopersbond" class="InputBoxes" id="TeamName" />
+
+            <div class="Flex1">
+                <div class="TeamNameInputs">
+                    <label type="text" class="Labels">Team Name</label>
+                    <input type="text" placeholder="Kopersbond" class="InputLabels" id="TeamName" @bind="_teamName" />
+                </div>
+
+                <div class="TeamCategoryInputs">
+                    <label type="text" class="Labels" id="CategoryLabel">Team Category</label>
+                    <select name="TypeCombo" id="TeamCategories" class="InputLabels TeamCategories" @bind="_categoryName">
+                        <option value="EmptyOption">Please select a Category</option>
+                        @foreach (var category in _categories)
+                        {
+                            <option value="@category">@category</option>
+                        }
+                    </select>
+
+                    <button type="button" class="PushTeamButton" @onclick="AddNewTeam">Push Team</button>
+                </div>
             </div>
 
-            <div class="PlayerNamesInputs">
-                <label type="text" class="Labels">Player Name</label>
-                <input type="text" placeholder="Gerrie Kotse" class="InputBoxes" />
-                <input type="text" placeholder="Johan Hanse" class="InputBoxes" />
-                <input type="text" placeholder="Jaco Groenewald" class="InputBoxes" />
-                <input type="text" placeholder="Tinus Barnard" class="InputBoxes" />
-                <input type="text" placeholder="Dan Swart" class="InputBoxes" />
-            </div>
-
-            <div class="TeamCategoryInputs">
-                <label type="text" class="Labels">Team Category</label>
-                <select name="TypeCombo" id="TeamCategories" class="InputBoxes">
-                    <option value="EmptyOption">Please select a Category</option>
-                    @foreach (var category in categories)
-                    {
-                        <option value="@category">@category</option>
-                    }
-                </select>
-            </div>
-
-            <button type="button" class="Buttons" @onclick="AddNewTeam">Push Team</button>
-        </div>
-
-        <div class="FlexHouseTables">
-            <div class="InnerOne">
-                @{
-                    counter = 0;
-                }
-                @foreach (var category in categories)
-                {
-                    @if ((counter == 0 || counter % 2 == 0) && counter != categories.Count - 1)
-                    {
-
-                        <table id="Table_@category" class="Tables">
-                            <tr>
-                                <th>@category</th>
-                            </tr>
-                        </table>
-
-                    }
-                    counter++;
-                }
-            </div>
-            <div class="InnerTwo">
-                @{
-                    counter = 0;
-                }
-                @foreach (var category in categories)
-                {
-                    if ((counter != 0 || counter % 2 != 0) && counter != categories.Count - 1)
-                    {
-                        <table id="Table_@category" class="Tables">
-                            <tr>
-                                <th>@category</th>
-                            </tr>
-                        </table>
-                    }
-
-                    counter++;
-                }
+            <div class="Flex2">
+                <div class="PleyerNames">
+                    <label type="text" class="Labels">Player Name</label>
+                    <input type="text" placeholder="1st players Name" class="InputLabels Exstension" />
+                    <input type="text" placeholder="2st players Name" class="InputLabels Exstension" />
+                    <input type="text" placeholder="3st players Name" class="InputLabels Exstension" />
+                    <input type="text" placeholder="4st players Name (C)" class="InputLabels Exstension" />
+                    <input type="text" placeholder="5st players Name (R)" class="InputLabels Exstension" />
+                </div>
             </div>
         </div>
 
-        <div class="InnerFinal">
-            <table id="Table_@categories[categories.Count - 1]" class="Tables">
-                <tr>
-                    <th>@categories[categories.Count - 1]</th>
-                </tr>
-            </table>
+        <div class="TableContainer">
+            <div class="FlexHouseTables">
+                <div class="InnerOne">
+                    @{
+                        _counter = 0;
+                    }
+                    @foreach (var category in _categories)
+                    {
+                        @if ((_counter == 0 || _counter % 2 == 0) && _counter != _categories.Count - 1)
+                        {
+
+                            <table id="Table_@category" class="Tables">
+                                <tr>
+                                    <th class="TableHeading">@category</th>
+                                </tr>
+                            </table>
+
+                        }
+                        _counter++;
+                    }
+                </div>
+                <div class="InnerTwo">
+                    @{
+                        _counter = 0;
+                    }
+                    @foreach (var category in _categories)
+                    {
+                        if ((_counter != 0 || _counter % 2 != 0) && _counter != _categories.Count - 1)
+                        {
+                            <table id="Table_@category" class="Tables">
+                                <tr>
+                                    <th class="TableHeading">@category</th>
+                                </tr>
+                            </table>
+                        }
+
+                        _counter++;
+                    }
+                </div>
+            </div>
+
+            <div class="InnerFinal">
+                <table id="Table_@_categories[_categories.Count - 1]" class="FinalTable">
+                    <tr>
+                        <th class="TableHeading">@_categories[_categories.Count - 1]</th>
+                    </tr>
+                </table>
+            </div>
         </div>
+
+        <button type="button" class="PushTeamButton" @onclick="WriteToDataBase" value="WriteToDataBase" >Submit</button>
     </div>
-</body>
+</div>
 
 @code {
-    DatabaseProcessor dbProcessor = new DatabaseProcessor();
-    int counter = 0;
+    private static DatabaseProcessor _dbProcessor = new();
+    private int _counter = 0;
+    private string _teamName;
+    private string _categoryName;
+    private List<string> _teamNamesAdded = new();
+
+    //TODO Make sure you make this code dynamic to be able to facilitate doubles and trips tournaments.
 
     private async Task AddNewTeam()
     {
-        await JS.InvokeAsync<string>("CurrentDateForInput");
+        if (!_teamNamesAdded.Contains($"{_teamName} {_categoryName}"))
+        {
+            string result = await JS.InvokeAsync<string>("AddTeamsToCategories");
+            if (result == null)
+                _teamNamesAdded.Add($"{_teamName} {_categoryName}");
+            else
+                ShowAlert(result);
+        }
+        else
+            ShowAlert($"Team {_teamName} has already been added to category {_categoryName}.");
     }
+
+    private void WriteToDataBase() =>
+        _dbProcessor.AddTeamsToCategories(_teamNamesAdded);
+
+    private void ShowAlert(string message) =>
+        JS.InvokeVoidAsync("alert", message);
 }

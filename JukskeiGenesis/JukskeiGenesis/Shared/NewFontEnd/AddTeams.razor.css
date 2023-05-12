@@ -1,192 +1,113 @@
-/*.FlexHouseInputs{
-    display: flex;
-    margin-left: 20%;
-    margin-top: 2%;
+.FromCard {
+    position: relative;
+    margin: 5vh auto;
+    box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
+    width: 80%;
+    border-radius: 50px;
+    overflow: hidden;
 }
 
-.InputBoxes {
+.InputLabels {
     display: block;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
     color: #333;
-    width: 100%;
-}
-
-.Labels{
-    justify-content: center;
-    width: 100%;
     text-align: center;
-}
-
-.TeamNameInputs {
-    padding-right: 3%;
-}
-
-.PlayerNamesInputs {
-    padding-right: 3%;
-}
-
-
-.FlexHouseTables {
-    margin-top: 2%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.InnerOne, .InnerTwo {
-    flex-basis: 45%;
-}
-
-.Tables {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    border: 1px solid lightgrey;
-}
-
-    .Tables th {
-        font-weight: bold;
-        padding: 10px;
-        text-align: center;
-        border-bottom: 1px solid lightgrey;
-    }
-
-    .Tables td {
-        text-align: center;
-        font-size: 16px;
-        padding: 10px;
-        border-bottom: 1px solid lightgrey;
-    }
-
-.InnerFinal {
-    width: 100%;
-    text-align: center;
-}
-
-    .InnerFinal .Tables {
-        margin-bottom: 0;
-        border: 1px solid lightgrey;
-    }
-
-        .InnerFinal .Tables th {
-            font-weight: bold;
-            padding: 10px;
-            text-align: center;
-            border-bottom: 1px solid lightgrey;
-        }
-
-    -------------------------------------------------------------------*/
-
-.Buttons {
-    display: block !important;
-    margin-left: 1%;
-    margin-top: 1%;
-    height: 1%;
-    width: 15%;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-    .Buttons:hover {
-        background-color: #3e8e41;
-    }
-
-    .Buttons:active {
-        background-color: #e7e7e7;
-        color: #000;
-    }
-
-.FormBody {
-    position: relative;
-    margin: 15vh auto;
-    box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
     width: 80%;
-    border-radius: 50px;
-    padding: 20px;
 }
 
-.FlexHouseInputs {
+.FlexHouseInputs{
+    padding-top: 3%;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
 }
 
-.TeamNameInputs,
-.PlayerNamesInputs,
-.TeamCategoryInputs {
-    flex-basis: 30%;
+.Flex1{
+    width: 45%;
+    margin-left: 10%;
 }
 
-.Labels {
-    display: block;
-    margin-bottom: 5px;
+.Flex2 {
+    width: 45%;
+    margin-right: 10%;
 }
 
-.InputBoxes {
-    display: block;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    padding: 8px 10px;
-    margin-bottom: 15px;
+.TeamNameInputs{
+    padding-bottom: 1%;
 }
 
-.Buttons {
-    display: block;
-    background-color: #4CAF50;
+.PushTeamButton {
+    background-color: #30b0e3;
+    border-width: 0.1px;
     color: white;
-    padding: 10px 20px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    width: 25%;
     text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 4%;
+    display: inline-block;
+    border-color: royalblue;
+}
+
+.Exstension{
     width: 100%;
+    height: auto;
 }
 
-    .Buttons:hover {
-        background-color: #45a049;
-    }
+.TeamCategories{
+   width: 50%;
+   display: inline-block;
+}
 
-.FlexHouseTables {
+#CategoryLabel{
+    display: block;
+}
+
+.FlexHouseTables{
+    padding-top: 2%;
     display: flex;
-    justify-content: space-between;
-}
-
-.InnerOne,
-.InnerTwo {
-    flex-basis: 45%;
-}
-
-.InnerFinal {
-    flex-basis: 100%;
-    margin-top: 20px;
+    padding-bottom: 2%;
 }
 
 .Tables {
-    border-collapse: collapse;
+    border: solid black;
     width: 100%;
-    margin-bottom: 20px;
+    margin-left: 10%;
 }
 
-    .Tables th {
-        background-color: #f2f2f2;
-        text-align: left;
-        padding: 8px;
-        border: 1px solid #ddd;
-    }
+.TableHeading{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+}
 
-/*---------------------------------------------------------------------*/
+.TableContent {
+    text-align: center;
+    border-bottom: 1px solid black;
+}
 
+.InnerOne {
+    width: 45%;
+    margin-right: 2%;
+}
 
+.InnerTwo {
+    width: 45%;
+}
+
+.InnerFinal{
+    width: 90%;
+}
+
+.FinalTable {
+    border: solid black;
+    width: 100%;
+    margin-left: 6%;
+}
+
+.TableContainer{
+    padding-bottom: 3%;
+}
