@@ -10,6 +10,10 @@ Drop database JukskeiDatabase
 
 	drop table Tournaments;
 
+	select * from Tournaments
+	select * from Categories
+	select * from Teams
+
 Use 
 	JukskeiDatabase
 Create Table 
@@ -26,6 +30,19 @@ Create Table
 
   Alter table Tournaments
   Add Tournament_State VarChar(10) check (Tournament_State = 'Upcomming' OR Tournament_State = 'Active' OR Tournament_State = 'Past')
+
+  Alter table Tournaments
+  Add Tournament_Age_Group VarChar(10)
+
+  Alter table Tournaments
+  Add Tournament_Blocks VarChar(10)
+
+  ALTER TABLE Tournaments
+ALTER COLUMN Tournament_Blocks VARCHAR(10) NOT NULL;
+
+-- Step 2: Assign a default value
+ALTER TABLE Tournaments
+ALTER COLUMN Tournament_Blocks SET DEFAULT '';
 
   Alter table Tournaments
   Drop Column IsActive
@@ -62,11 +79,19 @@ Create Table
 	Team_Id int Primary Key Identity(1,1),
 	Team_Name VarChar(20))
 
+ALTER TABLE [JukskeiDatabase].[dbo].[Teams]
+ADD Tournament_Id int
+
+ALTER TABLE [JukskeiDatabase].[dbo].[Teams]
+ADD CONSTRAINT FK_Teams_Tournaments
+FOREIGN KEY (Tournament_Id)
+REFERENCES Tournaments(Tournament_Id);
+
 	--Creating The Players Table.
 	--The Players Table will have a One to Many relationsthip with Teams.
 	--Players can have one team where teams can have multiple players.
 
-	select * From Categories
+	select * From Teams
 
 	delete Categories
 	where Tournament_Id in (5, 6, 7)
@@ -217,3 +242,18 @@ VALUES
 		(500.00, 0.00, '2022-02-15', 1, 2),
         (750.00, 1250.00, '2022-03-01', 2, 3),
         (1000.00, 0.00, '2022-03-15', 3, 4);
+
+		Drop table MatchPoints
+
+Create 
+Table 
+		MatchPoints(
+		Match_Points_Id int Identity(1, 1) Primary Key,
+		Match_Points int not null,
+		Match_Played_Number int not null,
+		Category_Id int not null,
+		Tournament_Id int not null,
+		Team_Id int not null,
+		FOREIGN KEY (Category_Id) REFERENCES Categories(Category_Id),
+		FOREIGN KEY (Team_Id) REFERENCES Teams(Team_Id),
+		FOREIGN KEY (Tournament_Id) REFERENCES Tournaments(Tournament_Id))

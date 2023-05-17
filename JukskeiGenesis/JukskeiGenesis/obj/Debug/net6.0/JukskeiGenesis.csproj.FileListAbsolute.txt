@@ -300,3 +300,5 @@ C:\Users\franc\Documents\Jukskei\JukskeiGenesisMK2\JukskeiGenesis\JukskeiGenesis
 C:\Users\franc\Documents\Jukskei\JukskeiGenesisMK2\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\JukskeiGenesis.csproj.CopyComplete
 C:\Users\franc\Documents\Jukskei\JukskeiGenesisMK2\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\JukskeiGenesis.genruntimeconfig.cache
 C:\Users\franc\Documents\Jukskei\JukskeiGenesisMK2\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\ref\JukskeiGenesis.dll
+C:\BackUp\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\scopedcss\Shared\NewFontEnd\EnterScores.razor.rz.scp.css
+C:\BackUp\JukskeiGenesis\JukskeiGenesis\obj\Debug\net6.0\scopedcss\Shared\NewFontEnd\ViewTournamentDetails.razor.rz.scp.css

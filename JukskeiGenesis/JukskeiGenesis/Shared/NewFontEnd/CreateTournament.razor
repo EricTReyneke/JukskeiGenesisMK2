@@ -215,9 +215,7 @@
         set
         {
             if (_tournamentEndDate != value)
-            {
                 _tournamentEndDate = value;
-            }
         }
     }
 
@@ -324,9 +322,9 @@
         }
         else
             if (_tStartDate == DateTime.Now)
-            _tournamnet_State = "Active";
-        else
-            _tournamnet_State = "Upcomming";
+                _tournamnet_State = "Active";
+            else
+                _tournamnet_State = "Upcomming";
 
         DatabaseProcessor dbProcessor = new DatabaseProcessor();
         dbProcessor.CreateNewTournament(_tName, _tlocation, _tAddress, _tStartDate, TournamentEndDate, _tournamentTypeValue, _tournamentDurationValue, pitsPlayable, _tournamnet_State, _tCategories);

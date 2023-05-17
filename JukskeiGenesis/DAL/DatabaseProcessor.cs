@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static NPOI.HSSF.Util.HSSFColor;
 
 namespace DAL
 {
@@ -30,14 +31,10 @@ namespace DAL
         {
             var matches = new List<(string, string)>();
             if (teams == null || teams.Count < 2)
-            {
                 return matches;
-            }
 
             if (teams.Count % 2 != 0)
-            {
                 teams.Add("Bye");
-            }
 
             // Removed the shuffle step
             List<string> ShuffledList = teams;
@@ -47,19 +44,15 @@ namespace DAL
 
             for (var day = 0; day < teamsCount - 1; day++)
             {
-                if (restTeams[day % restTeams.Count]?.Equals(default) == false)
-                {
+                if (restTeams[day % restTeams.Count]?.Equals(default) == false)                
                     matches.Add((ShuffledList[0], restTeams[day % restTeams.Count]));
-                }
 
                 for (var index = 1; index < teamsCount / 2; index++)
                 {
                     var firstTeam = restTeams[(day + index) % restTeams.Count];
                     var secondTeam = restTeams[(day + restTeams.Count - index) % restTeams.Count];
                     if (firstTeam?.Equals(default) == false && secondTeam?.Equals(default) == false)
-                    {
                         matches.Add((firstTeam, secondTeam));
-                    }
                 }
             }
 
@@ -130,12 +123,28 @@ namespace DAL
             _jukskeiDB.Teams.Where(t => t.Category_Id == Category_Id).ToList();
 
         /// <summary>
+        /// Retrieves the MatchScores of that corrosponding Team.
+        /// </summary>
+        /// <param name="Category_Id"></param>
+        /// <returns></returns>
+        public List<MatchPoint> GetTeamMatchScore(int teamId) =>
+            _jukskeiDB.MatchPoints.Where(t => t.Team_Id == teamId).ToList();
+
+        /// <summary>
         /// Retrieves the Tournaments from the Tournament_Name in the database.
         /// </summary>
         /// <param name="tournamentName"></param>
         /// <returns></returns>
         public List<Tournament> SearchTournamentName(string tournamentName) =>
             _jukskeiDB.Tournaments.Where(w => w.Tournament_Name.Contains(tournamentName)).Select(t => t).ToList();
+
+        /// <summary>
+        /// Retrieves the Tournament fromfrom database using TournamentId.
+        /// </summary>
+        /// <param name="tournamentName"></param>
+        /// <returns></returns>
+        public Tournament RetrieveTournement(int TournamentId) =>
+            _jukskeiDB.Tournaments.Where(w => w.Tournament_Id == TournamentId).Select(t => t).ToList()[0];
 
         /// <summary>
         /// Retrieves the Tournaments from the Tournament_State in the database.
@@ -148,9 +157,24 @@ namespace DAL
         /// <summary>
         /// Writes the teams into the Database.
         /// </summary>
+        /// <param name="teamAndCategoryNames"></param>
         public void AddTeamsToCategories(List<string> teamAndCategoryNames)
         {
-            Dictionary<string, List<string>> finalTeamsAndCategories = AddTeamsDynamicaly(teamAndCategoryNames);
+            List<Category> cattegoryNames = GetCategories(2);
+
+            foreach (Category category in cattegoryNames)
+                foreach (var teamName in AddTeamsDynamicaly(teamAndCategoryNames, category.Category_Name))
+                {
+                    Team newTeam = new Team()
+                    {
+                        Team_Name = teamName,
+                        Category_Id = category.Category_Id,
+                        Tournament_Id = category.Tournament_Id,
+                    };
+
+                    _jukskeiDB.Teams.Add(newTeam);
+                    _jukskeiDB.SaveChanges();
+                }
         }
 
         #endregion
@@ -160,30 +184,21 @@ namespace DAL
         /// <summary>
         /// Devides the Teams into their respective Categories.
         /// </summary>
+        /// <param name="teamAndCategoryNames"></param>
+        /// <param name="categoryName"></param>
         /// <returns></returns>
-        private Dictionary<string, List<string>> AddTeamsDynamicaly(List<string> teamAndCategoryNames)
+        private List<string> AddTeamsDynamicaly(List<string> teamAndCategoryNames, string categoryName)
         {
-            List<Category> categories = GetCategories(2);
-
             List<string> nameOfTeams = new List<string>();
 
-            Dictionary<string, List<string>> finalTeamsAndCategories = new Dictionary<string, List<string>>();
-            
-            foreach (Category category in categories)
-            {
-                foreach(string teamAndCategory in teamAndCategoryNames)
+            foreach (string team in teamAndCategoryNames)
+                if (team.Split(' ').Last().Equals(categoryName))
                 {
-                    if (teamAndCategory.Split(' ').Last() == category.Category_Name)
-                    {
-                        string[] teamAndCategoryArray = teamAndCategory.Split(' ');
-                        nameOfTeams.Add(string.Join(", ", teamAndCategoryArray.Take(teamAndCategoryArray.Length - 1)));
-                    }
+                    string[] teamAndCategoryArray = team.Split(' ');
+                    nameOfTeams.Add(string.Join(", ", teamAndCategoryArray.Take(teamAndCategoryArray.Length - 1)));
                 }
-                finalTeamsAndCategories.Add(category.Category_Name, nameOfTeams);
-                nameOfTeams.Clear();
-            }
 
-            return finalTeamsAndCategories;
+            return nameOfTeams;
         }
         #endregion
     }
