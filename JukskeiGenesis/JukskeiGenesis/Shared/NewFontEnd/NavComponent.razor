@@ -17,28 +17,27 @@
             <div class="nav-item px-3">
                 <a class="nav-link" @onclick="() => NavigateAddTeams()">Add Teams</a>
             </div>
+            <div class="nav-item px-3">
+                <a class="nav-link" @onclick="() => NavigateEnterScores()">Enter Scores</a>
+            </div>
         </nav>
     </div>
 </header>
 
 @code{
-    private void NavigateHome()
-    {
+    private void NavigateHome() =>
         navigationManager.NavigateTo("/");
-    }
 
-    private void NavigateLogin()
-    {
+    private void NavigateLogin() =>
         navigationManager.NavigateTo("/Login");
-    }
 
-    private void NavigateCreateTournament()
-    {
+    private void NavigateCreateTournament() =>
         navigationManager.NavigateTo("/CreateTournement");
-    }
 
-    private void NavigateAddTeams()
-    {
+    private void NavigateAddTeams() =>
         navigationManager.NavigateTo("/AddTeam");
-    }
+    
+
+    private void NavigateEnterScores() =>
+        navigationManager.NavigateTo("/EnterScores");
 }

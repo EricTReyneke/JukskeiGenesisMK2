@@ -1,5 +1,8 @@
 ﻿@using DAL
+@using JukskeiGenesis.Models;
 @inject IJSRuntime JS
+@inject NavigationManager navigationManager
+@inject TournamentStateTracker tournamentState
 
 <div class="SearchParms">
     <div class="SearchBox">
@@ -26,7 +29,7 @@
         if (i != 5)
         {
             <div class="accordion-body" id="@($"Accordion-{_countAccordions}")">
-                <input type="submit" value="Details" class="TourDetails" />
+                <input type="submit" value="Details" class="TourDetails" @onclick="() => { SetStateTournamentId(); NavigateTournamentDetails(); }" />
                 <button class="AccordionButton @(_isAccordionActive[i] ? "active" : "")" @onclick="() => ToggleAccordion(i)">
                     <div class="AccordionContent">
                         <img />
@@ -70,6 +73,15 @@
     };
 
     private string _tournamentName = string.Empty;
+
+    private void NavigateTournamentDetails() =>
+        navigationManager.NavigateTo("/ViewTournamentDetails");
+
+    private void SetStateTournamentId()
+    {
+        _dbfunctions.SearchTournamentName(_tournaments[3].Tournament_Name);
+        TournamentStateTracker.TournamentId = _dbfunctions.SearchTournamentName(_tournaments[3].Tournament_Name)[0].Tournament_Id;
+    }
 
     private async void AccordionClick() =>
         await JS.InvokeAsync<string>("onClickButton");

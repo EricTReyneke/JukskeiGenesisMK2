@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using JukskeiGenesis.Models;
 
 namespace JukskeiGenesis
 {
@@ -11,6 +10,7 @@ namespace JukskeiGenesis
 
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
+            builder.Services.AddSingleton<TournamentStateTracker>();
 
             var app = builder.Build();
 

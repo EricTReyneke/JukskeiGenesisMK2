@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope = b-ntsosrplt5
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5ld0ZvbnRFbmRcQ3JlYXRlVG91cm5hbWVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-f125tma3dt
 
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/EnterScores.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5ld0ZvbnRFbmRcRW50ZXJTY29yZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-bh6uaholqg
+
 [C:/BackUp/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5ld0ZvbnRFbmRcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-1lpdv3nc53
@@ -59,6 +63,10 @@ build_metadata.AdditionalFiles.CssScope = b-031hkwxagc
 [C:/BackUp/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/RosterComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5ld0ZvbnRFbmRcUm9zdGVyQ29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-i0gi9k9994
+
+[C:/BackUp/JukskeiGenesis/JukskeiGenesis/Shared/NewFontEnd/ViewTournamentDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5ld0ZvbnRFbmRcVmlld1RvdXJuYW1lbnREZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-jfl2awnq85
 
 [C:/BackUp/JukskeiGenesis/JukskeiGenesis/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s

@@ -1,0 +1,130 @@
+#AddScoresHeading[b-bh6uaholqg] {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline #30b0e3;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+.FormBody[b-bh6uaholqg] {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
+    width: 80%;
+    border-radius: 50px;
+}
+
+.FromCard[b-bh6uaholqg] {
+    position: relative;
+    margin: 5vh auto;
+    box-shadow: 10px 10px 35px rgba(128, 128, 128, 0.5);
+    width: 80%;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.InputLabels[b-bh6uaholqg] {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: center;
+    width: 80%;
+}
+
+.FlexHouseInputs[b-bh6uaholqg] {
+    padding-top: 3%;
+    display: flex;
+}
+
+.Flex1[b-bh6uaholqg] {
+    width: 45%;
+    margin-left: 10%;
+}
+
+.Flex2[b-bh6uaholqg] {
+    width: 45%;
+    margin-right: 10%;
+}
+
+.TeamNameInputs[b-bh6uaholqg] {
+    padding-bottom: 1%;
+}
+
+.PushTeamButton[b-bh6uaholqg] {
+    background-color: #30b0e3;
+    border-width: 0.1px;
+    color: white;
+    width: 25%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 4%;
+    display: inline-block;
+    border-color: royalblue;
+}
+
+.Exstension[b-bh6uaholqg] {
+    width: 100%;
+    height: auto;
+}
+
+.TeamCategories[b-bh6uaholqg] {
+    width: 50%;
+    display: inline-block;
+}
+
+#CategoryLabel[b-bh6uaholqg] {
+    display: block;
+}
+
+.FlexHouseTables[b-bh6uaholqg] {
+    padding-top: 2%;
+    display: flex;
+    padding-bottom: 2%;
+}
+
+.Tables[b-bh6uaholqg] {
+    border: solid black;
+    width: 100%;
+    margin-left: 10%;
+}
+
+.TableHeading[b-bh6uaholqg] {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.TableContent[b-bh6uaholqg] {
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+.InnerOne[b-bh6uaholqg] {
+    width: 45%;
+    margin-right: 2%;
+}
+
+.InnerTwo[b-bh6uaholqg] {
+    width: 45%;
+}
+
+.InnerFinal[b-bh6uaholqg] {
+    width: 90%;
+}
+
+.FinalTable[b-bh6uaholqg] {
+    border: solid black;
+    width: 100%;
+    margin-left: 6%;
+}
+
+.TableContainer[b-bh6uaholqg] {
+    padding-bottom: 3%;
+}

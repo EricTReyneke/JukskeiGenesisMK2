@@ -1,0 +1,17 @@
+﻿@page "/ViewTournamentDetails"
+@inject TournamentStateTracker tournamentState
+@using DAL
+@using JukskeiGenesis.Models;
+
+<div>
+    <h1 class="TournamentNameH1">@tournament.Tournament_Name</h1>
+    <RosterComponent />
+</div>
+
+@code{
+    private static DatabaseProcessor _dbProcessor = new();
+    private static Tournament tournament = _dbProcessor.RetrieveTournement(TournamentStateTracker.TournamentId);
+    private List<Team> teams = _dbProcessor.GetTeams(1);
+    private List<Category> categories = _dbProcessor.GetCategories(2);
+    //private List<MatchPoints> matchPoints = _dbProcessor.GetTeamMatchScore();
+}

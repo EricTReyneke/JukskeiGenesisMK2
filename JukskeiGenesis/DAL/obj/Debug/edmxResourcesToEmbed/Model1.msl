@@ -21,6 +21,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MatchPoints">
+      <EntityTypeMapping TypeName="JukskeiDatabaseModel.MatchPoint">
+        <MappingFragment StoreEntitySet="MatchPoints">
+          <ScalarProperty Name="Match_Points_Id" ColumnName="Match_Points_Id" />
+          <ScalarProperty Name="Match_Points" ColumnName="Match_Points" />
+          <ScalarProperty Name="Match_Played_Number" ColumnName="Match_Played_Number" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Tournament_Id" ColumnName="Tournament_Id" />
+          <ScalarProperty Name="Team_Id" ColumnName="Team_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Payments">
       <EntityTypeMapping TypeName="JukskeiDatabaseModel.Payment">
         <MappingFragment StoreEntitySet="Payments">
@@ -58,6 +70,7 @@
           <ScalarProperty Name="Team_Id" ColumnName="Team_Id" />
           <ScalarProperty Name="Team_Name" ColumnName="Team_Name" />
           <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Tournament_Id" ColumnName="Tournament_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -75,6 +88,8 @@
           <ScalarProperty Name="Tournament_Duration" ColumnName="Tournament_Duration" />
           <ScalarProperty Name="Tournament_Pits_Playable" ColumnName="Tournament_Pits_Playable" />
           <ScalarProperty Name="Tournament_State" ColumnName="Tournament_State" />
+          <ScalarProperty Name="Tournament_Age_Group" ColumnName="Tournament_Age_Group" />
+          <ScalarProperty Name="Tournament_Blocks" ColumnName="Tournament_Blocks" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -8,6 +8,7 @@
     <Property Name="Category_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Tournament_Id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Tournament" Relationship="Self.FK__Categorie__Tourn__440B1D61" FromRole="Categories" ToRole="Tournaments" />
+    <NavigationProperty Name="MatchPoints" Relationship="Self.FK__MatchPoin__Categ__628FA481" FromRole="Categories" ToRole="MatchPoints" />
     <NavigationProperty Name="Rosters" Relationship="Self.FK__Rosters__Categor__47DBAE45" FromRole="Categories" ToRole="Rosters" />
     <NavigationProperty Name="Teams" Relationship="Self.FK_Teams_Categories" FromRole="Categories" ToRole="Teams" />
   </EntityType>
@@ -21,6 +22,20 @@
     <Property Name="Client_Admin_SurName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Client_Admin_Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Payments" Relationship="Self.FK__Payments__Client__44FF419A" FromRole="Clients_Admin" ToRole="Payments" />
+  </EntityType>
+  <EntityType Name="MatchPoint">
+    <Key>
+      <PropertyRef Name="Match_Points_Id" />
+    </Key>
+    <Property Name="Match_Points_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Match_Points" Type="Int32" Nullable="false" />
+    <Property Name="Match_Played_Number" Type="Int32" Nullable="false" />
+    <Property Name="Category_Id" Type="Int32" Nullable="false" />
+    <Property Name="Tournament_Id" Type="Int32" Nullable="false" />
+    <Property Name="Team_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__MatchPoin__Categ__628FA481" FromRole="MatchPoints" ToRole="Categories" />
+    <NavigationProperty Name="Team" Relationship="Self.FK__MatchPoin__Team___6383C8BA" FromRole="MatchPoints" ToRole="Teams" />
+    <NavigationProperty Name="Tournament" Relationship="Self.FK__MatchPoin__Tourn__6477ECF3" FromRole="MatchPoints" ToRole="Tournaments" />
   </EntityType>
   <EntityType Name="Payment">
     <Key>
@@ -63,9 +78,12 @@
     <Property Name="Team_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Team_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Category_Id" Type="Int32" />
+    <Property Name="Tournament_Id" Type="Int32" />
     <NavigationProperty Name="Category" Relationship="Self.FK_Teams_Categories" FromRole="Teams" ToRole="Categories" />
+    <NavigationProperty Name="MatchPoints" Relationship="Self.FK__MatchPoin__Team___6383C8BA" FromRole="Teams" ToRole="MatchPoints" />
     <NavigationProperty Name="Players" Relationship="Self.FK__Players__Team_Id__3F466844" FromRole="Teams" ToRole="Players" />
     <NavigationProperty Name="Rosters" Relationship="Self.FK__Rosters__Team_Id__4222D4EF" FromRole="Teams" ToRole="Rosters" />
+    <NavigationProperty Name="Tournament" Relationship="Self.FK_Teams_Tournaments" FromRole="Teams" ToRole="Tournaments" />
   </EntityType>
   <EntityType Name="Tournament">
     <Key>
@@ -82,9 +100,13 @@
     <Property Name="Tournament_Duration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Tournament_Pits_Playable" Type="Int32" />
     <Property Name="Tournament_State" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Tournament_Age_Group" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Tournament_Blocks" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Categories" Relationship="Self.FK__Categorie__Tourn__440B1D61" FromRole="Tournaments" ToRole="Categories" />
+    <NavigationProperty Name="MatchPoints" Relationship="Self.FK__MatchPoin__Tourn__6477ECF3" FromRole="Tournaments" ToRole="MatchPoints" />
     <NavigationProperty Name="Payments" Relationship="Self.FK__Payments__Tourna__45F365D3" FromRole="Tournaments" ToRole="Payments" />
     <NavigationProperty Name="Rosters" Relationship="Self.FK__Rosters__Tournam__49C3F6B7" FromRole="Tournaments" ToRole="Rosters" />
+    <NavigationProperty Name="Teams" Relationship="Self.FK_Teams_Tournaments" FromRole="Tournaments" ToRole="Teams" />
   </EntityType>
   <Association Name="FK__Categorie__Tourn__440B1D61">
     <End Role="Tournaments" Type="Self.Tournament" Multiplicity="1" />
@@ -95,6 +117,18 @@
       </Principal>
       <Dependent Role="Categories">
         <PropertyRef Name="Tournament_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MatchPoin__Categ__628FA481">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="MatchPoints" Type="Self.MatchPoint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Category_Id" />
+      </Principal>
+      <Dependent Role="MatchPoints">
+        <PropertyRef Name="Category_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -131,6 +165,30 @@
       </Principal>
       <Dependent Role="Payments">
         <PropertyRef Name="Client_Admin_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MatchPoin__Team___6383C8BA">
+    <End Role="Teams" Type="Self.Team" Multiplicity="1" />
+    <End Role="MatchPoints" Type="Self.MatchPoint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Team_Id" />
+      </Principal>
+      <Dependent Role="MatchPoints">
+        <PropertyRef Name="Team_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MatchPoin__Tourn__6477ECF3">
+    <End Role="Tournaments" Type="Self.Tournament" Multiplicity="1" />
+    <End Role="MatchPoints" Type="Self.MatchPoint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tournaments">
+        <PropertyRef Name="Tournament_Id" />
+      </Principal>
+      <Dependent Role="MatchPoints">
+        <PropertyRef Name="Tournament_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -182,9 +240,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Teams_Tournaments">
+    <End Role="Tournaments" Type="Self.Tournament" Multiplicity="0..1" />
+    <End Role="Teams" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tournaments">
+        <PropertyRef Name="Tournament_Id" />
+      </Principal>
+      <Dependent Role="Teams">
+        <PropertyRef Name="Tournament_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="JukskeiDatabaseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Categories" EntityType="Self.Category" />
     <EntitySet Name="Clients_Admin" EntityType="Self.Clients_Admin" />
+    <EntitySet Name="MatchPoints" EntityType="Self.MatchPoint" />
     <EntitySet Name="Payments" EntityType="Self.Payment" />
     <EntitySet Name="Players" EntityType="Self.Player" />
     <EntitySet Name="Rosters" EntityType="Self.Roster" />
@@ -193,6 +264,10 @@
     <AssociationSet Name="FK__Categorie__Tourn__440B1D61" Association="Self.FK__Categorie__Tourn__440B1D61">
       <End Role="Tournaments" EntitySet="Tournaments" />
       <End Role="Categories" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MatchPoin__Categ__628FA481" Association="Self.FK__MatchPoin__Categ__628FA481">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="MatchPoints" EntitySet="MatchPoints" />
     </AssociationSet>
     <AssociationSet Name="FK__Rosters__Categor__47DBAE45" Association="Self.FK__Rosters__Categor__47DBAE45">
       <End Role="Categories" EntitySet="Categories" />
@@ -205,6 +280,14 @@
     <AssociationSet Name="FK__Payments__Client__44FF419A" Association="Self.FK__Payments__Client__44FF419A">
       <End Role="Clients_Admin" EntitySet="Clients_Admin" />
       <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MatchPoin__Team___6383C8BA" Association="Self.FK__MatchPoin__Team___6383C8BA">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="MatchPoints" EntitySet="MatchPoints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MatchPoin__Tourn__6477ECF3" Association="Self.FK__MatchPoin__Tourn__6477ECF3">
+      <End Role="Tournaments" EntitySet="Tournaments" />
+      <End Role="MatchPoints" EntitySet="MatchPoints" />
     </AssociationSet>
     <AssociationSet Name="FK__Payments__Tourna__45F365D3" Association="Self.FK__Payments__Tourna__45F365D3">
       <End Role="Tournaments" EntitySet="Tournaments" />
@@ -221,6 +304,10 @@
     <AssociationSet Name="FK__Rosters__Tournam__49C3F6B7" Association="Self.FK__Rosters__Tournam__49C3F6B7">
       <End Role="Tournaments" EntitySet="Tournaments" />
       <End Role="Rosters" EntitySet="Rosters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teams_Tournaments" Association="Self.FK_Teams_Tournaments">
+      <End Role="Tournaments" EntitySet="Tournaments" />
+      <End Role="Teams" EntitySet="Teams" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
