@@ -852,6 +852,77 @@ input[type="text"][b-f125tma3dt], input[type="datetime"][b-f125tma3dt], select[b
 .TableContainer[b-bh6uaholqg] {
     padding-bottom: 3%;
 }
+
+.CategoryTables[b-bh6uaholqg] {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .CategoryTables th[b-bh6uaholqg] {
+        background-color: #f5f5f5;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .CategoryTables td[b-bh6uaholqg] {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .CategoryTables tr:nth-child(even)[b-bh6uaholqg] {
+        background-color: #f9f9f9;
+    }
+
+    .CategoryTables tr:hover[b-bh6uaholqg] {
+        background-color: #f1f1f1;
+    }
+
+.FlexContainer[b-bh6uaholqg] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.FlexContent[b-bh6uaholqg] {
+    flex: 0 0 48%;
+    margin-bottom: 20px;
+}
+
+.CategoryName[b-bh6uaholqg] {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.TableHeading[b-bh6uaholqg] {
+    display: flex;
+    align-items: center;
+}
+
+.TeamName[b-bh6uaholqg] {
+    flex: 1;
+}
+
+select[b-bh6uaholqg] {
+    margin: 0 10px;
+}
+
+.VsLabel[b-bh6uaholqg] {
+    margin: 0 5px;
+}
+
+.NoFlex[b-bh6uaholqg]{
+    display: block;
+}
+
+.TableHeading[b-bh6uaholqg] {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
 /* _content/JukskeiGenesis/Shared/NewFontEnd/Login.razor.rz.scp.css */
 .content[b-1lpdv3nc53] {
     background-color: #f4f4f4;
@@ -994,6 +1065,23 @@ th[b-i0gi9k9994] {
 td[b-i0gi9k9994] {
     font-weight: normal;
 }
+
+.FlexHouse[b-i0gi9k9994]{
+    display: flex;
+    justify-content: center;
+}
+
+.FlexContent[b-i0gi9k9994] {
+    margin-left: 5vh;
+}
+
+.CategoryName[b-i0gi9k9994] {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline #30b0e3;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
 /* _content/JukskeiGenesis/Shared/NewFontEnd/ViewTournamentDetails.razor.rz.scp.css */
 .TournamentNameH1[b-jfl2awnq85] {
     text-align: center;
@@ -1001,4 +1089,72 @@ td[b-i0gi9k9994] {
     text-decoration: underline #30b0e3;
     padding-bottom: 1%;
     padding-top: 1%;
+}
+
+.accordion-body[b-jfl2awnq85] {
+    font-family: Arial;
+    margin-top: 2%;
+    margin-left: 10%;
+    padding: 0;
+    width: 80%;
+    background-color: #f7f7f7;
+    border: solid;
+    border-width: 1px;
+    border-color: lightgrey;
+    transition: background-color 0.5s ease;
+}
+
+.TourDetails[b-jfl2awnq85] {
+    float: right;
+    margin-top: 3%;
+    margin-right: 4.5%;
+    width: 11%;
+    background-color: #30b0e3;
+    color: white;
+    border-color: royalblue;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.AccordionButton[b-jfl2awnq85] {
+    height: 80%;
+    width: 75%;
+    margin-top: 0.7%;
+    background-color: transparent;
+    margin-left: 7%;
+    border-color: transparent;
+    transition: background-color 0.5s ease;
+}
+
+    .AccordionButton:hover[b-jfl2awnq85] {
+        border-color: #30b0e3;
+        border-width: 2px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+.TourHeading[b-jfl2awnq85] {
+    color: #30b0e3;
+    font-weight: bold;
+    float: left;
+    top: 0;
+    left: 0;
+}
+
+.PanelFlex[b-jfl2awnq85] {
+    width: 100%;
+    margin-top: 0.5%;
+    max-height: auto;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    transition: background-color 0.5s ease;
+    transition: border-color 1s ease;
+}
+
+.PanelContent[b-jfl2awnq85] {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin: 1vw 1vw 0.5vw 1vw;
 }

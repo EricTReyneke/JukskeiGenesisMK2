@@ -135,8 +135,8 @@ namespace DAL
         /// </summary>
         /// <param name="tournamentName"></param>
         /// <returns></returns>
-        public List<Tournament> SearchTournamentName(string tournamentName) =>
-            _jukskeiDB.Tournaments.Where(w => w.Tournament_Name.Contains(tournamentName)).Select(t => t).ToList();
+        public Tournament SearchTournamentName(string tournamentName) =>
+            _jukskeiDB.Tournaments.Where(w => w.Tournament_Name.Contains(tournamentName)).Select(t => t).FirstOrDefault();
 
         /// <summary>
         /// Retrieves the Tournament fromfrom database using TournamentId.

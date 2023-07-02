@@ -128,3 +128,74 @@
 .TableContainer[b-bh6uaholqg] {
     padding-bottom: 3%;
 }
+
+.CategoryTables[b-bh6uaholqg] {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .CategoryTables th[b-bh6uaholqg] {
+        background-color: #f5f5f5;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .CategoryTables td[b-bh6uaholqg] {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .CategoryTables tr:nth-child(even)[b-bh6uaholqg] {
+        background-color: #f9f9f9;
+    }
+
+    .CategoryTables tr:hover[b-bh6uaholqg] {
+        background-color: #f1f1f1;
+    }
+
+.FlexContainer[b-bh6uaholqg] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.FlexContent[b-bh6uaholqg] {
+    flex: 0 0 48%;
+    margin-bottom: 20px;
+}
+
+.CategoryName[b-bh6uaholqg] {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.TableHeading[b-bh6uaholqg] {
+    display: flex;
+    align-items: center;
+}
+
+.TeamName[b-bh6uaholqg] {
+    flex: 1;
+}
+
+select[b-bh6uaholqg] {
+    margin: 0 10px;
+}
+
+.VsLabel[b-bh6uaholqg] {
+    margin: 0 5px;
+}
+
+.NoFlex[b-bh6uaholqg]{
+    display: block;
+}
+
+.TableHeading[b-bh6uaholqg] {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+    border: 1px solid #ddd;
+    padding: 10px;
+}

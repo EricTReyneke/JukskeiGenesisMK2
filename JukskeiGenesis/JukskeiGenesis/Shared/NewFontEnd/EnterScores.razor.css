@@ -128,3 +128,74 @@
 .TableContainer {
     padding-bottom: 3%;
 }
+
+.CategoryTables {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .CategoryTables th {
+        background-color: #f5f5f5;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .CategoryTables td {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .CategoryTables tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .CategoryTables tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.FlexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.FlexContent {
+    flex: 0 0 48%;
+    margin-bottom: 20px;
+}
+
+.CategoryName {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.TableHeading {
+    display: flex;
+    align-items: center;
+}
+
+.TeamName {
+    flex: 1;
+}
+
+select {
+    margin: 0 10px;
+}
+
+.VsLabel {
+    margin: 0 5px;
+}
+
+.NoFlex{
+    display: block;
+}
+
+.TableHeading {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+    border: 1px solid #ddd;
+    padding: 10px;
+}

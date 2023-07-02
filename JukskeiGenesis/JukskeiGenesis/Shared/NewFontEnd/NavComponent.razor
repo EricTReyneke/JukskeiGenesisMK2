@@ -1,4 +1,5 @@
-﻿@inject NavigationManager navigationManager
+﻿@using JukskeiGenesis.Models;
+@inject NavigationManager navigationManager
 
 <header>
     <img src="/Photos/GenisisPhoto.jpg" id="GenisisImg"/>
@@ -25,8 +26,12 @@
 </header>
 
 @code{
-    private void NavigateHome() =>
+    private void NavigateHome()
+    {
+        TournamentStateTracker.CategoryId = 0;
+        TournamentStateTracker.TournamentId = 0;
         navigationManager.NavigateTo("/");
+    }
 
     private void NavigateLogin() =>
         navigationManager.NavigateTo("/Login");

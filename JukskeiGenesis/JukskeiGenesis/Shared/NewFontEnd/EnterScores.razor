@@ -1,169 +1,112 @@
 ﻿@page "/EnterScores"
+@inject TournamentStateTracker tournamentState
 @using DAL
+@using JukskeiGenesis.Models;
 
 <div>
     <h1 class="AddScoresHeading">Match X Scores</h1>
     <div class="FormBody">
         <div class="TableContainer">
-            <div class="FlexHouseTables">
-                <div class="InnerOne">
-                    @{
-                        _counter = 0;
-                    }
-                    @foreach (var category in _categories)
-                    {
-                        @if ((_counter == 0 || _counter % 2 == 0) && _counter != _categories.Count - 1)
-                        {
-                            <table id="Table_@category" class="Tables">
-                                <tr>
-                                    <th class="TableHeading">@category.Category_Name</th>
-                                </tr>
-                                @foreach (Team team in GetTeamsForCategory(category.Category_Id))
-                                {
-                                    <tr>
-                                        <td class="TableHeading">
-                                            <select name="cars" id="cars">
-                                                <option value="0">0</option>
-                                                <option value="2">2</option>
-                                                <option value="2.5">2.5</option>
-                                                <option value="7.5" selected>7.5</option>
-                                                <option value="8">8</option>
-                                                <option value="9.5">9.5</option>
-                                                <option value="10">10</option>
-                                                <option value="12">12</option>
-                                                <option value="12.5">12.5</option>
-                                                <option value="13">13</option>
-                                                <option value="15">15</option>
-                                            </select>
-                                            <label class="Team1"></label>
-                                            <label>vs</label>
-                                            <label class="Team2"></label>
-                                            <select name="cars" id="cars">
-                                                <option value="0">0</option>
-                                                <option value="2">2</option>
-                                                <option value="2.5">2.5</option>
-                                                <option value="7.5" selected>7.5</option>
-                                                <option value="8">8</option>
-                                                <option value="9.5">9.5</option>
-                                                <option value="10">10</option>
-                                                <option value="12">12</option>
-                                                <option value="12.5">12.5</option>
-                                                <option value="13">13</option>
-                                                <option value="15">15</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                }
-                            </table>
-                        }
-                        _counter++;
-                    }
-                </div>
-                <div class="InnerTwo">
-                    @{
-                        _counter = 0;
-                    }
-                    @foreach (var category in _categories)
-                    {
-                        if ((_counter != 0 || _counter % 2 != 0) && _counter != _categories.Count - 1)
-                        {
-                            <table id="Table_@category" class="Tables">
-                                <tr>
-                                    <th class="TableHeading">@category.Category_Name</th>
-                                </tr>
-                                @foreach (Team team in GetTeamsForCategory(category.Category_Id))
-                                {
-                                    <tr>
-                                        <td>
-                                            <select name="cars" id="cars">
-                                                <option value="0">0</option>
-                                                <option value="2">2</option>
-                                                <option value="2.5">2.5</option>
-                                                <option value="7.5" selected>7.5</option>
-                                                <option value="8">8</option>
-                                                <option value="9.5">9.5</option>
-                                                <option value="10">10</option>
-                                                <option value="12">12</option>
-                                                <option value="12.5">12.5</option>
-                                                <option value="13">13</option>
-                                                <option value="15">15</option>
-                                            </select>
-                                            <label class="Team1"></label>
-                                            <label>vs</label>
-                                            <label class="Team2"></label>
-                                            <select name="cars" id="cars">
-                                                <option value="0">0</option>
-                                                <option value="2">2</option>
-                                                <option value="2.5">2.5</option>
-                                                <option value="7.5" selected>7.5</option>
-                                                <option value="8">8</option>
-                                                <option value="9.5">9.5</option>
-                                                <option value="10">10</option>
-                                                <option value="12">12</option>
-                                                <option value="12.5">12.5</option>
-                                                <option value="13">13</option>
-                                                <option value="15">15</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                }
-                            </table>
-                        }
-                        _counter++;
-                    }
-                </div>
-            </div>
+            @{
+                int tableCounter = 0;
+                foreach (Category category in _dbProcessor.GetCategories(TournamentStateTracker.TournamentId)) {
+                    SetTeamsInCategory(category);
+                    SetMatches();
+                    SetMatchesPlayed();
+                    _matchesToPlay = _teams.Count - 1;
 
-            <div class="InnerFinal">
-                <table id="Table_@_categories[_categories.Count - 1].Category_Name" class="FinalTable">
-                    <tr>
-                        <th class="TableHeading">@_categories[_categories.Count - 1].Category_Name</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <select name="cars" id="cars">
-                                <option value="0">0</option>
-                                <option value="2">2</option>
-                                <option value="2.5">2.5</option>
-                                <option value="7.5" selected>7.5</option>
-                                <option value="8">8</option>
-                                <option value="9.5">9.5</option>
-                                <option value="10">10</option>
-                                <option value="12">12</option>
-                                <option value="12.5">12.5</option>
-                                <option value="13">13</option>
-                                <option value="15">15</option>
-                            </select>
-                            <label class="Team1"></label>
-                            <label>vs</label>
-                            <label class="Team2"></label>
-                            <select name="cars" id="cars">
-                                <option value="0">0</option>
-                                <option value="2">2</option>
-                                <option value="2.5">2.5</option>
-                                <option value="7.5" selected>7.5</option>
-                                <option value="8">8</option>
-                                <option value="9.5">9.5</option>
-                                <option value="10">10</option>
-                                <option value="12">12</option>
-                                <option value="12.5">12.5</option>
-                                <option value="13">13</option>
-                                <option value="15">15</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                    // Start a new FlexHouseTables div after every two categories (i.e., at start and every third category)
+                    if (tableCounter % 2 == 0) {
+                        // Close previous FlexHouseTables div after the first category
+                        if (tableCounter > 0) {
+                            tableCounter = 0;
+                            @:</div>
+                        }
+                        @:<div class="FlexHouseTables">
+                    }
+
+                    <div class="Flex_@_divCounter FlexContent">
+                        <table class="CategoryTables">
+                            @foreach ((string homeTeam, string awayTeam) in _matches) {
+                                if (_counter == 0) {
+                                    <tr>
+                                            <th class="TableHeading">
+                                                <h2 class="CategoryName">@category.Category_Name</h2>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th class="TableHeading">
+                                                <h2 class="CategoryName">Match @TournamentStateTracker.TrackMatchesPlayed</h2>
+                                            </th>
+                                        </tr>
+                                }
+                                if (_counter >= _matchesFinished - (_teams.Count - 1) && _counter <= _matchesFinished) {
+                                     <tr>
+                                            <td class="TableHeading">
+                                                <label class="TeamName">@homeTeam</label>
+                                                <select name="cars" id="cars">
+                                                    <option value="0">0</option>
+                                                    <option value="2">2</option>
+                                                    <option value="2.5">2.5</option>
+                                                    <option value="7.5" selected>7.5</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9.5">9.5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="12">12</option>
+                                                    <option value="12.5">12.5</option>
+                                                    <option value="13">13</option>
+                                                    <option value="15">15</option>
+                                                </select>
+                                                <label class="VsLabel">vs</label>
+                                                <select name="cars" id="cars">
+                                                    <option value="0">0</option>
+                                                    <option value="2">2</option>
+                                                    <option value="2.5">2.5</option>
+                                                    <option value="7.5" selected>7.5</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9.5">9.5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="12">12</option>
+                                                    <option value="12.5">12.5</option>
+                                                    <option value="13">13</option>
+                                                    <option value="15">15</option>
+                                                </select>
+                                                <label class="TeamName">@awayTeam</label>
+                                            </td>
+                                        </tr>
+                                }
+                                _counter++;
+                            }
+                        </table>
+                    </div>
+                    _counter = 0;
+                    _divCounter++;
+                    tableCounter++;
+                }
+
+                @:</div>
+            }
         </div>
     </div>
 </div>
 
+
 @code {
     private static DatabaseProcessor _dbProcessor = new();
-    private List<Category> _categories = _dbProcessor.GetCategories(2);
-    private List<Team> _teams;
+    private List<Category> _categories = _dbProcessor.GetCategories(TournamentStateTracker.TournamentId);
+    private static List<string> _teams;
+    private static List<(string, string)> _matches;
     private int _counter = 0;
+    private int _divCounter = 0;
+    private int _matchesToPlay;
+    private int _matchesFinished;
 
-    private List<Team> GetTeamsForCategory(int categoryId) =>
-        _teams = _dbProcessor.GetTeams(categoryId);
+    private void SetMatches() =>
+        _matches = _dbProcessor.ListMatches(_teams).ToList();
+
+    private void SetTeamsInCategory(Category category) =>
+        _teams = _dbProcessor.GetTeams(category.Category_Id).Select(t => t.Team_Name).ToList();
+
+    private void SetMatchesPlayed() =>
+        _matchesFinished = TournamentStateTracker.TrackMatchesPlayed * (_teams.Count - 1);
 }

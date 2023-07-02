@@ -1,30 +1,64 @@
 ﻿@page "/RosterComponent"
 @using DAL
+@using JukskeiGenesis.Models;
+@inject TournamentStateTracker tournamentState
 @{
-    DatabaseProcessor dbfunctions = new DatabaseProcessor();
-    List<string> teams = new List<string> { "Team A", "Team B", "Team C", "Team D", "Team E", "Team F", "Team G", "Team H", "Team I" };
-    List<(string, string)> matches = dbfunctions.ListMatches(teams).ToList();
-    int initialListLen = teams.Count;
-    int matchCount = initialListLen / 2;
-    int counter = 1;
-    <table>
-        @foreach ((string homeTeam, string awayTeam) in matches)
+    <div class="FlexHouse">
+        @foreach (Category category in _dbfunctions.GetCategories(TournamentStateTracker.TournamentId))
         {
-            @if (matchCount / (initialListLen / 2) == 1 && matchCount != 1)
-            {
-                <tr>
-                    <th colspan="2">Match @counter</th>
-                </tr>
-                matchCount = 1;
-                counter++;
-            }
-            else
-                matchCount++;
+            if (divCounter == 3)
+                divCounter = 1;
+            SetTeamsInCategory(category);
+            SetMatchCount();
+            SetMatches();
+            SetCounter();
+            divCounter++;
+            <div class="Flex_@divCounter FlexContent">
 
-            <tr>
-                <td>@homeTeam</td>
-                <td>@awayTeam</td>
-            </tr>
+                <h2 class="CategoryName">@category.Category_Name</h2>
+
+                <table>
+                    @foreach ((string homeTeam, string awayTeam) in _matches)
+                    {
+                        @if (matchCount / (_teams.Count / 2) == 1 && matchCount != 1)
+                        {
+                            <tr>
+                                <th colspan="2">Match @counter</th>
+                            </tr>
+                            matchCount = 1;
+                            counter++;
+                        }
+                        else
+                            matchCount++;
+
+                        <tr>
+                            <td>@homeTeam</td>
+                            <td>@awayTeam</td>
+                        </tr>
+                    }
+                </table>
+            </div>
         }
-    </table>
+    </div>
+}
+
+@code {
+    private static DatabaseProcessor _dbfunctions = new DatabaseProcessor();
+    private static List<(string, string)> _matches;
+    private static List<string> _teams;
+    private int matchCount;
+    private int counter = 1;
+    private int divCounter = 1;
+
+    private void SetTeamsInCategory(Category category) =>
+        _teams = _dbfunctions.GetTeams(category.Category_Id).Select(t => t.Team_Name).ToList();
+
+    private void SetMatchCount() =>
+        matchCount = _teams.Count / 2;
+
+    private void SetMatches() =>
+        _matches = _dbfunctions.ListMatches(_teams).ToList();
+
+    private void SetCounter() =>
+        counter = 1;
 }

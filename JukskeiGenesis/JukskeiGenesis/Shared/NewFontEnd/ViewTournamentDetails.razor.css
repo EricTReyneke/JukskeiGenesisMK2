@@ -5,3 +5,71 @@
     padding-bottom: 1%;
     padding-top: 1%;
 }
+
+.accordion-body {
+    font-family: Arial;
+    margin-top: 2%;
+    margin-left: 10%;
+    padding: 0;
+    width: 80%;
+    background-color: #f7f7f7;
+    border: solid;
+    border-width: 1px;
+    border-color: lightgrey;
+    transition: background-color 0.5s ease;
+}
+
+.TourDetails {
+    float: right;
+    margin-top: 3%;
+    margin-right: 4.5%;
+    width: 11%;
+    background-color: #30b0e3;
+    color: white;
+    border-color: royalblue;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.AccordionButton {
+    height: 80%;
+    width: 75%;
+    margin-top: 0.7%;
+    background-color: transparent;
+    margin-left: 7%;
+    border-color: transparent;
+    transition: background-color 0.5s ease;
+}
+
+    .AccordionButton:hover {
+        border-color: #30b0e3;
+        border-width: 2px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+.TourHeading {
+    color: #30b0e3;
+    font-weight: bold;
+    float: left;
+    top: 0;
+    left: 0;
+}
+
+.PanelFlex {
+    width: 100%;
+    margin-top: 0.5%;
+    max-height: auto;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    transition: background-color 0.5s ease;
+    transition: border-color 1s ease;
+}
+
+.PanelContent {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin: 1vw 1vw 0.5vw 1vw;
+}

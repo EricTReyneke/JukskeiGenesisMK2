@@ -29,7 +29,7 @@
         if (i != 5)
         {
             <div class="accordion-body" id="@($"Accordion-{_countAccordions}")">
-                <input type="submit" value="Details" class="TourDetails" @onclick="() => { SetStateTournamentId(); NavigateTournamentDetails(); }" />
+                <input type="submit" value="Details" class="TourDetails" @onclick="() => { SetStateTournamentId(i); NavigateTournamentDetails(); }" />
                 <button class="AccordionButton @(_isAccordionActive[i] ? "active" : "")" @onclick="() => ToggleAccordion(i)">
                     <div class="AccordionContent">
                         <img />
@@ -40,12 +40,6 @@
                     </div>
                 </button>
                 <div class="PanelFlex" style="max-height: @(_isAccordionActive[i] ? $"{GetPanelMaxHeight(i)}%" : "0");">
-                    <div class="PanelContent">
-                        <RosterComponent />
-                    </div>
-                    <div class="PanelContent">
-                        <RosterComponent />
-                    </div>
                 </div>
             </div>
             _counter++;
@@ -77,10 +71,10 @@
     private void NavigateTournamentDetails() =>
         navigationManager.NavigateTo("/ViewTournamentDetails");
 
-    private void SetStateTournamentId()
+    private void SetStateTournamentId(int index)
     {
         _dbfunctions.SearchTournamentName(_tournaments[3].Tournament_Name);
-        TournamentStateTracker.TournamentId = _dbfunctions.SearchTournamentName(_tournaments[3].Tournament_Name)[0].Tournament_Id;
+        TournamentStateTracker.TournamentId = _dbfunctions.SearchTournamentName(_tournaments[index].Tournament_Name).Tournament_Id;
     }
 
     private async void AccordionClick() =>
@@ -106,15 +100,19 @@
             stateSelected = string.Empty;
             SearchTournamentName();
         }
-
     }
 
     private void SearchTournamentState() =>
         _tournaments = _dbfunctions.SearchTournamentState(stateSelected);
 
-    private void SearchTournamentName() =>
-        _tournaments = stateSelected.Equals(string.Empty) ? _dbfunctions.SearchTournamentName(_tournamentName) : _tournaments;
-
+    private void SearchTournamentName()
+    {
+        if (stateSelected.Equals(string.Empty))
+        {
+            _tournaments.Clear();
+            _tournaments.Add(_dbfunctions.SearchTournamentName(_tournamentName));
+        }
+    }
 
     private void ZeroCounters()
     {

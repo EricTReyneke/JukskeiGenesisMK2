@@ -18,3 +18,20 @@ th {
 td {
     font-weight: normal;
 }
+
+.FlexHouse{
+    display: flex;
+    justify-content: center;
+}
+
+.FlexContent {
+    margin-left: 5vh;
+}
+
+.CategoryName {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline #30b0e3;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
